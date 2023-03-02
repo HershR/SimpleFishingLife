@@ -12,6 +12,76 @@
 			"sid": 703384178744986
 		},
 		{
+			"eventType": "variable",
+			"name": "money",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 671766927440782
+		},
+		{
+			"eventType": "variable",
+			"name": "energy",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 491288964841911
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_1_amount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 199801553776910
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_1_price",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 670465407332692
+		},
+		{
+			"eventType": "variable",
+			"name": "fishing_rod_level",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 281961375852053
+		},
+		{
+			"eventType": "variable",
+			"name": "bill",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 795548999549191
+		},
+		{
+			"eventType": "variable",
+			"name": "game_state",
+			"type": "string",
+			"initialValue": "Start",
+			"comment": "The current state of the game",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 464118348546680
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
