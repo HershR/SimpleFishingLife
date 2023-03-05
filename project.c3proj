@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Button",
 			"name": "Button",
 			"author": "Scirra",
@@ -72,7 +79,28 @@
 			"Speedx1",
 			"Speedx2",
 			"Speedx4",
-			"Fish"
+			"Fish",
+			"TiledBackground2",
+			"StickFigure",
+			"Table",
+			"CloseM",
+			"Text",
+			"Text2",
+			"TimertextM",
+			"MoneyText",
+			"MoneyC",
+			"Window",
+			"Door",
+			"BGM",
+			"Text3",
+			"SFishC",
+			"Fish1Price",
+			"SellDialogue",
+			"Fish1DemandT",
+			"SellFishY",
+			"SellFishN",
+			"StickFigure2",
+			"UpgradeBG"
 		],
 		"subfolders": []
 	},
@@ -84,13 +112,15 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout 1"
+			"Layout 1",
+			"Layout 2"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"Event sheet 1",
+			"Event sheet 2"
 		],
 		"subfolders": []
 	},
@@ -100,11 +130,29 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "Coins4.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 622187156658232,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "Misty-Bog_Looping.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 498654850195231,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

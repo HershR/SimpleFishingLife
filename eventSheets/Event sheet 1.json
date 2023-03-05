@@ -142,6 +142,16 @@
 			"sid": 670465407332692
 		},
 		{
+			"eventType": "variable",
+			"name": "Fish_1_Demand",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 990842991697729
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -464,6 +474,18 @@
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"start\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 234341892370174,
+					"parameters": {
+						"audio-file": "Misty-Bog_Looping",
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],
@@ -799,9 +821,396 @@
 				{
 					"type": "comment",
 					"text": "apply travel time"
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 550654371383286,
+					"parameters": {
+						"layout": "Layout 2"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 156990978528950,
+					"parameters": {
+						"variable": "CurrentTime",
+						"value": "15"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 548038304766719,
+					"parameters": {
+						"variable": "Fish_1_Demand",
+						"value": "round(random(1,fish_1_amount))"
+					}
 				}
 			],
 			"sid": 735939433804920
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 751851701270392,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 0,
+						"second-value": "\"market\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Fish1Price",
+					"sid": 743043746409410,
+					"parameters": {
+						"text": "\"$\"& fish_1_price"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "SFishC",
+					"sid": 845056025780919,
+					"parameters": {
+						"text": "fish_1_amount"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "MoneyC",
+					"sid": 581446759656367,
+					"parameters": {
+						"text": "money"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish1DemandT",
+					"sid": 688867371912913,
+					"parameters": {
+						"text": "\"Small Fish X \"&Fish_1_Demand"
+					}
+				}
+			],
+			"sid": 736350433723843,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 630534661566314,
+							"parameters": {
+								"first-value": "minutes%30",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "SellDialogue",
+							"sid": 875635234037635,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "StickFigure",
+							"sid": 888096135669829,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SellFishY",
+							"sid": 357211031080520,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SellFishN",
+							"sid": 370841316117639,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Fish1DemandT",
+							"sid": 991502898523844,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 452646755496210
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 511567878367430,
+							"parameters": {
+								"first-value": "fish_1_amount",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "CloseM",
+							"sid": 111896446216293,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 878100919443626,
+							"parameters": {
+								"variable": "game_state",
+								"value": "\"bills\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UpgradeBG",
+							"sid": 918591420853104,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "UpgradeBG",
+							"sid": 239016815805890,
+							"parameters": {
+								"opacity": "100"
+							}
+						}
+					],
+					"sid": 432913207384835
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "SellFishY",
+					"sid": 897517695151435
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 443605951074557,
+					"parameters": {
+						"variable": "fish_1_amount",
+						"value": "Fish_1_Demand"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 607791722326517,
+					"parameters": {
+						"variable": "money",
+						"value": "Fish_1_Demand * fish_1_price"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 688369650417584,
+					"parameters": {
+						"variable": "Fish_1_Demand",
+						"value": "round(random(1,fish_1_amount))"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish1DemandT",
+					"sid": 219195506901588,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishY",
+					"sid": 271776172975089,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishN",
+					"sid": 271260665755527,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellDialogue",
+					"sid": 624618206726303,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 225443911857952,
+					"parameters": {
+						"audio-file": "Coins4",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "StickFigure",
+					"sid": 370369688642391,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 976700694089900
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "SellFishN",
+					"sid": 613918873484472
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 485857196372873,
+					"parameters": {
+						"variable": "Fish_1_Demand",
+						"value": "round(random(1,fish_1_amount))"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish1DemandT",
+					"sid": 198130767965565,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishY",
+					"sid": 146848803208237,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishN",
+					"sid": 963226624198940,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellDialogue",
+					"sid": 426506356669157,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "StickFigure",
+					"sid": 960419045666482,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 317080159068125
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "CloseM",
+					"sid": 330611314544634
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 169405769779397,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"bills\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeBG",
+					"sid": 784915873339346,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "UpgradeBG",
+					"sid": 929981516515871,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "CloseM",
+					"sid": 703105928603650,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 128112574550385
 		},
 		{
 			"eventType": "block",
