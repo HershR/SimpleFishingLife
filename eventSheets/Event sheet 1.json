@@ -3,6 +3,36 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "game_state",
+			"type": "string",
+			"initialValue": "init",
+			"comment": "The current state of the game. start, fishing, market, bills, sleep, end, transition",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 828371121022339
+		},
+		{
+			"eventType": "variable",
+			"name": "market_open_time",
+			"type": "number",
+			"initialValue": "60",
+			"comment": "when the market opens",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 171643658308370
+		},
+		{
+			"eventType": "variable",
+			"name": "market_close_time",
+			"type": "number",
+			"initialValue": "600",
+			"comment": "when the market opens",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 303067679071461
+		},
+		{
+			"eventType": "variable",
 			"name": "CurrentTime",
 			"type": "number",
 			"initialValue": "0",
@@ -13,13 +43,33 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "money",
+			"name": "day",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 671766927440782
+			"sid": 864780415520328
+		},
+		{
+			"eventType": "variable",
+			"name": "hours",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 980171972265215
+		},
+		{
+			"eventType": "variable",
+			"name": "minutes",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 971378886512907
 		},
 		{
 			"eventType": "variable",
@@ -29,7 +79,47 @@
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 491288964841911
+			"sid": 760779845105651
+		},
+		{
+			"eventType": "variable",
+			"name": "money",
+			"type": "number",
+			"initialValue": "15",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 671766927440782
+		},
+		{
+			"eventType": "variable",
+			"name": "fishing_rod_level",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 356577583142327
+		},
+		{
+			"eventType": "variable",
+			"name": "boat_level",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 534945737441891
+		},
+		{
+			"eventType": "variable",
+			"name": "bill",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 914933571068096
 		},
 		{
 			"eventType": "variable",
@@ -45,41 +135,11 @@
 			"eventType": "variable",
 			"name": "fish_1_price",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "3",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 670465407332692
-		},
-		{
-			"eventType": "variable",
-			"name": "fishing_rod_level",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 281961375852053
-		},
-		{
-			"eventType": "variable",
-			"name": "bill",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 795548999549191
-		},
-		{
-			"eventType": "variable",
-			"name": "game_state",
-			"type": "string",
-			"initialValue": "Start",
-			"comment": "The current state of the game",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 464118348546680
 		},
 		{
 			"eventType": "block",
@@ -87,9 +147,59 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 863766191250425,
+					"sid": 230587706986497,
 					"parameters": {
 						"interval-seconds": "0.5"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 168653423045352,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 1,
+						"second-value": "\"init\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 890211776725873,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 1,
+						"second-value": "\"start\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 506566225900891,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 1,
+						"second-value": "\"transition\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 300154511234902,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 1,
+						"second-value": "\"bills\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 921646836792080,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 1,
+						"second-value": "\"end\""
 					}
 				}
 			],
@@ -97,14 +207,763 @@
 				{
 					"id": "add-to-eventvar",
 					"objectClass": "System",
-					"sid": 778205475407173,
+					"sid": 788351841167718,
 					"parameters": {
 						"variable": "CurrentTime",
 						"value": "1"
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 680878128793995,
+					"parameters": {
+						"variable": "hours",
+						"value": "int(CurrentTIme/60)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 323464355879566,
+					"parameters": {
+						"variable": "minutes",
+						"value": "(CurrentTIme%60)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "CurrentTIme",
+					"sid": 625243508963193,
+					"parameters": {
+						"text": "\"Current time: \"  & hours & \":\" & minutes"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "GameState",
+					"sid": 852963455309156,
+					"parameters": {
+						"text": "\"Game state: \" & game_state"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Energy",
+					"sid": 310929856622831,
+					"parameters": {
+						"text": "\"Energy: \" & energy"
+					}
 				}
 			],
-			"sid": 378679692998451
+			"sid": 378679692998451,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 215710699999377,
+							"parameters": {
+								"first-value": "game_state",
+								"comparison": 0,
+								"second-value": "\"fishing\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "boat_temp",
+							"sid": 903039873707834,
+							"parameters": {
+								"instance-variable": "state",
+								"comparison": 0,
+								"value": "\"fishing\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "boat_temp",
+							"sid": 230393871464234,
+							"parameters": {
+								"instance-variable": "fishing_timer",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 802952443058154,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 492214486539307,
+									"parameters": {
+										"first-value": "random(0,1)",
+										"comparison": 3,
+										"second-value": "fishing_rod_level*0.1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "+1 fish, soundfx, text"
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 301810937554757,
+									"parameters": {
+										"variable": "fish_1_amount",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 244624511303512
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 518102061297948,
+							"parameters": {
+								"first-value": "game_state",
+								"comparison": 0,
+								"second-value": "\"fishing\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "BoatState",
+							"sid": 711185386441677,
+							"parameters": {
+								"text": "\"Boat State: \" & boat_temp.state"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "fish1Count",
+							"sid": 431680471892818,
+							"parameters": {
+								"text": "\"Fish 1: \" & fish_1_amount"
+							}
+						}
+					],
+					"sid": 291505304400554
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 953913228659190,
+							"parameters": {
+								"first-value": "game_state",
+								"comparison": 0,
+								"second-value": "\"sleep\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 550407528131835,
+							"parameters": {
+								"variable": "energy",
+								"value": ".2"
+							}
+						}
+					],
+					"sid": 383964008009399
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 204727164080033
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 429798054014892,
+							"parameters": {
+								"variable": "energy",
+								"value": "0.09"
+							}
+						}
+					],
+					"sid": 237800786159068
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 905481552837944,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 0,
+						"second-value": "\"init\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "set bill prices, market prices, reset all required values. ->start"
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 743490850483701,
+					"parameters": {
+						"variable": "CurrentTime",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 202077361413291,
+					"parameters": {
+						"time-scale": "1.0"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx1",
+					"sid": 893007570015209,
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 677372813826659,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"start\""
+					}
+				}
+			],
+			"sid": 676314457129331
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 795917576824301,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 0,
+						"second-value": "\"start\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "show player balance, market prices etc. Button click to go to location select"
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 203626987884127,
+					"parameters": {
+						"variable": "day",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish",
+					"sid": 759929461072117,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 212816088490908
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Fish",
+					"sid": 528857468960980
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Fish",
+					"sid": 605515245887580,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 510577687903640,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"fishing\""
+					}
+				}
+			],
+			"sid": 142030258949201
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 182661142779613,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 0,
+						"second-value": "\"location_select\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "logic for choosing location- show map, button click to choose location. game state- transition -> fishing"
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "boat_temp",
+					"sid": 678098015590304,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "\"idle\""
+					}
+				}
+			],
+			"sid": 628199180751943
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 807852619613890,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 0,
+						"second-value": "\"fishing\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "start in idle state, move to location, fish for 10-20 ingame mins"
+				}
+			],
+			"sid": 420654326925519,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "boat_temp",
+							"sid": 141498112162250,
+							"parameters": {
+								"instance-variable": "state",
+								"comparison": 0,
+								"value": "\"idle\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "boat_temp",
+							"sid": 431233027083900,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "\"moving\""
+							}
+						},
+						{
+							"id": "move-to-position",
+							"objectClass": "boat_temp",
+							"sid": 822092520552028,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "random(0+boat_temp.ImageWidth, LayoutWidth-boat_temp.ImageWidth)",
+								"y": "boat_temp.Y",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 110602636514568
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "boat_temp",
+							"sid": 159410745404972,
+							"behaviorType": "MoveTo"
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "boat_temp",
+							"sid": 806035596831893,
+							"parameters": {
+								"instance-variable": "state",
+								"comparison": 0,
+								"value": "\"moving\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "boat_temp",
+							"sid": 169801831478883,
+							"behaviorType": "MoveTo"
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "boat_temp",
+							"sid": 749312168149653,
+							"parameters": {
+								"instance-variable": "fishing_timer",
+								"value": "int(random(10,20))"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "boat_temp",
+							"sid": 954521725628006,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "\"fishing\""
+							}
+						}
+					],
+					"sid": 702420665090212
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "boat_temp",
+							"sid": 711689865611717,
+							"parameters": {
+								"instance-variable": "fishing_timer",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "boat_temp",
+							"sid": 262215032870863,
+							"parameters": {
+								"instance-variable": "state",
+								"comparison": 0,
+								"value": "\"fishing\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "boat_temp",
+							"sid": 890962147137185,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "\"idle\""
+							}
+						}
+					],
+					"sid": 164745311032272
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 497952256664264,
+					"parameters": {
+						"variable": "CurrentTime",
+						"comparison": 4,
+						"value": "market_open_time"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "ToMarket",
+					"sid": 810019629879695,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ToMarket",
+					"sid": 378478471531463,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 803305125617665
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "ToMarket",
+					"sid": 809200650380851
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 410906461590155,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"market\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ToMarket",
+					"sid": 527087819978767,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "boat_temp",
+					"sid": 449365226843564,
+					"behaviorType": "MoveTo"
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "boat_temp",
+					"sid": 509200117910326,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "\"idle\""
+					}
+				},
+				{
+					"type": "comment",
+					"text": "transition to market"
+				},
+				{
+					"type": "comment",
+					"text": "apply travel time"
+				}
+			],
+			"sid": 735939433804920
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 702393716804226,
+					"parameters": {
+						"variable": "CurrentTime",
+						"comparison": 4,
+						"value": "market_close_time"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 208257574242107,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"bills\""
+					}
+				}
+			],
+			"sid": 578889073499870
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Speedx1",
+					"sid": 106207105779535
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 757607261582899,
+					"parameters": {
+						"time-scale": "1.0"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx1",
+					"sid": 610019512961626,
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx2",
+					"sid": 335274947151338,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx4",
+					"sid": 699916813970042,
+					"parameters": {
+						"mode": "enabled"
+					}
+				}
+			],
+			"sid": 822323684708637
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Speedx2",
+					"sid": 887836748940927
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 998499738579562,
+					"parameters": {
+						"time-scale": "2.0"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx2",
+					"sid": 112826706006768,
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx1",
+					"sid": 736062270600857,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx4",
+					"sid": 793850157871799,
+					"parameters": {
+						"mode": "enabled"
+					}
+				}
+			],
+			"sid": 263813131460001
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Speedx4",
+					"sid": 389722671743708
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 910625801865499,
+					"parameters": {
+						"time-scale": "4.0"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx4",
+					"sid": 361001404493315,
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx1",
+					"sid": 938356590639299,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx2",
+					"sid": 306227456514982,
+					"parameters": {
+						"mode": "enabled"
+					}
+				}
+			],
+			"sid": 168571152004515
 		}
 	],
 	"sid": 792945772843594

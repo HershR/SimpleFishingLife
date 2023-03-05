@@ -1,0 +1,68 @@
+{
+	"name": "boat_temp",
+	"plugin-id": "Sprite",
+	"sid": 921880991641936,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "state",
+			"type": "string",
+			"desc": "boats current state",
+			"show": true,
+			"sid": 329052556665339
+		},
+		{
+			"name": "fishing_timer",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 950554166018063
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "MoveTo",
+			"name": "MoveTo",
+			"sid": 255781410625890
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 741506180810985
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 459299314326828
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6175976,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 273040848425524,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
