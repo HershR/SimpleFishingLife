@@ -105,7 +105,14 @@
 			"Sprite3",
 			"SmallFish",
 			"MediumFish",
-			"LargeFish"
+			"LargeFish",
+			"Bills",
+			"PayBill",
+			"RodLvl",
+			"Upgrade",
+			"Shop",
+			"End",
+			"EndScreen"
 		],
 		"subfolders": []
 	},

@@ -1010,29 +1010,8 @@
 							}
 						},
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 878100919443626,
-							"parameters": {
-								"variable": "game_state",
-								"value": "\"bills\""
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "UpgradeBG",
-							"sid": 918591420853104,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-opacity",
-							"objectClass": "UpgradeBG",
-							"sid": 239016815805890,
-							"parameters": {
-								"opacity": "100"
-							}
+							"callFunction": "InitShop",
+							"sid": 729183746010885
 						}
 					],
 					"sid": 432913207384835
@@ -1204,37 +1183,16 @@
 			],
 			"actions": [
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 169405769779397,
-					"parameters": {
-						"variable": "game_state",
-						"value": "\"bills\""
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "UpgradeBG",
-					"sid": 784915873339346,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "UpgradeBG",
-					"sid": 929981516515871,
-					"parameters": {
-						"opacity": "100"
-					}
-				},
-				{
 					"id": "set-visible",
 					"objectClass": "CloseM",
-					"sid": 703105928603650,
+					"sid": 414715226212381,
 					"parameters": {
 						"visibility": "invisible"
 					}
+				},
+				{
+					"callFunction": "InitShop",
+					"sid": 545075382658308
 				}
 			],
 			"sid": 128112574550385
@@ -1255,16 +1213,171 @@
 			],
 			"actions": [
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 208257574242107,
-					"parameters": {
-						"variable": "game_state",
-						"value": "\"bills\""
-					}
+					"callFunction": "InitShop",
+					"sid": 646749838656117
 				}
 			],
 			"sid": 578889073499870
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 796066499818944,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 0,
+						"second-value": "\"bills\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "MoneyC",
+					"sid": 317930605172090,
+					"parameters": {
+						"text": "money"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Bills",
+					"sid": 653661481817612,
+					"parameters": {
+						"text": "\"Bills: $\" & bill"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "RodLvl",
+					"sid": 209626907608751,
+					"parameters": {
+						"text": "\"Rod Lvl\" & fishing_rod_level & \" $10\""
+					}
+				}
+			],
+			"sid": 116473635650375
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "PayBill",
+					"sid": 277437106244396
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 311183900619007,
+					"parameters": {
+						"first-value": "money",
+						"comparison": 5,
+						"second-value": "bill"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 592797760060876,
+					"parameters": {
+						"variable": "money",
+						"value": "bill"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "PayBill",
+					"sid": 419830370267055,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 195920825503391
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Upgrade",
+					"sid": 336837131282738
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 450169692341423,
+					"parameters": {
+						"first-value": "money",
+						"comparison": 5,
+						"second-value": "10"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 864675700471875,
+					"parameters": {
+						"variable": "money",
+						"value": "10"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Upgrade",
+					"sid": 853388284023610,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 697629054856474
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "End",
+					"sid": 199522179074062
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 270326996427266,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"end\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "EndScreen",
+					"sid": 566254543373199,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "EndScreen",
+					"sid": 192859551467241,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 769308363444029
 		},
 		{
 			"eventType": "block",
@@ -1400,6 +1513,109 @@
 				}
 			],
 			"sid": 168571152004515
+		},
+		{
+			"functionName": "InitShop",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishY",
+					"sid": 579067185152402,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishN",
+					"sid": 511878861218990,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeBG",
+					"sid": 172206582350199,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "UpgradeBG",
+					"sid": 657679593057257,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Shop",
+					"sid": 101898823492859,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Bills",
+					"sid": 207438015531002,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "RodLvl",
+					"sid": 498039347471146,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "PayBill",
+					"sid": 995848378401074,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "End",
+					"sid": 354124815731792,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Upgrade",
+					"sid": 821571465407464,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 145019346821974,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"bills\""
+					}
+				}
+			],
+			"sid": 324544801703874
 		}
 	],
 	"sid": 792945772843594
