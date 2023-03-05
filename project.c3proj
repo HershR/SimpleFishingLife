@@ -100,7 +100,12 @@
 			"SellFishY",
 			"SellFishN",
 			"StickFigure2",
-			"UpgradeBG"
+			"UpgradeBG",
+			"Lake",
+			"Sprite3",
+			"SmallFish",
+			"MediumFish",
+			"LargeFish"
 		],
 		"subfolders": []
 	},

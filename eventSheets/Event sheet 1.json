@@ -526,6 +526,15 @@
 					"parameters": {
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "boat_temp",
+					"sid": 835400952255073,
+					"parameters": {
+						"animation": "\"Animation 2\"",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 212816088490908
@@ -638,6 +647,15 @@
 							}
 						},
 						{
+							"id": "set-animation",
+							"objectClass": "boat_temp",
+							"sid": 344848100130676,
+							"parameters": {
+								"animation": "\"Animation 2\"",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "move-to-position",
 							"objectClass": "boat_temp",
 							"sid": 822092520552028,
@@ -677,6 +695,15 @@
 							"objectClass": "boat_temp",
 							"sid": 169801831478883,
 							"behaviorType": "MoveTo"
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "boat_temp",
+							"sid": 232232978600456,
+							"parameters": {
+								"animation": "\"Animation 1\"",
+								"from": "beginning"
+							}
 						},
 						{
 							"id": "set-instvar-value",

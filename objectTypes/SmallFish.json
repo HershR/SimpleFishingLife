@@ -1,7 +1,7 @@
 {
-	"name": "Table",
+	"name": "SmallFish",
 	"plugin-id": "Sprite",
-	"sid": 876146365688193,
+	"sid": 216056281790511,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,31 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 225,
+						"height": 113,
+						"originX": 0.44,
+						"originY": 0.6371681415929203,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4306116,
+						"imageSpriteId": 4996318,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.9955555555555555,
+								0,
+								0.9955555555555555,
+								1,
+								0,
+								1
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 122822049798276,
+				"sid": 658403112566713,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

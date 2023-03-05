@@ -1,7 +1,7 @@
 {
-	"name": "Table",
+	"name": "Lake",
 	"plugin-id": "Sprite",
-	"sid": 876146365688193,
+	"sid": 388293237308642,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,31 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 1708,
+						"height": 960,
+						"originX": 0.07318501170960187,
+						"originY": 0.13020833333333334,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4306116,
+						"imageSpriteId": 2203719,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.14637002341920374,
+								0,
+								0.14637002341920374,
+								0.2604166666666667,
+								0,
+								0.2604166666666667
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 122822049798276,
+				"sid": 914292835849992,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
