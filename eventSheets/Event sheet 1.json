@@ -332,6 +332,18 @@
 										"variable": "fish_1_amount",
 										"value": "1"
 									}
+								},
+								{
+									"id": "play",
+									"objectClass": "BGM",
+									"sid": 172998095833892,
+									"parameters": {
+										"audio-file": "splash",
+										"loop": "not-looping",
+										"volume": "-20",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
 								}
 							],
 							"sid": 244624511303512
@@ -482,6 +494,18 @@
 					"sid": 234341892370174,
 					"parameters": {
 						"audio-file": "Misty-Bog_Looping",
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 479817082953442,
+					"parameters": {
+						"audio-file": "fish-release",
 						"loop": "looping",
 						"volume": "-10",
 						"stereo-pan": "0",
@@ -1297,6 +1321,18 @@
 					"parameters": {
 						"visibility": "invisible"
 					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 717820303161049,
+					"parameters": {
+						"audio-file": "Coins4",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
 				}
 			],
 			"sid": 195920825503391
@@ -1336,6 +1372,18 @@
 					"sid": 853388284023610,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 905443144679235,
+					"parameters": {
+						"audio-file": "Coins4",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],

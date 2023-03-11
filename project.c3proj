@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 32702,
+	"savedWithRelease": 32703,
 	"name": "SimpleFishingLife",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -147,6 +147,22 @@
 					"name": "Coins4.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 622187156658232,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "fish-release.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 979025570234104,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "splash.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 925236332151192,
 					"file-info": {
 						"purpose": "none"
 					}
