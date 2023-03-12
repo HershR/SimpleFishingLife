@@ -1,7 +1,7 @@
 {
-	"name": "SellDialogue",
+	"name": "EnergyUI",
 	"plugin-id": "Sprite",
-	"sid": 269327059448871,
+	"sid": 789113146137402,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,31 +11,31 @@
 			{
 				"frames": [
 					{
-						"width": 170,
-						"height": 98,
-						"originX": 0.6235294117647059,
-						"originY": 0.23979591836734698,
+						"width": 120,
+						"height": 35,
+						"originX": 0.7208333333333333,
+						"originY": -0.3142857142857143,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3827239,
+						"imageSpriteId": 8153283,
 						"collisionPoly": {
 							"points": [
-								0.9823529411764705,
-								0.9846938775510204,
-								0.01764705882352941,
-								0.9846938775510204,
-								0.01764705882352941,
-								0.015306122448979591,
-								0.9823529411764705,
-								0.015306122448979591
+								0.1625,
+								0,
+								0.8375,
+								0,
+								0.8375,
+								1,
+								0.1625,
+								1
 							]
 						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 444550291018556,
+				"sid": 476271719635530,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

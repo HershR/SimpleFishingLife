@@ -1,7 +1,7 @@
 {
-	"name": "SellDialogue",
+	"name": "MarketBackground2",
 	"plugin-id": "Sprite",
-	"sid": 269327059448871,
+	"sid": 864679145012079,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,31 +11,31 @@
 			{
 				"frames": [
 					{
-						"width": 170,
-						"height": 98,
-						"originX": 0.6235294117647059,
-						"originY": 0.23979591836734698,
+						"width": 531,
+						"height": 342,
+						"originX": 0.5009416195856874,
+						"originY": 0.4590643274853801,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3827239,
+						"imageSpriteId": 9753350,
 						"collisionPoly": {
 							"points": [
-								0.9823529411764705,
-								0.9846938775510204,
-								0.01764705882352941,
-								0.9846938775510204,
-								0.01764705882352941,
-								0.015306122448979591,
-								0.9823529411764705,
-								0.015306122448979591
+								0,
+								0,
+								0.4143126177024482,
+								0,
+								0.4143126177024482,
+								0.6052631578947368,
+								0,
+								0.6052631578947368
 							]
 						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 444550291018556,
+				"sid": 738296301626056,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -1,7 +1,7 @@
 {
-	"name": "StickFigure2",
+	"name": "NightSky",
 	"plugin-id": "Sprite",
-	"sid": 608478846078025,
+	"sid": 282629346217371,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,31 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
+						"width": 860,
+						"height": 480,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2104309,
+						"imageSpriteId": 1579039,
+						"collisionPoly": {
+							"points": [
+								0.3546511627906977,
+								0.23958333333333334,
+								0.6453488372093024,
+								0.23958333333333334,
+								0.6453488372093024,
+								0.7604166666666666,
+								0.3546511627906977,
+								0.7604166666666666
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 958703643729050,
+				"sid": 979237471837759,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

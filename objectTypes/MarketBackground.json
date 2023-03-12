@@ -1,7 +1,7 @@
 {
-	"name": "EndScreen",
+	"name": "MarketBackground",
 	"plugin-id": "Sprite",
-	"sid": 441081340307248,
+	"sid": 458673593356329,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,19 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
+						"width": 853,
+						"height": 482,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8488872,
+						"imageSpriteId": 6555116,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 522448971916434,
+				"sid": 886679123264389,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

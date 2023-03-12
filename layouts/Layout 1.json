@@ -165,49 +165,6 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "CurrentTIme",
-					"properties": {
-						"text": "Time: ",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 4,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 13,
-						"y": 11,
-						"width": 156.03303093242226,
-						"height": 30,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "GameState",
 					"properties": {
 						"text": "Game state",
@@ -234,8 +191,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 172,
-						"y": 9,
+						"x": 154.72516329569788,
+						"y": -32.697881700039574,
 						"width": 200,
 						"height": 30,
 						"originX": 0,
@@ -277,8 +234,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 330,
-						"y": 9,
+						"x": 330.59568402428624,
+						"y": -29.719461578608218,
 						"width": 200,
 						"height": 30,
 						"originX": 0,
@@ -296,7 +253,7 @@
 				{
 					"type": "fish1Count",
 					"properties": {
-						"text": "small fish count",
+						"text": "small fish",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 12,
@@ -320,52 +277,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 648.6403198242188,
-						"y": 9,
-						"width": 145,
-						"height": 30,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Energy",
-					"properties": {
-						"text": "Energy",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 8,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 12.000000000000004,
-						"y": 88.7649271199755,
-						"width": 200,
+						"x": 767.2514930984444,
+						"y": 3.7671541202547587,
+						"width": 82.20584944305699,
 						"height": 30,
 						"originX": 0,
 						"originY": 0,
@@ -408,6 +322,107 @@
 							1,
 							1
 						]
+					}
+				},
+				{
+					"type": "SmallFish",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 41,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 741.3813032912799,
+						"y": 17.08851984104301,
+						"width": 28.776801299134227,
+						"height": 14.452349096898523,
+						"originX": 0.44,
+						"originY": 0.6371681415929203,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TimeUI",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 15,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 70.05981332243167,
+						"y": 5.92389841788966,
+						"width": 148,
+						"height": 69,
+						"originX": 0.4527027027027027,
+						"originY": 0.014492753623188406,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "CurrentTIme",
+					"properties": {
+						"text": "Time: ",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 4,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 13,
+						"y": 11,
+						"width": 156.03303093242226,
+						"height": 30,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
 					}
 				},
 				{
@@ -504,7 +519,7 @@
 					}
 				},
 				{
-					"type": "SmallFish",
+					"type": "EnergyUI",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -512,16 +527,59 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 41,
+					"uid": 16,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 622.7701300170543,
-						"y": 22.32136572078825,
-						"width": 28.776801299134227,
-						"height": 14.452349096898523,
-						"originX": 0.44,
-						"originY": 0.6371681415929203,
+						"x": 80.65450275066402,
+						"y": 72.44504776361326,
+						"width": 120,
+						"height": 35,
+						"originX": 0.7208333333333333,
+						"originY": -0.3142857142857143,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Energy",
+					"properties": {
+						"text": "Energy",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 8,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 7.109526089563847,
+						"y": 90.71016407519359,
+						"width": 200,
+						"height": 30,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,

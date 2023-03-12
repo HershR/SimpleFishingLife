@@ -1,7 +1,7 @@
 {
-	"name": "EndScreen",
+	"name": "TimeUI",
 	"plugin-id": "Sprite",
-	"sid": 441081340307248,
+	"sid": 633661316544215,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,19 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 148,
+						"height": 69,
+						"originX": 0.4527027027027027,
+						"originY": 0.014492753623188406,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8488872,
+						"imageSpriteId": 5435036,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 522448971916434,
+				"sid": 930172819752875,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -1,7 +1,7 @@
 {
-	"name": "EndScreen",
+	"name": "Sun",
 	"plugin-id": "Sprite",
-	"sid": 441081340307248,
+	"sid": 479563181610393,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,19 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 187,
+						"height": 187,
+						"originX": 0.5187165775401069,
+						"originY": 0.5614973262032086,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8488872,
+						"imageSpriteId": 9895788,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 522448971916434,
+				"sid": 873803846643839,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

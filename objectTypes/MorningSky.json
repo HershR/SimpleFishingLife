@@ -1,7 +1,7 @@
 {
-	"name": "SellDialogue",
+	"name": "MorningSky",
 	"plugin-id": "Sprite",
-	"sid": 269327059448871,
+	"sid": 573602930023284,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,31 +11,31 @@
 			{
 				"frames": [
 					{
-						"width": 170,
-						"height": 98,
-						"originX": 0.6235294117647059,
-						"originY": 0.23979591836734698,
+						"width": 860,
+						"height": 480,
+						"originX": 0.5,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3827239,
+						"imageSpriteId": 4724323,
 						"collisionPoly": {
 							"points": [
-								0.9823529411764705,
-								0.9846938775510204,
-								0.01764705882352941,
-								0.9846938775510204,
-								0.01764705882352941,
-								0.015306122448979591,
-								0.9823529411764705,
-								0.015306122448979591
+								0.3546511627906977,
+								0.23958333333333334,
+								0.6453488372093024,
+								0.23958333333333334,
+								0.6453488372093024,
+								0.7604166666666666,
+								0.3546511627906977,
+								0.7604166666666666
 							]
 						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 444550291018556,
+				"sid": 266686230558724,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

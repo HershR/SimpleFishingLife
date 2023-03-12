@@ -336,7 +336,11 @@
 								{
 									"id": "play",
 									"objectClass": "BGM",
+<<<<<<< Updated upstream
 									"sid": 172998095833892,
+=======
+									"sid": 694282649345680,
+>>>>>>> Stashed changes
 									"parameters": {
 										"audio-file": "splash",
 										"loop": "not-looping",
@@ -503,7 +507,11 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
+<<<<<<< Updated upstream
 					"sid": 479817082953442,
+=======
+					"sid": 426679957573816,
+>>>>>>> Stashed changes
 					"parameters": {
 						"audio-file": "fish-release",
 						"loop": "looping",
@@ -964,21 +972,44 @@
 								"comparison": 0,
 								"second-value": "0"
 							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "SellFishY",
+							"sid": 916239069188968,
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"id": "set-visible",
-							"objectClass": "SellDialogue",
-							"sid": 875635234037635,
+							"objectClass": "StickFigure1",
+							"sid": 214873115868644,
 							"parameters": {
 								"visibility": "visible"
 							}
 						},
 						{
+							"id": "set-position",
+							"objectClass": "StickFigure1",
+							"sid": 489100748692454,
+							"parameters": {
+								"x": "462",
+								"y": "352"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 946855002016776,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
 							"id": "set-visible",
-							"objectClass": "StickFigure",
-							"sid": 888096135669829,
+							"objectClass": "SellDialogue",
+							"sid": 875635234037635,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -1125,10 +1156,19 @@
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "StickFigure",
-					"sid": 370369688642391,
+					"objectClass": "StickFigure1",
+					"sid": 593138882579331,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "StickFigure1",
+					"sid": 166176318193007,
+					"parameters": {
+						"x": "940",
+						"y": "330"
 					}
 				}
 			],
@@ -1187,10 +1227,19 @@
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "StickFigure",
-					"sid": 960419045666482,
+					"objectClass": "StickFigure1",
+					"sid": 756318251414340,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "StickFigure1",
+					"sid": 375182967990643,
+					"parameters": {
+						"x": "940",
+						"y": "330"
 					}
 				}
 			],
@@ -1217,6 +1266,22 @@
 				{
 					"callFunction": "InitShop",
 					"sid": 545075382658308
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketBackground",
+					"sid": 921296964849735,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketBackground2",
+					"sid": 652382136706876,
+					"parameters": {
+						"visibility": "invisible"
+					}
 				}
 			],
 			"sid": 128112574550385
@@ -1325,7 +1390,11 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
+<<<<<<< Updated upstream
 					"sid": 717820303161049,
+=======
+					"sid": 820901062489874,
+>>>>>>> Stashed changes
 					"parameters": {
 						"audio-file": "Coins4",
 						"loop": "not-looping",
@@ -1377,7 +1446,11 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
+<<<<<<< Updated upstream
 					"sid": 905443144679235,
+=======
+					"sid": 716558297980777,
+>>>>>>> Stashed changes
 					"parameters": {
 						"audio-file": "Coins4",
 						"loop": "not-looping",

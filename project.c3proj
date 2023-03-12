@@ -99,7 +99,7 @@
 			"Fish1DemandT",
 			"SellFishY",
 			"SellFishN",
-			"StickFigure2",
+			"StickFigure1",
 			"UpgradeBG",
 			"Lake",
 			"Sprite3",
@@ -112,7 +112,16 @@
 			"Upgrade",
 			"Shop",
 			"End",
-			"EndScreen"
+			"EndScreen",
+			"MarketBackground",
+			"MarketBackground2",
+			"House",
+			"TimeUI",
+			"EnergyUI",
+			"NightSky",
+			"MorningSky",
+			"Sun",
+			"Moon"
 		],
 		"subfolders": []
 	},
@@ -154,7 +163,11 @@
 				{
 					"name": "fish-release.webm",
 					"type": "audio/webm; codecs=opus",
+<<<<<<< Updated upstream
 					"sid": 979025570234104,
+=======
+					"sid": 476685078417467,
+>>>>>>> Stashed changes
 					"file-info": {
 						"purpose": "none"
 					}
@@ -162,7 +175,11 @@
 				{
 					"name": "splash.webm",
 					"type": "audio/webm; codecs=opus",
+<<<<<<< Updated upstream
 					"sid": 925236332151192,
+=======
+					"sid": 628654667970546,
+>>>>>>> Stashed changes
 					"file-info": {
 						"purpose": "none"
 					}
