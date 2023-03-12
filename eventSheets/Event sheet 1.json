@@ -336,11 +336,7 @@
 								{
 									"id": "play",
 									"objectClass": "BGM",
-<<<<<<< Updated upstream
-									"sid": 172998095833892,
-=======
 									"sid": 694282649345680,
->>>>>>> Stashed changes
 									"parameters": {
 										"audio-file": "splash",
 										"loop": "not-looping",
@@ -507,11 +503,7 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
-<<<<<<< Updated upstream
-					"sid": 479817082953442,
-=======
 					"sid": 426679957573816,
->>>>>>> Stashed changes
 					"parameters": {
 						"audio-file": "fish-release",
 						"loop": "looping",
@@ -1390,11 +1382,7 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
-<<<<<<< Updated upstream
-					"sid": 717820303161049,
-=======
 					"sid": 820901062489874,
->>>>>>> Stashed changes
 					"parameters": {
 						"audio-file": "Coins4",
 						"loop": "not-looping",
@@ -1446,11 +1434,7 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
-<<<<<<< Updated upstream
-					"sid": 905443144679235,
-=======
 					"sid": 716558297980777,
->>>>>>> Stashed changes
 					"parameters": {
 						"audio-file": "Coins4",
 						"loop": "not-looping",

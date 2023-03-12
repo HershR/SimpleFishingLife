@@ -21,7 +21,7 @@
 					"world": {
 						"x": 427,
 						"y": 240,
-						"width": 859,
+						"width": 859.0000000000001,
 						"height": 482,
 						"originX": 0.5,
 						"originY": 0.5,
