@@ -515,37 +515,6 @@
 					}
 				},
 				{
-					"type": "CloseM",
-					"properties": {
-						"type": "button",
-						"text": "Close",
-						"tooltip": "",
-						"initially-visible": true,
-						"enabled": true,
-						"auto-font-size": true,
-						"checked": false,
-						"id": "",
-						"class": ""
-					},
-					"uid": 18,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 741,
-						"y": 433,
-						"width": 99,
-						"height": 38,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
 					"type": "UpgradeBG",
 					"properties": {
 						"initially-visible": false,
@@ -568,10 +537,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": -3,
-						"y": -3,
-						"width": 858,
-						"height": 485,
+						"x": 0,
+						"y": 0,
+						"width": 854,
+						"height": 480,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -775,7 +744,18 @@
 					},
 					"uid": 52,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
 					"world": {
 						"x": 1244,
 						"y": -609,
@@ -804,7 +784,18 @@
 					},
 					"uid": 53,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
 					"world": {
 						"x": 1403,
 						"y": -587,
@@ -879,6 +870,86 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "NightSky",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 49,
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 427,
+						"y": 240,
+						"width": 854,
+						"height": 480,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.2
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MorningSky",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 69,
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 426.94597178057205,
+						"y": 240.16874442612828,
+						"width": 860,
+						"height": 480,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.2
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 105301423993880,
@@ -910,14 +981,14 @@
 			"global": false
 		},
 		{
-			"name": "Layer 1",
+			"name": "UI",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Bills",
+					"type": "BoatLvl",
 					"properties": {
-						"text": "Bills",
+						"text": "Boat Lvl",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 29,
@@ -930,7 +1001,7 @@
 							0,
 							1
 						],
-						"horizontal-alignment": "left",
+						"horizontal-alignment": "right",
 						"vertical-alignment": "top",
 						"wrapping": "word",
 						"initially-visible": false,
@@ -941,10 +1012,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 286,
-						"y": 270,
-						"width": 110,
-						"height": 69,
+						"x": 198.28022800230985,
+						"y": 184.7336135743451,
+						"width": 233.71977199769015,
+						"height": 48.114464588010264,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -958,11 +1029,11 @@
 					}
 				},
 				{
-					"type": "PayBill",
+					"type": "UpgradeBoat",
 					"properties": {
 						"type": "button",
-						"text": "PAY",
-						"tooltip": "",
+						"text": "Boat",
+						"tooltip": "Travel Faster",
 						"initially-visible": false,
 						"enabled": true,
 						"auto-font-size": true,
@@ -974,10 +1045,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 471,
-						"y": 271,
-						"width": 140,
-						"height": 53,
+						"x": 450.24341244811774,
+						"y": 190.5559832246139,
+						"width": 131,
+						"height": 38.50130816833291,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -991,7 +1062,7 @@
 				{
 					"type": "RodLvl",
 					"properties": {
-						"text": "Rod LVL",
+						"text": "Rod Lvl",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 29,
@@ -1004,7 +1075,7 @@
 							0,
 							1
 						],
-						"horizontal-alignment": "left",
+						"horizontal-alignment": "right",
 						"vertical-alignment": "top",
 						"wrapping": "word",
 						"initially-visible": false,
@@ -1015,9 +1086,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 279,
-						"y": 190,
-						"width": 153,
+						"x": 198.28022800230985,
+						"y": 123.7336135743451,
+						"width": 233.71977199769015,
 						"height": 44,
 						"originX": 0,
 						"originY": 0,
@@ -1032,11 +1103,11 @@
 					}
 				},
 				{
-					"type": "Upgrade",
+					"type": "UpgradeRod",
 					"properties": {
 						"type": "button",
-						"text": "Upgrade",
-						"tooltip": "",
+						"text": "Rod",
+						"tooltip": "Catch better fish",
 						"initially-visible": false,
 						"enabled": true,
 						"auto-font-size": true,
@@ -1048,10 +1119,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 470,
-						"y": 190,
-						"width": 133,
-						"height": 56,
+						"x": 450.24341244811774,
+						"y": 126.5559832246139,
+						"width": 131,
+						"height": 38.50130816833291,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1063,11 +1134,11 @@
 					}
 				},
 				{
-					"type": "End",
+					"type": "Sleep",
 					"properties": {
 						"type": "button",
-						"text": "End",
-						"tooltip": "",
+						"text": "Sleep",
+						"tooltip": "Get some Rest",
 						"initially-visible": false,
 						"enabled": true,
 						"auto-font-size": true,
@@ -1309,35 +1380,6 @@
 					}
 				},
 				{
-					"type": "EndScreen",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 49,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 427.7063352602593,
-						"y": 240.38563560611158,
-						"width": 856,
-						"height": 482,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "CurrentTIme",
 					"properties": {
 						"text": "Time: ",
@@ -1378,6 +1420,185 @@
 						],
 						"angle": 0,
 						"zElevation": 0
+					}
+				},
+				{
+					"type": "Nets",
+					"properties": {
+						"text": "Nets Amt",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 29,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "right",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 65,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 198.28022800230985,
+						"y": 245.7336135743451,
+						"width": 233.71977199769015,
+						"height": 56,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UpgradeNets",
+					"properties": {
+						"type": "button",
+						"text": "Nets",
+						"tooltip": "Catch Fish while moving",
+						"initially-visible": false,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 66,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 450.24341244811774,
+						"y": 254.5559832246139,
+						"width": 131,
+						"height": 38.50130816833291,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "EquipmentQuality",
+					"properties": {
+						"text": "Equipment quality",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 29,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "right",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 67,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 5.046085817953099,
+						"y": 331.68388005631357,
+						"width": 425.51500456387464,
+						"height": 56,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Maintanance",
+					"properties": {
+						"type": "button",
+						"text": "Maintenance  cost xxx",
+						"tooltip": "How well your equipment works. 7 is max",
+						"initially-visible": false,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 68,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 463.51562166080447,
+						"y": 335.77662850404204,
+						"width": 103.67946178539728,
+						"height": 55.57664455245964,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "CloseM",
+					"properties": {
+						"type": "button",
+						"text": "Close",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 18,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 744.0067229467975,
+						"y": 431.8010929832774,
+						"width": 99,
+						"height": 38,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
 					}
 				}
 			],

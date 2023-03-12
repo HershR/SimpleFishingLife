@@ -1,7 +1,7 @@
 {
-	"name": "StartScreen",
+	"name": "GameOverScreen",
 	"plugin-id": "Sprite",
-	"sid": 931094857167255,
+	"sid": 668289935235195,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -18,12 +18,12 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6365183,
+						"imageSpriteId": 806706,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 525802938631602,
+				"sid": 899497116242559,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

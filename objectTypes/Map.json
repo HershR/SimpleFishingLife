@@ -1,7 +1,7 @@
 {
-	"name": "EndScreen",
+	"name": "Map",
 	"plugin-id": "Sprite",
-	"sid": 441081340307248,
+	"sid": 877099877378530,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -18,12 +18,12 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8488872,
+						"imageSpriteId": 3057697,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 522448971916434,
+				"sid": 739781054702916,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

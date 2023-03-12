@@ -15,20 +15,20 @@
 			"eventType": "variable",
 			"name": "market_open_time",
 			"type": "number",
-			"initialValue": "60",
-			"comment": "when the market opens",
+			"initialValue": "6",
+			"comment": "when the market opens in hours",
 			"isStatic": false,
-			"isConstant": true,
+			"isConstant": false,
 			"sid": 171643658308370
 		},
 		{
 			"eventType": "variable",
 			"name": "market_close_time",
 			"type": "number",
-			"initialValue": "600",
-			"comment": "when the market opens",
+			"initialValue": "20",
+			"comment": "when the market closes in hours",
 			"isStatic": false,
-			"isConstant": true,
+			"isConstant": false,
 			"sid": 303067679071461
 		},
 		{
@@ -93,7 +93,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "fishing_rod_level",
+			"name": "rod_level",
 			"type": "number",
 			"initialValue": "1",
 			"comment": "",
@@ -109,17 +109,117 @@
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 534945737441891
+			"sid": 950102301411022
 		},
 		{
 			"eventType": "variable",
-			"name": "bill",
+			"name": "net_level",
 			"type": "number",
-			"initialValue": "20",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 914933571068096
+			"sid": 388669147749612
+		},
+		{
+			"eventType": "variable",
+			"name": "rod_upgrade",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 950582476969442
+		},
+		{
+			"eventType": "variable",
+			"name": "boat_upgrade",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 851057000080382
+		},
+		{
+			"eventType": "variable",
+			"name": "net_upgrade",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 408606768447268
+		},
+		{
+			"eventType": "variable",
+			"name": "travel_time_l1",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "in hours",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 398261180242376
+		},
+		{
+			"eventType": "variable",
+			"name": "travel_time_l2",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "in hours",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 819456881559122
+		},
+		{
+			"eventType": "variable",
+			"name": "travel_time_l3",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "in hours",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 225406108785511
+		},
+		{
+			"eventType": "variable",
+			"name": "player_location",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "0 - port, 1- location1, 2- location2, 3- location3",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 144409831833518
+		},
+		{
+			"eventType": "variable",
+			"name": "permit_cost",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "5 * the week",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 762622202595616
+		},
+		{
+			"eventType": "variable",
+			"name": "markup_day",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "when permit cost rises",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 965113721523830
+		},
+		{
+			"eventType": "variable",
+			"name": "maintance_level",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "lower the better",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 839816512444089
 		},
 		{
 			"eventType": "variable",
@@ -157,9 +257,9 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 230587706986497,
+					"sid": 809068948784140,
 					"parameters": {
-						"interval-seconds": "0.5"
+						"interval-seconds": "0.25"
 					}
 				},
 				{
@@ -185,6 +285,16 @@
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
+					"sid": 275420580763987,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 1,
+						"second-value": "\"location_select\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
 					"sid": 506566225900891,
 					"parameters": {
 						"first-value": "game_state",
@@ -195,11 +305,21 @@
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 300154511234902,
+					"sid": 981747433338276,
 					"parameters": {
 						"first-value": "game_state",
 						"comparison": 1,
-						"second-value": "\"bills\""
+						"second-value": "\"shop\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 805482779975602,
+					"parameters": {
+						"first-value": "game_state",
+						"comparison": 1,
+						"second-value": "\"sleep\""
 					}
 				},
 				{
@@ -244,9 +364,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "CurrentTIme",
-					"sid": 625243508963193,
+					"sid": 650249328481518,
 					"parameters": {
-						"text": "\"Current time: \"  & hours & \":\" & minutes"
+						"text": "\"Current time: \"  & zeropad(hours,2) & \":\" & zeropad(minutes,2)"
 					}
 				},
 				{
@@ -258,11 +378,20 @@
 					}
 				},
 				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 464448166887367,
+					"parameters": {
+						"variable": "energy",
+						"value": ".09"
+					}
+				},
+				{
 					"id": "set-text",
 					"objectClass": "Energy",
-					"sid": 310929856622831,
+					"sid": 913137210168247,
 					"parameters": {
-						"text": "\"Energy: \" & energy"
+						"text": "\"Energy: \" & int(energy)"
 					}
 				}
 			],
@@ -274,89 +403,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 215710699999377,
-							"parameters": {
-								"first-value": "game_state",
-								"comparison": 0,
-								"second-value": "\"fishing\""
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "boat_temp",
-							"sid": 903039873707834,
-							"parameters": {
-								"instance-variable": "state",
-								"comparison": 0,
-								"value": "\"fishing\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "boat_temp",
-							"sid": 230393871464234,
-							"parameters": {
-								"instance-variable": "fishing_timer",
-								"value": "1"
-							}
-						}
-					],
-					"sid": 802952443058154,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 492214486539307,
-									"parameters": {
-										"first-value": "random(0,1)",
-										"comparison": 3,
-										"second-value": "fishing_rod_level*0.1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"type": "comment",
-									"text": "+1 fish, soundfx, text"
-								},
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 301810937554757,
-									"parameters": {
-										"variable": "fish_1_amount",
-										"value": "1"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "BGM",
-									"sid": 694282649345680,
-									"parameters": {
-										"audio-file": "splash",
-										"loop": "not-looping",
-										"volume": "-20",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								}
-							],
-							"sid": 244624511303512
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 518102061297948,
+							"sid": 202934080202455,
 							"parameters": {
 								"first-value": "game_state",
 								"comparison": 0,
@@ -368,7 +415,7 @@
 						{
 							"id": "set-text",
 							"objectClass": "BoatState",
-							"sid": 711185386441677,
+							"sid": 194270643128912,
 							"parameters": {
 								"text": "\"Boat State: \" & boat_temp.state"
 							}
@@ -376,62 +423,224 @@
 						{
 							"id": "set-text",
 							"objectClass": "fish1Count",
-							"sid": 431680471892818,
+							"sid": 649381010586317,
 							"parameters": {
 								"text": "\"Fish 1: \" & fish_1_amount"
 							}
 						}
 					],
-					"sid": 291505304400554
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"sid": 100198294034636,
+					"children": [
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 953913228659190,
-							"parameters": {
-								"first-value": "game_state",
-								"comparison": 0,
-								"second-value": "\"sleep\""
-							}
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "boat_temp",
+									"sid": 350899254631071,
+									"parameters": {
+										"instance-variable": "state",
+										"comparison": 0,
+										"value": "\"fishing\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "boat_temp",
+									"sid": 717576177296143,
+									"parameters": {
+										"instance-variable": "fishing_timer",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 173283237452341,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 751933670217439,
+											"parameters": {
+												"first-value": "random(0,1)",
+												"comparison": 3,
+												"second-value": ".2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "if we want to include fish population, then we can simple change the probability of the player finding a fish"
+										}
+									],
+									"sid": 246273965441492,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 168508232481964,
+													"parameters": {
+														"first-value": "random(0,1 - (rod_level-1)*0.12)",
+														"comparison": 3,
+														"second-value": ".1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "+1 fish, soundfx, text"
+												},
+												{
+													"id": "play",
+													"objectClass": "BGM",
+													"sid": 771120562118251,
+													"parameters": {
+														"audio-file": "splash",
+														"loop": "not-looping",
+														"volume": "-20",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 824974807933875
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 537082711627507,
+													"parameters": {
+														"first-value": "random(0,1 - (rod_level-1)*0.12)",
+														"comparison": 3,
+														"second-value": ".3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "BGM",
+													"sid": 188385202377844,
+													"parameters": {
+														"audio-file": "splash",
+														"loop": "not-looping",
+														"volume": "-20",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 228323295216459
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 529890832963159
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 541133590100937,
+													"parameters": {
+														"variable": "fish_1_amount",
+														"value": "1"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "BGM",
+													"sid": 823026992741354,
+													"parameters": {
+														"audio-file": "splash",
+														"loop": "not-looping",
+														"volume": "-20",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 849239496137607
+										}
+									]
+								}
+							]
+						},
 						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 550407528131835,
-							"parameters": {
-								"variable": "energy",
-								"value": ".2"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "boat_temp",
+									"sid": 734579790071067,
+									"parameters": {
+										"instance-variable": "state",
+										"comparison": 0,
+										"value": "\"moving\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 140170778888107,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 139186992751592,
+											"parameters": {
+												"first-value": "random(0,1)",
+												"comparison": 2,
+												"second-value": "net_level*0.1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 348394878168268,
+											"parameters": {
+												"variable": "fish_1_amount",
+												"value": "1"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "BGM",
+											"sid": 826658573859209,
+											"parameters": {
+												"audio-file": "splash",
+												"loop": "not-looping",
+												"volume": "-20",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 900653837976055
+								}
+							]
 						}
-					],
-					"sid": 383964008009399
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 204727164080033
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-eventvar",
-							"objectClass": "System",
-							"sid": 429798054014892,
-							"parameters": {
-								"variable": "energy",
-								"value": "0.09"
-							}
-						}
-					],
-					"sid": 237800786159068
+					]
 				}
 			]
 		},
@@ -441,7 +650,7 @@
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 905481552837944,
+					"sid": 423871519943516,
 					"parameters": {
 						"first-value": "game_state",
 						"comparison": 0,
@@ -457,16 +666,66 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 743490850483701,
+					"sid": 135614417891840,
 					"parameters": {
 						"variable": "CurrentTime",
 						"value": "0"
 					}
 				},
 				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 141061757819077,
+					"parameters": {
+						"variable": "hours",
+						"value": "int(CurrentTIme/60)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 415660267769380,
+					"parameters": {
+						"variable": "minutes",
+						"value": "(CurrentTIme%60)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "CurrentTIme",
+					"sid": 715639552537911,
+					"parameters": {
+						"text": "\"Current time: \"  & hours & \":\" & minutes"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Energy",
+					"sid": 189399772056768,
+					"parameters": {
+						"text": "\"Energy: \" & int(energy)"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Map",
+					"sid": 410136741134011,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location1",
+					"sid": 361201861458673,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-time-scale",
 					"objectClass": "System",
-					"sid": 202077361413291,
+					"sid": 424388892352074,
 					"parameters": {
 						"time-scale": "1.0"
 					}
@@ -474,24 +733,55 @@
 				{
 					"id": "set-enabled",
 					"objectClass": "Speedx1",
-					"sid": 893007570015209,
+					"sid": 716132485539863,
 					"parameters": {
 						"mode": "disabled"
 					}
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 677372813826659,
+					"id": "set-enabled",
+					"objectClass": "Speedx2",
+					"sid": 656152136512940,
 					"parameters": {
-						"variable": "game_state",
-						"value": "\"start\""
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx4",
+					"sid": 434603284404235,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx1",
+					"sid": 664543069066873,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx2",
+					"sid": 423602535387056,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx4",
+					"sid": 731369076561836,
+					"parameters": {
+						"visibility": "invisible"
 					}
 				},
 				{
 					"id": "play",
 					"objectClass": "BGM",
-					"sid": 234341892370174,
+					"sid": 588378388799329,
 					"parameters": {
 						"audio-file": "Misty-Bog_Looping",
 						"loop": "looping",
@@ -503,7 +793,7 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
-					"sid": 426679957573816,
+					"sid": 338508647317324,
 					"parameters": {
 						"audio-file": "fish-release",
 						"loop": "looping",
@@ -513,116 +803,486 @@
 					}
 				}
 			],
-			"sid": 676314457129331
+			"sid": 129477501321236,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 111575913365630,
+							"parameters": {
+								"first-value": "Money",
+								"comparison": 2,
+								"second-value": "permit_cost  * ((int(Day/markup_day))+1)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "GameOverScreen",
+							"sid": 527539693322623,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "GameOverScreen",
+							"sid": 758551898645916,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "GAMEOVER",
+							"sid": 256472456532226,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 539925771920011,
+							"parameters": {
+								"variable": "game_state",
+								"value": "\"end\""
+							}
+						}
+					],
+					"sid": 564083969255379
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 422725544869710
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "InitStart",
+							"sid": 717611317707611
+						}
+					],
+					"sid": 534770304507337
+				}
+			]
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-two-values",
-					"objectClass": "System",
-					"sid": 795917576824301,
-					"parameters": {
-						"first-value": "game_state",
-						"comparison": 0,
-						"second-value": "\"start\""
-					}
-				}
-			],
+			"functionName": "InitStart",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [
 				{
-					"type": "comment",
-					"text": "show player balance, market prices etc. Button click to go to location select"
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 759400726558242,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"start\""
+					}
 				},
 				{
 					"id": "add-to-eventvar",
 					"objectClass": "System",
-					"sid": 203626987884127,
+					"sid": 647262545787032,
 					"parameters": {
 						"variable": "day",
 						"value": "1"
 					}
 				},
 				{
+					"id": "set-animation",
+					"objectClass": "boat_temp",
+					"sid": 141991800997112,
+					"parameters": {
+						"animation": "\"Animation 2\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "StartScreen",
+					"sid": 529464362586287,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
 					"id": "set-visible",
-					"objectClass": "Fish",
-					"sid": 759929461072117,
+					"objectClass": "StartScreen",
+					"sid": 926279662711827,
 					"parameters": {
 						"visibility": "visible"
 					}
 				},
 				{
-					"id": "set-animation",
-					"objectClass": "boat_temp",
-					"sid": 835400952255073,
+					"id": "set-visible",
+					"objectClass": "Start",
+					"sid": 860611048965282,
 					"parameters": {
-						"animation": "\"Animation 2\"",
-						"from": "beginning"
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Day",
+					"sid": 316703639983425,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Day",
+					"sid": 161202516346654,
+					"parameters": {
+						"text": "\"Day \" & day "
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "PermitCost",
+					"sid": 683685936540568,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "PermitCost",
+					"sid": 523418161399625,
+					"parameters": {
+						"text": "\"Fishing Permit $\" & permit_cost  * ((int(Day/markup_day))+1)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Money",
+					"sid": 440246086656438,
+					"parameters": {
+						"text": "\"Money: $\" & money"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketOpen",
+					"sid": 414282853899114,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketClose",
+					"sid": 734901797942288,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish1Price",
+					"sid": 881251515011057,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "MarketOpen",
+					"sid": 562107313165992,
+					"parameters": {
+						"text": "\"Market Opens: \" & zeropad(market_open_time,2) & \":00\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "MarketClose",
+					"sid": 870038333661923,
+					"parameters": {
+						"text": "\"Market Closes: \" & zeropad(market_close_time, 2) & \":00\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish1Price",
+					"sid": 427584922763072,
+					"parameters": {
+						"text": "\"Fish 1 Price: $\" & fish_1_price"
 					}
 				}
 			],
-			"sid": 212816088490908
+			"sid": 323269295233923
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-clicked",
-					"objectClass": "Fish",
+					"objectClass": "Start",
 					"sid": 528857468960980
 				}
 			],
 			"actions": [
 				{
 					"id": "set-visible",
-					"objectClass": "Fish",
-					"sid": 605515245887580,
+					"objectClass": "Start",
+					"sid": 142070554449470,
 					"parameters": {
 						"visibility": "invisible"
 					}
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 510577687903640,
+					"id": "set-visible",
+					"objectClass": "StartScreen",
+					"sid": 925652885016473,
 					"parameters": {
-						"variable": "game_state",
-						"value": "\"fishing\""
+						"visibility": "invisible"
 					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Day",
+					"sid": 232284112757764,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "PermitCost",
+					"sid": 403310572145533,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketOpen",
+					"sid": 168246443035751,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketClose",
+					"sid": 369186934585309,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish1Price",
+					"sid": 128790659442018,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 545805783112202,
+					"parameters": {
+						"audio-file": "Coins4",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 878733161793073,
+					"parameters": {
+						"variable": "money",
+						"value": "permit_cost  * ((int(Day/markup_day))+1)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Money",
+					"sid": 655062092770725,
+					"parameters": {
+						"text": "\"Money: $\" & money"
+					}
+				},
+				{
+					"callFunction": "InitLocationSelect",
+					"sid": 100419447946810
 				}
 			],
 			"sid": 142030258949201
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-two-values",
-					"objectClass": "System",
-					"sid": 182661142779613,
-					"parameters": {
-						"first-value": "game_state",
-						"comparison": 0,
-						"second-value": "\"location_select\""
-					}
-				}
-			],
+			"functionName": "InitLocationSelect",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [
 				{
-					"type": "comment",
-					"text": "logic for choosing location- show map, button click to choose location. game state- transition -> fishing"
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 893783522823856,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"location_select\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Map",
+					"sid": 707864412278803,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Map",
+					"sid": 622005375961646,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 232868484782078,
+					"parameters": {
+						"variable": "travel_time_l1",
+						"value": "clamp((2-player_location/3)-0.5*boat_level+maintance_level*.25,1,20)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 619560813774637,
+					"parameters": {
+						"variable": "travel_time_l2",
+						"value": "clamp((4-player_location/3)-0.5*boat_level+maintance_level*.25,1,20)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 768517259289972,
+					"parameters": {
+						"variable": "travel_time_l3",
+						"value": "clamp((6-player_location/3)-0.5*boat_level+maintance_level*.25,1,20)"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location1",
+					"sid": 474081304621588,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "location1",
+					"sid": 828312959717756,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-tooltip",
+					"objectClass": "location1",
+					"sid": 121239268631478,
+					"parameters": {
+						"tooltip": "\"Travel Time: \" & travel_time_l1 & \" hours\""
+					}
 				},
 				{
 					"id": "set-instvar-value",
 					"objectClass": "boat_temp",
-					"sid": 678098015590304,
+					"sid": 123793450735131,
 					"parameters": {
 						"instance-variable": "state",
 						"value": "\"idle\""
 					}
 				}
 			],
-			"sid": 628199180751943
+			"sid": 605702049414472
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "location1",
+					"sid": 486139548606293
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 797380619146311,
+					"parameters": {
+						"variable": "CurrentTime",
+						"value": "int(travel_time_l1 * 60)"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 899436017907263,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 923869520409376,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"fishing\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Map",
+					"sid": 370738163370781,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location1",
+					"sid": 799995189820189,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 348588883402514
 		},
 		{
 			"eventType": "block",
@@ -630,7 +1290,7 @@
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 807852619613890,
+					"sid": 490918790852167,
 					"parameters": {
 						"first-value": "game_state",
 						"comparison": 0,
@@ -642,9 +1302,33 @@
 				{
 					"type": "comment",
 					"text": "start in idle state, move to location, fish for 10-20 ingame mins"
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx1",
+					"sid": 821451889680976,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx2",
+					"sid": 282330277223635,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx4",
+					"sid": 336222689512830,
+					"parameters": {
+						"visibility": "visible"
+					}
 				}
 			],
-			"sid": 420654326925519,
+			"sid": 837876800826178,
 			"children": [
 				{
 					"eventType": "block",
@@ -652,7 +1336,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "boat_temp",
-							"sid": 141498112162250,
+							"sid": 782442909099967,
 							"parameters": {
 								"instance-variable": "state",
 								"comparison": 0,
@@ -664,7 +1348,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "boat_temp",
-							"sid": 431233027083900,
+							"sid": 668332636735280,
 							"parameters": {
 								"instance-variable": "state",
 								"value": "\"moving\""
@@ -673,7 +1357,7 @@
 						{
 							"id": "set-animation",
 							"objectClass": "boat_temp",
-							"sid": 344848100130676,
+							"sid": 177429221650352,
 							"parameters": {
 								"animation": "\"Animation 2\"",
 								"from": "beginning"
@@ -682,7 +1366,7 @@
 						{
 							"id": "move-to-position",
 							"objectClass": "boat_temp",
-							"sid": 822092520552028,
+							"sid": 298488879469828,
 							"behaviorType": "MoveTo",
 							"parameters": {
 								"x": "random(0+boat_temp.ImageWidth, LayoutWidth-boat_temp.ImageWidth)",
@@ -691,7 +1375,7 @@
 							}
 						}
 					],
-					"sid": 110602636514568
+					"sid": 616281724760301
 				},
 				{
 					"eventType": "block",
@@ -699,13 +1383,13 @@
 						{
 							"id": "on-arrived",
 							"objectClass": "boat_temp",
-							"sid": 159410745404972,
+							"sid": 835250864675498,
 							"behaviorType": "MoveTo"
 						},
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "boat_temp",
-							"sid": 806035596831893,
+							"sid": 345253111339128,
 							"parameters": {
 								"instance-variable": "state",
 								"comparison": 0,
@@ -717,13 +1401,13 @@
 						{
 							"id": "stop",
 							"objectClass": "boat_temp",
-							"sid": 169801831478883,
+							"sid": 279874181808854,
 							"behaviorType": "MoveTo"
 						},
 						{
 							"id": "set-animation",
 							"objectClass": "boat_temp",
-							"sid": 232232978600456,
+							"sid": 399482867541872,
 							"parameters": {
 								"animation": "\"Animation 1\"",
 								"from": "beginning"
@@ -732,7 +1416,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "boat_temp",
-							"sid": 749312168149653,
+							"sid": 362667350946942,
 							"parameters": {
 								"instance-variable": "fishing_timer",
 								"value": "int(random(10,20))"
@@ -741,14 +1425,14 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "boat_temp",
-							"sid": 954521725628006,
+							"sid": 929855301931007,
 							"parameters": {
 								"instance-variable": "state",
 								"value": "\"fishing\""
 							}
 						}
 					],
-					"sid": 702420665090212
+					"sid": 825093746856546
 				},
 				{
 					"eventType": "block",
@@ -756,21 +1440,21 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "boat_temp",
-							"sid": 711689865611717,
+							"sid": 327115865642851,
 							"parameters": {
-								"instance-variable": "fishing_timer",
-								"comparison": 3,
-								"value": "0"
+								"instance-variable": "state",
+								"comparison": 0,
+								"value": "\"fishing\""
 							}
 						},
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "boat_temp",
-							"sid": 262215032870863,
+							"sid": 253844927346246,
 							"parameters": {
-								"instance-variable": "state",
-								"comparison": 0,
-								"value": "\"fishing\""
+								"instance-variable": "fishing_timer",
+								"comparison": 3,
+								"value": "0"
 							}
 						}
 					],
@@ -778,14 +1462,48 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "boat_temp",
-							"sid": 890962147137185,
+							"sid": 200629276513482,
 							"parameters": {
 								"instance-variable": "state",
 								"value": "\"idle\""
 							}
 						}
 					],
-					"sid": 164745311032272
+					"sid": 537445073727428
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 245165833307917,
+							"parameters": {
+								"variable": "hours",
+								"comparison": 5,
+								"value": "market_open_time"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "ToMarket",
+							"sid": 955865927908888,
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ToMarket",
+							"sid": 164833557726473,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 588180597237958
 				}
 			]
 		},
@@ -795,33 +1513,92 @@
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 497952256664264,
+					"sid": 712247924543203,
 					"parameters": {
-						"variable": "CurrentTime",
-						"comparison": 4,
-						"value": "market_open_time"
+						"variable": "hours",
+						"comparison": 5,
+						"value": "market_close_time"
 					}
 				}
 			],
 			"actions": [
 				{
-					"id": "set-enabled",
+					"id": "set-visible",
 					"objectClass": "ToMarket",
-					"sid": 810019629879695,
+					"sid": 341300232454121,
 					"parameters": {
-						"mode": "enabled"
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "boat_temp",
+					"sid": 395073810541729,
+					"behaviorType": "MoveTo"
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "boat_temp",
+					"sid": 125082288504317,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "\"idle\""
 					}
 				},
 				{
 					"id": "set-visible",
 					"objectClass": "ToMarket",
-					"sid": 378478471531463,
+					"sid": 489131887063287,
 					"parameters": {
-						"visibility": "visible"
+						"visibility": "invisible"
 					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 467904812096853,
+					"parameters": {
+						"layout": "Layout 2"
+					}
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 634321943265517,
+					"parameters": {
+						"time-scale": "1.0"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx1",
+					"sid": 480683990642284,
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx2",
+					"sid": 968524620262329,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx4",
+					"sid": 648050186919563,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"callFunction": "InitShop",
+					"sid": 170635879856278
 				}
 			],
-			"sid": 803305125617665
+			"sid": 833867861422841
 		},
 		{
 			"eventType": "block",
@@ -845,7 +1622,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "ToMarket",
-					"sid": 527087819978767,
+					"sid": 126330593577119,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -853,16 +1630,56 @@
 				{
 					"id": "stop",
 					"objectClass": "boat_temp",
-					"sid": 449365226843564,
+					"sid": 950275713738576,
 					"behaviorType": "MoveTo"
 				},
 				{
 					"id": "set-instvar-value",
 					"objectClass": "boat_temp",
-					"sid": 509200117910326,
+					"sid": 484994762605790,
 					"parameters": {
 						"instance-variable": "state",
 						"value": "\"idle\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 192480587140446,
+					"parameters": {
+						"layout": "Layout 2"
+					}
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 189684780579988,
+					"parameters": {
+						"time-scale": "1.0"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx1",
+					"sid": 367892427593213,
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx2",
+					"sid": 746763673812279,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx4",
+					"sid": 737466190040135,
+					"parameters": {
+						"mode": "enabled"
 					}
 				},
 				{
@@ -874,20 +1691,12 @@
 					"text": "apply travel time"
 				},
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 550654371383286,
-					"parameters": {
-						"layout": "Layout 2"
-					}
-				},
-				{
 					"id": "add-to-eventvar",
 					"objectClass": "System",
-					"sid": 156990978528950,
+					"sid": 802334727030800,
 					"parameters": {
 						"variable": "CurrentTime",
-						"value": "15"
+						"value": "60"
 					}
 				},
 				{
@@ -1284,9 +2093,9 @@
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 702393716804226,
+					"sid": 733958692137901,
 					"parameters": {
-						"variable": "CurrentTime",
+						"variable": "hours",
 						"comparison": 4,
 						"value": "market_close_time"
 					}
@@ -1301,16 +2110,224 @@
 			"sid": 578889073499870
 		},
 		{
+			"functionName": "InitShop",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 836770107627277,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"shop\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 627849669219041,
+					"parameters": {
+						"variable": "maintance_level",
+						"value": "clamp(maintance_level+1,0,7)"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishY",
+					"sid": 915920488092614,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishN",
+					"sid": 548817736944214,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeBG",
+					"sid": 495202586609077,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "UpgradeBG",
+					"sid": 908752302540335,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Shop",
+					"sid": 323605406214581,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "BoatLvl",
+					"sid": 892464860643188,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "RodLvl",
+					"sid": 938466834566551,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Nets",
+					"sid": 433994427178751,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "EquipmentQuality",
+					"sid": 462167657763269,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "BoatLvl",
+					"sid": 737694627208520,
+					"parameters": {
+						"text": "\"Boat Lvl: \" & boat_level"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "RodLvl",
+					"sid": 192576088408175,
+					"parameters": {
+						"text": "\"Rod Lvl: \" & rod_level"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Nets",
+					"sid": 927988970462195,
+					"parameters": {
+						"text": "\"Net Amt: \" & net_level"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "EquipmentQuality",
+					"sid": 545233772838959,
+					"parameters": {
+						"text": "\"Equipment Quality: \" & (7-maintance_level )"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeBoat",
+					"sid": 523659995899077,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeRod",
+					"sid": 224444233191052,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeNets",
+					"sid": 631831946945524,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Maintanance",
+					"sid": 370987597888709,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "UpgradeBoat",
+					"sid": 528427549320117,
+					"parameters": {
+						"text": "\"$\" & boat_level * boat_upgrade"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "UpgradeRod",
+					"sid": 784518034308184,
+					"parameters": {
+						"text": "\"$\" & rod_level* rod_upgrade"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "UpgradeNets",
+					"sid": 383460739704791,
+					"parameters": {
+						"text": "\"$\" & (net_level+1) * net_upgrade"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Maintanance",
+					"sid": 517669119893579,
+					"parameters": {
+						"text": "\"Maintenance \" & \"$\" & maintance_level * boat_level  * 5 + 1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Sleep",
+					"sid": 749125342519153,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 668880828167245
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 796066499818944,
+					"sid": 571545297225994,
 					"parameters": {
 						"first-value": "game_state",
 						"comparison": 0,
-						"second-value": "\"bills\""
+						"second-value": "\"shop\""
 					}
 				}
 			],
@@ -1325,18 +2342,66 @@
 				},
 				{
 					"id": "set-text",
-					"objectClass": "Bills",
-					"sid": 653661481817612,
+					"objectClass": "BoatLvl",
+					"sid": 661164849103780,
 					"parameters": {
-						"text": "\"Bills: $\" & bill"
+						"text": "\"Boat Lvl: \" & boat_level"
 					}
 				},
 				{
 					"id": "set-text",
 					"objectClass": "RodLvl",
-					"sid": 209626907608751,
+					"sid": 110994980871975,
 					"parameters": {
-						"text": "\"Rod Lvl\" & fishing_rod_level & \" $10\""
+						"text": "\"Rod Lvl: \" & rod_level"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Nets",
+					"sid": 481866662678313,
+					"parameters": {
+						"text": "\"Net Amt: \" & net_level"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "EquipmentQuality",
+					"sid": 879471320629228,
+					"parameters": {
+						"text": "\"Equipment Quality: \" & (7-maintance_level )"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "UpgradeBoat",
+					"sid": 567713983449789,
+					"parameters": {
+						"text": "\"$\" & boat_level * boat_upgrade"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "UpgradeRod",
+					"sid": 875535756444792,
+					"parameters": {
+						"text": "\"$\" & rod_level* rod_upgrade"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "UpgradeNets",
+					"sid": 650691849348123,
+					"parameters": {
+						"text": "\"$\" & (net_level+1) * net_upgrade"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Maintanance",
+					"sid": 356634046276546,
+					"parameters": {
+						"text": "\"Maintenance \" & \"$\" & maintance_level * boat_level  * 5 + 1"
 					}
 				}
 			],
@@ -1347,17 +2412,17 @@
 			"conditions": [
 				{
 					"id": "on-clicked",
-					"objectClass": "PayBill",
+					"objectClass": "UpgradeBoat",
 					"sid": 277437106244396
 				},
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 311183900619007,
+					"sid": 104359386448486,
 					"parameters": {
 						"first-value": "money",
 						"comparison": 5,
-						"second-value": "bill"
+						"second-value": "boat_level* boat_upgrade"
 					}
 				}
 			],
@@ -1365,18 +2430,10 @@
 				{
 					"id": "subtract-from-eventvar",
 					"objectClass": "System",
-					"sid": 592797760060876,
+					"sid": 931664916578585,
 					"parameters": {
 						"variable": "money",
-						"value": "bill"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "PayBill",
-					"sid": 419830370267055,
-					"parameters": {
-						"visibility": "invisible"
+						"value": "boat_level * boat_upgrade"
 					}
 				},
 				{
@@ -1390,6 +2447,15 @@
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 177223289604983,
+					"parameters": {
+						"variable": "boat_level",
+						"value": "1"
+					}
 				}
 			],
 			"sid": 195920825503391
@@ -1399,17 +2465,17 @@
 			"conditions": [
 				{
 					"id": "on-clicked",
-					"objectClass": "Upgrade",
+					"objectClass": "UpgradeRod",
 					"sid": 336837131282738
 				},
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 450169692341423,
+					"sid": 706309871599498,
 					"parameters": {
 						"first-value": "money",
 						"comparison": 5,
-						"second-value": "10"
+						"second-value": "rod_level * rod_upgrade"
 					}
 				}
 			],
@@ -1417,18 +2483,10 @@
 				{
 					"id": "subtract-from-eventvar",
 					"objectClass": "System",
-					"sid": 864675700471875,
+					"sid": 117695476087607,
 					"parameters": {
 						"variable": "money",
-						"value": "10"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Upgrade",
-					"sid": 853388284023610,
-					"parameters": {
-						"visibility": "invisible"
+						"value": "rod_level* rod_upgrade"
 					}
 				},
 				{
@@ -1442,6 +2500,15 @@
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 787040712362908,
+					"parameters": {
+						"variable": "rod_level",
+						"value": "1"
+					}
 				}
 			],
 			"sid": 697629054856474
@@ -1451,38 +2518,308 @@
 			"conditions": [
 				{
 					"id": "on-clicked",
-					"objectClass": "End",
+					"objectClass": "UpgradeNets",
+					"sid": 678581871943798
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 684007889640627,
+					"parameters": {
+						"first-value": "money",
+						"comparison": 5,
+						"second-value": "(net_level+1) * net_upgrade"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 829243628837846,
+					"parameters": {
+						"variable": "money",
+						"value": "net_level* net_upgrade"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 423314550978242,
+					"parameters": {
+						"audio-file": "Coins4",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 279713125819766,
+					"parameters": {
+						"variable": "net_level",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 865059714198640
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Maintanance",
+					"sid": 915420969119409
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 121739880709949,
+					"parameters": {
+						"first-value": "money",
+						"comparison": 5,
+						"second-value": "maintance_level * boat_level  * 5 + 1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 569856962862610,
+					"parameters": {
+						"variable": "money",
+						"value": "maintance_level * boat_level  * 5 + 1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 978810104446023,
+					"parameters": {
+						"audio-file": "Coins4",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 622783645996490,
+					"parameters": {
+						"variable": "maintance_level",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Maintanance",
+					"sid": 460935263874765,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 207213492932053
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Sleep",
 					"sid": 199522179074062
 				}
 			],
 			"actions": [
 				{
+					"id": "set-visible",
+					"objectClass": "UpgradeBG",
+					"sid": 678064474643348,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Shop",
+					"sid": 185754676922669,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "BoatLvl",
+					"sid": 363962464656032,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "RodLvl",
+					"sid": 532313716976953,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Nets",
+					"sid": 463511885423532,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "EquipmentQuality",
+					"sid": 346983509795972,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeBoat",
+					"sid": 507437903745390,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeRod",
+					"sid": 664644639545463,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "UpgradeNets",
+					"sid": 880327936714560,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Maintanance",
+					"sid": 470359931355922,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"callFunction": "Sleep",
+					"sid": 474286502509049
+				}
+			],
+			"sid": 769308363444029
+		},
+		{
+			"functionName": "Sleep",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 270326996427266,
+					"sid": 927367973541332,
 					"parameters": {
 						"variable": "game_state",
-						"value": "\"end\""
+						"value": "\"sleep\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "NightSky",
+					"sid": 205991445977991,
+					"parameters": {
+						"visibility": "visible"
 					}
 				},
 				{
 					"id": "set-opacity",
-					"objectClass": "EndScreen",
-					"sid": 566254543373199,
+					"objectClass": "NightSky",
+					"sid": 977475666589383,
 					"parameters": {
 						"opacity": "100"
 					}
 				},
 				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 798920793693342,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
 					"id": "set-visible",
-					"objectClass": "EndScreen",
-					"sid": 192859551467241,
+					"objectClass": "MorningSky",
+					"sid": 774340183697589,
 					"parameters": {
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "MorningSky",
+					"sid": 259242266246682,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 125894393335069,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 331768418236416,
+					"parameters": {
+						"variable": "energy",
+						"value": "clamp(clamp((24-hours),1,24) * 60 * 0.15,1,100)"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 805657828156063,
+					"parameters": {
+						"layout": "Layout 1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 422583224496436,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"init\""
+					}
 				}
 			],
-			"sid": 769308363444029
+			"sid": 108654237856123
 		},
 		{
 			"eventType": "block",
@@ -1618,109 +2955,6 @@
 				}
 			],
 			"sid": 168571152004515
-		},
-		{
-			"functionName": "InitShop",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-visible",
-					"objectClass": "SellFishY",
-					"sid": 579067185152402,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "SellFishN",
-					"sid": 511878861218990,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "UpgradeBG",
-					"sid": 172206582350199,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "UpgradeBG",
-					"sid": 657679593057257,
-					"parameters": {
-						"opacity": "100"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Shop",
-					"sid": 101898823492859,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Bills",
-					"sid": 207438015531002,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "RodLvl",
-					"sid": 498039347471146,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "PayBill",
-					"sid": 995848378401074,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "End",
-					"sid": 354124815731792,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Upgrade",
-					"sid": 821571465407464,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 145019346821974,
-					"parameters": {
-						"variable": "game_state",
-						"value": "\"bills\""
-					}
-				}
-			],
-			"sid": 324544801703874
 		}
 	],
 	"sid": 792945772843594
