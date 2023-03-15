@@ -1,6 +1,0 @@
-
-function fish (rodlvl, location)
-{
-	
-
-}

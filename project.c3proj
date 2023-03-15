@@ -141,7 +141,8 @@
 			"Maintanance",
 			"GameOverScreen",
 			"GAMEOVER",
-			"NextDay"
+			"NextDay",
+			"console"
 		],
 		"subfolders": []
 	},
@@ -169,11 +170,27 @@
 		"script": {
 			"items": [
 				{
-					"name": "Fishing.js",
+					"name": "main.js",
 					"type": "application/javascript",
 					"sid": 158217272343051,
 					"script-info": {
 						"purpose": "main"
+					}
+				},
+				{
+					"name": "audioManager.js",
+					"type": "application/javascript",
+					"sid": 976241532974645,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "importsForEvents.js",
+					"type": "application/javascript",
+					"sid": 406144862879372,
+					"script-info": {
+						"purpose": "imports-for-events"
 					}
 				}
 			],

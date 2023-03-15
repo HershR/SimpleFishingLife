@@ -592,177 +592,13 @@
 											}
 										}
 									],
-									"actions": [],
-									"sid": 509715558119359,
-									"children": [
+									"actions": [
 										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 381263849466382,
-													"parameters": {
-														"first-value": "random(0,100)",
-														"comparison": 3,
-														"second-value": "fish_pop1/2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"type": "comment",
-													"text": "if we want to include fish population, then we can simple change the probability of the player finding a fish"
-												}
-											],
-											"sid": 373132157590148,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 943795242561049,
-															"parameters": {
-																"first-value": "random(0,100)",
-																"comparison": 3,
-																"second-value": "10 + rod_level * 2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"type": "comment",
-															"text": "+1 fish, soundfx, text"
-														},
-														{
-															"id": "play",
-															"objectClass": "BGM",
-															"sid": 236268868000213,
-															"parameters": {
-																"audio-file": "splash",
-																"loop": "not-looping",
-																"volume": "-20",
-																"stereo-pan": "0",
-																"tag-optional": "\"\""
-															}
-														},
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 888629104690949,
-															"parameters": {
-																"variable": "fish_amount2",
-																"value": "1"
-															}
-														},
-														{
-															"id": "subtract-from-eventvar",
-															"objectClass": "System",
-															"sid": 706587275461673,
-															"parameters": {
-																"variable": "fish_pop2",
-																"value": ".5"
-															}
-														}
-													],
-													"sid": 240184319191238
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 463309928706752,
-															"parameters": {
-																"first-value": "random(0,100)",
-																"comparison": 3,
-																"second-value": "30 + rod_level * 2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "BGM",
-															"sid": 507514995587959,
-															"parameters": {
-																"audio-file": "splash",
-																"loop": "not-looping",
-																"volume": "-20",
-																"stereo-pan": "0",
-																"tag-optional": "\"\""
-															}
-														},
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 774658829005802,
-															"parameters": {
-																"variable": "fish_amount1",
-																"value": "2"
-															}
-														},
-														{
-															"id": "subtract-from-eventvar",
-															"objectClass": "System",
-															"sid": 911278297335850,
-															"parameters": {
-																"variable": "fish_pop1",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 242788440462459
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 879910605204922
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "BGM",
-															"sid": 227081574593975,
-															"parameters": {
-																"audio-file": "splash",
-																"loop": "not-looping",
-																"volume": "-20",
-																"stereo-pan": "0",
-																"tag-optional": "\"\""
-															}
-														},
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 916000714970908,
-															"parameters": {
-																"variable": "fish_amount1",
-																"value": "1"
-															}
-														},
-														{
-															"id": "subtract-from-eventvar",
-															"objectClass": "System",
-															"sid": 782256777532042,
-															"parameters": {
-																"variable": "fish_pop1",
-																"value": ".5"
-															}
-														}
-													],
-													"sid": 871641920090210
-												}
-											]
+											"type": "script",
+											"script": "console.log(\"fishing\");\nvar fishPob = Math.random()*100;\nif(fishPob < runtime.globalVars.fish_pop1/2)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar Modifier = runtime.globalVars.rod_level * 2;\n\tconsole.log(\"catch: \" + Catch );\n\tconsole.log(\"modifer: \" + Modifier );\n\tif(Catch < 10 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=1;\n\t\truntime.globalVars.fish_pop2 -=.5;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount1 +=2;\n\t\truntime.globalVars.fish_pop1 -=1;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=1;\t\n\t\truntime.globalVars.fish_pop1 -=0.5;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
 										}
-									]
+									],
+									"sid": 509715558119359
 								}
 							]
 						},
@@ -780,49 +616,13 @@
 									}
 								}
 							],
-							"actions": [],
-							"sid": 140170778888107,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 139186992751592,
-											"parameters": {
-												"first-value": "random(0,1)",
-												"comparison": 2,
-												"second-value": "net_level*0.1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 348394878168268,
-											"parameters": {
-												"variable": "fish_amount1",
-												"value": "1"
-											}
-										},
-										{
-											"id": "play",
-											"objectClass": "BGM",
-											"sid": 826658573859209,
-											"parameters": {
-												"audio-file": "splash",
-												"loop": "not-looping",
-												"volume": "-20",
-												"stereo-pan": "0",
-												"tag-optional": "\"\""
-											}
-										}
-									],
-									"sid": 900653837976055
+									"type": "script",
+									"script": "var catchProb = Math.random()*100\n\nif(catchProb < runtime.globalVars.net_level * 3)\n{\n\truntime.globalVars.fish_amount1 += 1;\n\tMain.PlaySplash();\n}"
 								}
-							]
+							],
+							"sid": 140170778888107
 						}
 					]
 				}
