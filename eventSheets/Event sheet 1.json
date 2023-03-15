@@ -73,6 +73,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "money",
+			"type": "number",
+			"initialValue": "15",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 908406557548237
+		},
+		{
+			"eventType": "variable",
 			"name": "energy",
 			"type": "number",
 			"initialValue": "100",
@@ -83,13 +93,23 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "money",
+			"name": "mental_stability",
 			"type": "number",
-			"initialValue": "15",
+			"initialValue": "100",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 671766927440782
+			"sid": 619603218518909
+		},
+		{
+			"eventType": "variable",
+			"name": "hunger",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 521647257873012
 		},
 		{
 			"eventType": "variable",
@@ -193,6 +213,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "permit_base_cost",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "5 * the week",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 601270786525978
+		},
+		{
+			"eventType": "variable",
 			"name": "permit_cost",
 			"type": "number",
 			"initialValue": "5",
@@ -223,7 +253,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "fish_1_amount",
+			"name": "fish_amount1",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -233,9 +263,19 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "fish_1_price",
+			"name": "fish_pop1",
 			"type": "number",
-			"initialValue": "3",
+			"initialValue": "100",
+			"comment": "in percent",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 546001677951420
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_price1",
+			"type": "number",
+			"initialValue": "1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -243,7 +283,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "Fish_1_Demand",
+			"name": "Fish_Demand1",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -252,14 +292,94 @@
 			"sid": 990842991697729
 		},
 		{
+			"eventType": "variable",
+			"name": "fish_amount2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 981637172645513
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_price2",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 925205780944270
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_pop2",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "in percent",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 435771053870602
+		},
+		{
+			"eventType": "variable",
+			"name": "Fish_Demand2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 358467839288955
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_amount3",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 986447515466563
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_price3",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 154091303973786
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_pop3",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "in percent",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 643161224211679
+		},
+		{
+			"eventType": "variable",
+			"name": "Fish_Demand3",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 787036781967605
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 809068948784140,
+					"sid": 235253433452073,
 					"parameters": {
-						"interval-seconds": "0.25"
+						"interval-seconds": "1"
 					}
 				},
 				{
@@ -425,7 +545,7 @@
 							"objectClass": "fish1Count",
 							"sid": 649381010586317,
 							"parameters": {
-								"text": "\"Fish 1: \" & fish_1_amount"
+								"text": "\"Fish 1: \" & fish_amount1"
 							}
 						}
 					],
@@ -462,23 +582,18 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-two-values",
+											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 751933670217439,
+											"sid": 357286158306583,
 											"parameters": {
-												"first-value": "random(0,1)",
-												"comparison": 3,
-												"second-value": ".2"
+												"variable": "player_location",
+												"comparison": 0,
+												"value": "1"
 											}
 										}
 									],
-									"actions": [
-										{
-											"type": "comment",
-											"text": "if we want to include fish population, then we can simple change the probability of the player finding a fish"
-										}
-									],
-									"sid": 246273965441492,
+									"actions": [],
+									"sid": 509715558119359,
 									"children": [
 										{
 											"eventType": "block",
@@ -486,97 +601,166 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 168508232481964,
+													"sid": 381263849466382,
 													"parameters": {
-														"first-value": "random(0,1 - (rod_level-1)*0.12)",
+														"first-value": "random(0,100)",
 														"comparison": 3,
-														"second-value": ".1"
+														"second-value": "fish_pop1/2"
 													}
 												}
 											],
 											"actions": [
 												{
 													"type": "comment",
-													"text": "+1 fish, soundfx, text"
+													"text": "if we want to include fish population, then we can simple change the probability of the player finding a fish"
+												}
+											],
+											"sid": 373132157590148,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 943795242561049,
+															"parameters": {
+																"first-value": "random(0,100)",
+																"comparison": 3,
+																"second-value": "10 + rod_level * 2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"type": "comment",
+															"text": "+1 fish, soundfx, text"
+														},
+														{
+															"id": "play",
+															"objectClass": "BGM",
+															"sid": 236268868000213,
+															"parameters": {
+																"audio-file": "splash",
+																"loop": "not-looping",
+																"volume": "-20",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 888629104690949,
+															"parameters": {
+																"variable": "fish_amount2",
+																"value": "1"
+															}
+														},
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 706587275461673,
+															"parameters": {
+																"variable": "fish_pop2",
+																"value": ".5"
+															}
+														}
+													],
+													"sid": 240184319191238
 												},
 												{
-													"id": "play",
-													"objectClass": "BGM",
-													"sid": 771120562118251,
-													"parameters": {
-														"audio-file": "splash",
-														"loop": "not-looping",
-														"volume": "-20",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												}
-											],
-											"sid": 824974807933875
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 537082711627507,
-													"parameters": {
-														"first-value": "random(0,1 - (rod_level-1)*0.12)",
-														"comparison": 3,
-														"second-value": ".3"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "BGM",
-													"sid": 188385202377844,
-													"parameters": {
-														"audio-file": "splash",
-														"loop": "not-looping",
-														"volume": "-20",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												}
-											],
-											"sid": 228323295216459
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 529890832963159
-												}
-											],
-											"actions": [
-												{
-													"id": "add-to-eventvar",
-													"objectClass": "System",
-													"sid": 541133590100937,
-													"parameters": {
-														"variable": "fish_1_amount",
-														"value": "1"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 463309928706752,
+															"parameters": {
+																"first-value": "random(0,100)",
+																"comparison": 3,
+																"second-value": "30 + rod_level * 2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "BGM",
+															"sid": 507514995587959,
+															"parameters": {
+																"audio-file": "splash",
+																"loop": "not-looping",
+																"volume": "-20",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 774658829005802,
+															"parameters": {
+																"variable": "fish_amount1",
+																"value": "2"
+															}
+														},
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 911278297335850,
+															"parameters": {
+																"variable": "fish_pop1",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 242788440462459
 												},
 												{
-													"id": "play",
-													"objectClass": "BGM",
-													"sid": 823026992741354,
-													"parameters": {
-														"audio-file": "splash",
-														"loop": "not-looping",
-														"volume": "-20",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 879910605204922
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "BGM",
+															"sid": 227081574593975,
+															"parameters": {
+																"audio-file": "splash",
+																"loop": "not-looping",
+																"volume": "-20",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 916000714970908,
+															"parameters": {
+																"variable": "fish_amount1",
+																"value": "1"
+															}
+														},
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 782256777532042,
+															"parameters": {
+																"variable": "fish_pop1",
+																"value": ".5"
+															}
+														}
+													],
+													"sid": 871641920090210
 												}
-											],
-											"sid": 849239496137607
+											]
 										}
 									]
 								}
@@ -619,7 +803,7 @@
 											"objectClass": "System",
 											"sid": 348394878168268,
 											"parameters": {
-												"variable": "fish_1_amount",
+												"variable": "fish_amount1",
 												"value": "1"
 											}
 										},
@@ -801,95 +985,24 @@
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
-				}
-			],
-			"sid": 129477501321236,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 111575913365630,
-							"parameters": {
-								"first-value": "Money",
-								"comparison": 2,
-								"second-value": "permit_cost  * ((int(Day/markup_day))+1)"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-opacity",
-							"objectClass": "GameOverScreen",
-							"sid": 527539693322623,
-							"parameters": {
-								"opacity": "100"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "GameOverScreen",
-							"sid": 758551898645916,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "GAMEOVER",
-							"sid": 256472456532226,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 539925771920011,
-							"parameters": {
-								"variable": "game_state",
-								"value": "\"end\""
-							}
-						}
-					],
-					"sid": 564083969255379
 				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 422725544869710
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "InitStart",
-							"sid": 717611317707611
-						}
-					],
-					"sid": 534770304507337
-				}
-			]
-		},
-		{
-			"functionName": "InitStart",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 759400726558242,
+					"sid": 553323990910941,
+					"parameters": {
+						"variable": "permit_cost",
+						"value": "permit_base_cost * (int(Day/markup_day)+1)"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "set to start"
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 277179390063782,
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"start\""
@@ -898,7 +1011,7 @@
 				{
 					"id": "add-to-eventvar",
 					"objectClass": "System",
-					"sid": 647262545787032,
+					"sid": 838029016991040,
 					"parameters": {
 						"variable": "day",
 						"value": "1"
@@ -907,7 +1020,7 @@
 				{
 					"id": "set-animation",
 					"objectClass": "boat_temp",
-					"sid": 141991800997112,
+					"sid": 902238142984187,
 					"parameters": {
 						"animation": "\"Animation 2\"",
 						"from": "beginning"
@@ -916,7 +1029,7 @@
 				{
 					"id": "set-opacity",
 					"objectClass": "StartScreen",
-					"sid": 529464362586287,
+					"sid": 372493072758586,
 					"parameters": {
 						"opacity": "100"
 					}
@@ -924,7 +1037,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "StartScreen",
-					"sid": 926279662711827,
+					"sid": 915050300940639,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -932,7 +1045,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "Start",
-					"sid": 860611048965282,
+					"sid": 684953407690425,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -940,7 +1053,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "Day",
-					"sid": 316703639983425,
+					"sid": 739443130611760,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -948,7 +1061,7 @@
 				{
 					"id": "set-text",
 					"objectClass": "Day",
-					"sid": 161202516346654,
+					"sid": 784223869805921,
 					"parameters": {
 						"text": "\"Day \" & day "
 					}
@@ -956,7 +1069,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "PermitCost",
-					"sid": 683685936540568,
+					"sid": 730613050279408,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -964,7 +1077,7 @@
 				{
 					"id": "set-text",
 					"objectClass": "PermitCost",
-					"sid": 523418161399625,
+					"sid": 780819973443688,
 					"parameters": {
 						"text": "\"Fishing Permit $\" & permit_cost  * ((int(Day/markup_day))+1)"
 					}
@@ -972,7 +1085,7 @@
 				{
 					"id": "set-text",
 					"objectClass": "Money",
-					"sid": 440246086656438,
+					"sid": 367559961966579,
 					"parameters": {
 						"text": "\"Money: $\" & money"
 					}
@@ -980,7 +1093,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "MarketOpen",
-					"sid": 414282853899114,
+					"sid": 193951061834196,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -988,7 +1101,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "MarketClose",
-					"sid": 734901797942288,
+					"sid": 950669679925853,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -996,7 +1109,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "Fish1Price",
-					"sid": 881251515011057,
+					"sid": 166983960316884,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -1004,7 +1117,7 @@
 				{
 					"id": "set-text",
 					"objectClass": "MarketOpen",
-					"sid": 562107313165992,
+					"sid": 296774145775650,
 					"parameters": {
 						"text": "\"Market Opens: \" & zeropad(market_open_time,2) & \":00\""
 					}
@@ -1012,7 +1125,7 @@
 				{
 					"id": "set-text",
 					"objectClass": "MarketClose",
-					"sid": 870038333661923,
+					"sid": 473913650410200,
 					"parameters": {
 						"text": "\"Market Closes: \" & zeropad(market_close_time, 2) & \":00\""
 					}
@@ -1020,13 +1133,13 @@
 				{
 					"id": "set-text",
 					"objectClass": "Fish1Price",
-					"sid": 427584922763072,
+					"sid": 464936952417381,
 					"parameters": {
-						"text": "\"Fish 1 Price: $\" & fish_1_price"
+						"text": "\"Fish 1 Price: $\" & fish_price1"
 					}
 				}
 			],
-			"sid": 323269295233923
+			"sid": 129477501321236
 		},
 		{
 			"eventType": "block",
@@ -1093,42 +1206,108 @@
 					"parameters": {
 						"visibility": "invisible"
 					}
-				},
-				{
-					"id": "play",
-					"objectClass": "BGM",
-					"sid": 545805783112202,
-					"parameters": {
-						"audio-file": "Coins4",
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 878733161793073,
-					"parameters": {
-						"variable": "money",
-						"value": "permit_cost  * ((int(Day/markup_day))+1)"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Money",
-					"sid": 655062092770725,
-					"parameters": {
-						"text": "\"Money: $\" & money"
-					}
-				},
-				{
-					"callFunction": "InitLocationSelect",
-					"sid": 100419447946810
 				}
 			],
-			"sid": 142030258949201
+			"sid": 142030258949201,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 979861063182790,
+							"parameters": {
+								"first-value": "Money",
+								"comparison": 2,
+								"second-value": "permit_cost "
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "GameOverScreen",
+							"sid": 475319988113122,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "GameOverScreen",
+							"sid": 999491626044630,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "GAMEOVER",
+							"sid": 448309619094453,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 541926280099437,
+							"parameters": {
+								"variable": "game_state",
+								"value": "\"end\""
+							}
+						}
+					],
+					"sid": 787100186079528
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 275504359709580
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "BGM",
+							"sid": 545805783112202,
+							"parameters": {
+								"audio-file": "Coins4",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 878733161793073,
+							"parameters": {
+								"variable": "money",
+								"value": "permit_cost  * ((int(Day/markup_day))+1)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Money",
+							"sid": 655062092770725,
+							"parameters": {
+								"text": "\"Money: $\" & money"
+							}
+						},
+						{
+							"callFunction": "InitLocationSelect",
+							"sid": 100419447946810
+						}
+					],
+					"sid": 433079471064696
+				}
+			]
 		},
 		{
 			"functionName": "InitLocationSelect",
@@ -1263,6 +1442,15 @@
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"fishing\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 259147290455170,
+					"parameters": {
+						"variable": "player_location",
+						"value": "1"
 					}
 				},
 				{
@@ -1511,99 +1699,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 712247924543203,
-					"parameters": {
-						"variable": "hours",
-						"comparison": 5,
-						"value": "market_close_time"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-visible",
-					"objectClass": "ToMarket",
-					"sid": 341300232454121,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "stop",
-					"objectClass": "boat_temp",
-					"sid": 395073810541729,
-					"behaviorType": "MoveTo"
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "boat_temp",
-					"sid": 125082288504317,
-					"parameters": {
-						"instance-variable": "state",
-						"value": "\"idle\""
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "ToMarket",
-					"sid": 489131887063287,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 467904812096853,
-					"parameters": {
-						"layout": "Layout 2"
-					}
-				},
-				{
-					"id": "set-time-scale",
-					"objectClass": "System",
-					"sid": 634321943265517,
-					"parameters": {
-						"time-scale": "1.0"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Speedx1",
-					"sid": 480683990642284,
-					"parameters": {
-						"mode": "disabled"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Speedx2",
-					"sid": 968524620262329,
-					"parameters": {
-						"mode": "enabled"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Speedx4",
-					"sid": 648050186919563,
-					"parameters": {
-						"mode": "enabled"
-					}
-				},
-				{
-					"callFunction": "InitShop",
-					"sid": 170635879856278
-				}
-			],
-			"sid": 833867861422841
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-clicked",
 					"objectClass": "ToMarket",
 					"sid": 809200650380851
@@ -1704,8 +1799,8 @@
 					"objectClass": "System",
 					"sid": 548038304766719,
 					"parameters": {
-						"variable": "Fish_1_Demand",
-						"value": "round(random(1,fish_1_amount))"
+						"variable": "Fish_Demand1",
+						"value": "round(random(1,fish_amount1))"
 					}
 				}
 			],
@@ -1731,7 +1826,7 @@
 					"objectClass": "Fish1Price",
 					"sid": 743043746409410,
 					"parameters": {
-						"text": "\"$\"& fish_1_price"
+						"text": "\"$\"& fish_price1"
 					}
 				},
 				{
@@ -1739,7 +1834,7 @@
 					"objectClass": "SFishC",
 					"sid": 845056025780919,
 					"parameters": {
-						"text": "fish_1_amount"
+						"text": "fish_amount1"
 					}
 				},
 				{
@@ -1755,7 +1850,7 @@
 					"objectClass": "Fish1DemandT",
 					"sid": 688867371912913,
 					"parameters": {
-						"text": "\"Small Fish X \"&Fish_1_Demand"
+						"text": "\"Small Fish X \"&Fish_Demand1"
 					}
 				}
 			],
@@ -1850,7 +1945,7 @@
 							"objectClass": "System",
 							"sid": 511567878367430,
 							"parameters": {
-								"first-value": "fish_1_amount",
+								"first-value": "fish_amount1",
 								"comparison": 0,
 								"second-value": "0"
 							}
@@ -1889,8 +1984,8 @@
 					"objectClass": "System",
 					"sid": 443605951074557,
 					"parameters": {
-						"variable": "fish_1_amount",
-						"value": "Fish_1_Demand"
+						"variable": "fish_amount1",
+						"value": "Fish_Demand1"
 					}
 				},
 				{
@@ -1899,7 +1994,7 @@
 					"sid": 607791722326517,
 					"parameters": {
 						"variable": "money",
-						"value": "Fish_1_Demand * fish_1_price"
+						"value": "Fish_Demand1 * fish_price1"
 					}
 				},
 				{
@@ -1907,8 +2002,8 @@
 					"objectClass": "System",
 					"sid": 688369650417584,
 					"parameters": {
-						"variable": "Fish_1_Demand",
-						"value": "round(random(1,fish_1_amount))"
+						"variable": "Fish_Demand1",
+						"value": "round(random(1,fish_amount1))"
 					}
 				},
 				{
@@ -1990,8 +2085,8 @@
 					"objectClass": "System",
 					"sid": 485857196372873,
 					"parameters": {
-						"variable": "Fish_1_Demand",
-						"value": "round(random(1,fish_1_amount))"
+						"variable": "Fish_Demand1",
+						"value": "round(random(1,fish_amount1))"
 					}
 				},
 				{
@@ -2093,21 +2188,169 @@
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 733958692137901,
+					"sid": 527486907934801,
 					"parameters": {
 						"variable": "hours",
-						"comparison": 4,
+						"comparison": 5,
 						"value": "market_close_time"
 					}
 				}
 			],
 			"actions": [
 				{
+					"id": "set-visible",
+					"objectClass": "ToMarket",
+					"sid": 504536379834201,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "boat_temp",
+					"sid": 120406952990786,
+					"behaviorType": "MoveTo"
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "boat_temp",
+					"sid": 831953348279263,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "\"idle\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ToMarket",
+					"sid": 387109776740102,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 337601385888170,
+					"parameters": {
+						"layout": "Layout 2"
+					}
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 143922856747871,
+					"parameters": {
+						"time-scale": "1.0"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx1",
+					"sid": 622133538794033,
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx2",
+					"sid": 124023362455474,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx4",
+					"sid": 168460430822947,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish1DemandT",
+					"sid": 693778521862627,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishY",
+					"sid": 160896438485467,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishN",
+					"sid": 523613557211402,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellDialogue",
+					"sid": 262234856309321,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "StickFigure1",
+					"sid": 483900788605615,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "StickFigure1",
+					"sid": 621742121844338,
+					"parameters": {
+						"x": "940",
+						"y": "330"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "CloseM",
+					"sid": 263044818213602,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
 					"callFunction": "InitShop",
-					"sid": 646749838656117
+					"sid": 108025708717044
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketBackground",
+					"sid": 539811072893760,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketBackground2",
+					"sid": 843768503726969,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"callFunction": "InitShop",
+					"sid": 889454843935729
 				}
 			],
-			"sid": 578889073499870
+			"sid": 221827242663172
 		},
 		{
 			"functionName": "InitShop",
@@ -2308,7 +2551,7 @@
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Sleep",
+					"objectClass": "Done",
 					"sid": 749125342519153,
 					"parameters": {
 						"visibility": "visible"
@@ -2399,9 +2642,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "Maintanance",
-					"sid": 356634046276546,
+					"sid": 494768204757010,
 					"parameters": {
-						"text": "\"Maintenance \" & \"$\" & maintance_level * boat_level  * 5 + 1"
+						"text": "\"Maintenance \" & \"$\" & maintance_level * boat_level  * 5 + 10"
 					}
 				}
 			],
@@ -2632,7 +2875,7 @@
 			"conditions": [
 				{
 					"id": "on-clicked",
-					"objectClass": "Sleep",
+					"objectClass": "Done",
 					"sid": 199522179074062
 				}
 			],
@@ -2718,15 +2961,19 @@
 					}
 				},
 				{
-					"callFunction": "Sleep",
+					"callFunction": "EndSummary",
 					"sid": 474286502509049
+				},
+				{
+					"type": "comment",
+					"text": "display end of day summary"
 				}
 			],
 			"sid": 769308363444029
 		},
 		{
-			"functionName": "Sleep",
-			"functionDescription": "",
+			"functionName": "EndSummary",
+			"functionDescription": "End of day summary",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionCopyPicked": false,
@@ -2802,9 +3049,26 @@
 					}
 				},
 				{
+					"type": "comment",
+					"text": "show new mental state, hunger state, and energy level"
+				}
+			],
+			"sid": 108654237856123
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "NextDay",
+					"sid": 658817295732080
+				}
+			],
+			"actions": [
+				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 805657828156063,
+					"sid": 788071368115992,
 					"parameters": {
 						"layout": "Layout 1"
 					}
@@ -2812,14 +3076,14 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 422583224496436,
+					"sid": 558362927722696,
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"init\""
 					}
 				}
 			],
-			"sid": 108654237856123
+			"sid": 315381974730647
 		},
 		{
 			"eventType": "block",

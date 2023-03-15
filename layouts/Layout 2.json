@@ -1134,10 +1134,10 @@
 					}
 				},
 				{
-					"type": "Sleep",
+					"type": "Done",
 					"properties": {
 						"type": "button",
-						"text": "Sleep",
+						"text": "Done",
 						"tooltip": "Get some Rest",
 						"initially-visible": false,
 						"enabled": true,
@@ -1151,9 +1151,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 742,
-						"y": 373,
-						"width": 97,
-						"height": 55,
+						"y": 392.25619834710744,
+						"width": 99,
+						"height": 38,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1587,8 +1587,39 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 744.0067229467975,
-						"y": 431.8010929832774,
+						"x": 742,
+						"y": 432,
+						"width": 99,
+						"height": 38,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "NextDay",
+					"properties": {
+						"type": "button",
+						"text": "Next Day",
+						"tooltip": "Get some Rest",
+						"initially-visible": false,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 72,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 740.8801804031156,
+						"y": 352.62431423872533,
 						"width": 99,
 						"height": 38,
 						"originX": 0,

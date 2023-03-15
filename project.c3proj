@@ -118,7 +118,7 @@
 			"RodLvl",
 			"UpgradeRod",
 			"Shop",
-			"Sleep",
+			"Done",
 			"MarketBackground",
 			"MarketBackground2",
 			"House",
@@ -140,7 +140,8 @@
 			"EquipmentQuality",
 			"Maintanance",
 			"GameOverScreen",
-			"GAMEOVER"
+			"GAMEOVER",
+			"NextDay"
 		],
 		"subfolders": []
 	},
@@ -166,7 +167,16 @@
 	},
 	"rootFileFolders": {
 		"script": {
-			"items": [],
+			"items": [
+				{
+					"name": "Fishing.js",
+					"type": "application/javascript",
+					"sid": 158217272343051,
+					"script-info": {
+						"purpose": "main"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"sound": {
