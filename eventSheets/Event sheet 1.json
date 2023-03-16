@@ -266,7 +266,7 @@
 			"name": "fish_pop1",
 			"type": "number",
 			"initialValue": "100",
-			"comment": "in percent",
+			"comment": "total",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 546001677951420
@@ -316,7 +316,7 @@
 			"name": "fish_pop2",
 			"type": "number",
 			"initialValue": "100",
-			"comment": "in percent",
+			"comment": "total",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 435771053870602
@@ -356,7 +356,7 @@
 			"name": "fish_pop3",
 			"type": "number",
 			"initialValue": "100",
-			"comment": "in percent",
+			"comment": "total",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 643161224211679
@@ -595,10 +595,54 @@
 									"actions": [
 										{
 											"type": "script",
-											"script": "console.log(\"fishing\");\nvar fishPob = Math.random()*100;\nif(fishPob < runtime.globalVars.fish_pop1/2)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar Modifier = runtime.globalVars.rod_level * 2;\n\tconsole.log(\"catch: \" + Catch );\n\tconsole.log(\"modifer: \" + Modifier );\n\tif(Catch < 10 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=1;\n\t\truntime.globalVars.fish_pop2 -=.5;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount1 +=2;\n\t\truntime.globalVars.fish_pop1 -=1;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=1;\t\n\t\truntime.globalVars.fish_pop1 -=0.5;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
+											"script": "var fishProb = Math.random()*100;\nif(fishProb < runtime.globalVars.fish_pop1/2)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar Modifier = runtime.globalVars.rod_level * 2;\n\tconsole.log(\"catch: \" + Catch );\n\tconsole.log(\"modifer: \" + Modifier );\n\tif(Catch < 10 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=1;\n\t\truntime.globalVars.fish_pop1 -=.5;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount1 +=2;\n\t\truntime.globalVars.fish_pop1 -=1;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=1;\t\n\t\truntime.globalVars.fish_pop1 -=0.5;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
 										}
 									],
 									"sid": 509715558119359
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 158550614112564,
+											"parameters": {
+												"variable": "player_location",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"script": "var fishPob = Math.random()*100;\nif(fishPob < runtime.globalVars.fish_pop2/2)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar Modifier = runtime.globalVars.rod_level * 2;\n\tconsole.log(\"catch: \" + Catch );\n\tconsole.log(\"modifer: \" + Modifier );\n\tif(Catch < 10 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=3;\n\t\truntime.globalVars.fish_pop2 -=1;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=1;\n\t\truntime.globalVars.fish_pop2 -=0.5;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=3;\t\n\t\truntime.globalVars.fish_pop1 -=1;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
+										}
+									],
+									"sid": 784644810025111
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 508717337440326,
+											"parameters": {
+												"variable": "player_location",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"script": "var fishPob = Math.random()*100;\nif(fishPob < runtime.globalVars.fish_pop2/2)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar Modifier = runtime.globalVars.rod_level * 2;\n\tconsole.log(\"catch: \" + Catch );\n\tconsole.log(\"modifer: \" + Modifier );\n\tif(Catch < 10 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount3 +=1;\n\t\truntime.globalVars.fish_pop3 -=1;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=2;\n\t\truntime.globalVars.fish_pop2 -=1;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=3;\t\n\t\truntime.globalVars.fish_pop1 -=1;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
+										}
+									],
+									"sid": 371249317637158
 								}
 							]
 						},
@@ -724,7 +768,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 656152136512940,
 					"parameters": {
 						"mode": "enabled"
@@ -732,7 +776,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 434603284404235,
 					"parameters": {
 						"mode": "enabled"
@@ -748,7 +792,7 @@
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 423602535387056,
 					"parameters": {
 						"visibility": "invisible"
@@ -756,7 +800,7 @@
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 731369076561836,
 					"parameters": {
 						"visibility": "invisible"
@@ -1301,7 +1345,7 @@
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 282330277223635,
 					"parameters": {
 						"visibility": "visible"
@@ -1309,7 +1353,7 @@
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 336222689512830,
 					"parameters": {
 						"visibility": "visible"
@@ -1563,7 +1607,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 746763673812279,
 					"parameters": {
 						"mode": "enabled"
@@ -1571,7 +1615,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 737466190040135,
 					"parameters": {
 						"mode": "enabled"
@@ -2054,7 +2098,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 124023362455474,
 					"parameters": {
 						"mode": "enabled"
@@ -2062,7 +2106,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 168460430822947,
 					"parameters": {
 						"mode": "enabled"
@@ -2785,40 +2829,24 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 927367973541332,
+					"sid": 718431532120314,
 					"parameters": {
 						"variable": "game_state",
-						"value": "\"sleep\""
+						"value": "\"end\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "NextDay",
+					"sid": 605929132422793,
+					"parameters": {
+						"mode": "enabled"
 					}
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "NightSky",
-					"sid": 205991445977991,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "NightSky",
-					"sid": 977475666589383,
-					"parameters": {
-						"opacity": "100"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 798920793693342,
-					"parameters": {
-						"seconds": "1.0"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "MorningSky",
-					"sid": 774340183697589,
+					"objectClass": "NextDay",
+					"sid": 907727704534452,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -2826,9 +2854,17 @@
 				{
 					"id": "set-opacity",
 					"objectClass": "MorningSky",
-					"sid": 259242266246682,
+					"sid": 872309309015184,
 					"parameters": {
 						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MorningSky",
+					"sid": 905882096942713,
+					"parameters": {
+						"visibility": "visible"
 					}
 				},
 				{
@@ -2881,6 +2917,22 @@
 						"variable": "game_state",
 						"value": "\"init\""
 					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "NextDay",
+					"sid": 785239808481340,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MorningSky",
+					"sid": 373453475626664,
+					"parameters": {
+						"visibility": "invisible"
+					}
 				}
 			],
 			"sid": 315381974730647
@@ -2913,7 +2965,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 335274947151338,
 					"parameters": {
 						"mode": "enabled"
@@ -2921,7 +2973,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 699916813970042,
 					"parameters": {
 						"mode": "enabled"
@@ -2935,7 +2987,7 @@
 			"conditions": [
 				{
 					"id": "on-clicked",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 887836748940927
 				}
 			],
@@ -2943,14 +2995,14 @@
 				{
 					"id": "set-time-scale",
 					"objectClass": "System",
-					"sid": 998499738579562,
+					"sid": 642021331034273,
 					"parameters": {
-						"time-scale": "2.0"
+						"time-scale": "3"
 					}
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 112826706006768,
 					"parameters": {
 						"mode": "disabled"
@@ -2966,7 +3018,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 793850157871799,
 					"parameters": {
 						"mode": "enabled"
@@ -2980,7 +3032,7 @@
 			"conditions": [
 				{
 					"id": "on-clicked",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 389722671743708
 				}
 			],
@@ -2988,14 +3040,14 @@
 				{
 					"id": "set-time-scale",
 					"objectClass": "System",
-					"sid": 910625801865499,
+					"sid": 387328044230422,
 					"parameters": {
-						"time-scale": "4.0"
+						"time-scale": "6"
 					}
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx4",
+					"objectClass": "Speedx6",
 					"sid": 361001404493315,
 					"parameters": {
 						"mode": "disabled"
@@ -3011,7 +3063,7 @@
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Speedx2",
+					"objectClass": "Speedx3",
 					"sid": 306227456514982,
 					"parameters": {
 						"mode": "enabled"

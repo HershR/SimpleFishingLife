@@ -453,10 +453,10 @@
 					}
 				},
 				{
-					"type": "Speedx2",
+					"type": "Speedx3",
 					"properties": {
 						"type": "button",
-						"text": "x2",
+						"text": "x3",
 						"tooltip": "",
 						"initially-visible": true,
 						"enabled": true,
@@ -484,10 +484,10 @@
 					}
 				},
 				{
-					"type": "Speedx4",
+					"type": "Speedx6",
 					"properties": {
 						"type": "button",
-						"text": "x4",
+						"text": "x6",
 						"tooltip": "",
 						"initially-visible": true,
 						"enabled": true,
@@ -997,49 +997,6 @@
 						"y": 197,
 						"width": 539,
 						"height": 86,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "console",
-					"properties": {
-						"text": "console log: ",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 73,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 26,
-						"y": 440,
-						"width": 339,
-						"height": 30,
 						"originX": 0,
 						"originY": 0,
 						"color": [

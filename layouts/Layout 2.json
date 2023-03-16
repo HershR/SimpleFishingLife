@@ -643,7 +643,7 @@
 					}
 				},
 				{
-					"type": "Speedx2",
+					"type": "Speedx3",
 					"properties": {
 						"type": "button",
 						"text": "x2",
@@ -674,7 +674,7 @@
 					}
 				},
 				{
-					"type": "Speedx4",
+					"type": "Speedx6",
 					"properties": {
 						"type": "button",
 						"text": "x4",
@@ -784,18 +784,7 @@
 					},
 					"uid": 53,
 					"instanceVariables": {},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
+					"behaviors": {},
 					"world": {
 						"x": 1403,
 						"y": -587,
@@ -922,21 +911,10 @@
 					},
 					"uid": 69,
 					"instanceVariables": {},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
+					"behaviors": {},
 					"world": {
-						"x": 426.94597178057205,
-						"y": 240.16874442612828,
+						"x": 430.251756904539,
+						"y": 242.6480832691035,
 						"width": 860,
 						"height": 480,
 						"originX": 0.5,
