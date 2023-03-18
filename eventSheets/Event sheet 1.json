@@ -553,9 +553,25 @@
 						{
 							"id": "set-text",
 							"objectClass": "fish1Count",
-							"sid": 649381010586317,
+							"sid": 823129366945712,
 							"parameters": {
-								"text": "\"Fish 1: \" & fish_amount1"
+								"text": "\": \" & fish_amount1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "fish2Count",
+							"sid": 791607714303570,
+							"parameters": {
+								"text": "\": \" & fish_amount2"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "fish3Count",
+							"sid": 854590207666583,
+							"parameters": {
+								"text": "\": \" & fish_amount3"
 							}
 						}
 					],
@@ -761,6 +777,22 @@
 					}
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "location2",
+					"sid": 586538005124813,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location3",
+					"sid": 335461534074939,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-time-scale",
 					"objectClass": "System",
 					"sid": 424388892352074,
@@ -819,11 +851,11 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
-					"sid": 588378388799329,
+					"sid": 252827090103478,
 					"parameters": {
 						"audio-file": "Misty-Bog_Looping",
 						"loop": "looping",
-						"volume": "-10",
+						"volume": "-30",
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
@@ -1262,6 +1294,54 @@
 					}
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "location2",
+					"sid": 841432873820697,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "location2",
+					"sid": 321849270993102,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-tooltip",
+					"objectClass": "location2",
+					"sid": 215992734119138,
+					"parameters": {
+						"tooltip": "\"Travel Time: \" & travel_time_l2 & \" hours\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location3",
+					"sid": 485355581167581,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "location3",
+					"sid": 670163333029882,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-tooltip",
+					"objectClass": "location3",
+					"sid": 599350109164957,
+					"parameters": {
+						"tooltip": "\"Travel Time: \" & travel_time_l3 & \" hours\""
+					}
+				},
+				{
 					"id": "set-instvar-value",
 					"objectClass": "boat_temp",
 					"sid": 123793450735131,
@@ -1336,30 +1416,182 @@
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Speedx1",
-					"sid": 313666722587062,
+					"objectClass": "location2",
+					"sid": 392857990256931,
 					"parameters": {
-						"visibility": "visible"
+						"visibility": "invisible"
 					}
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Speedx3",
-					"sid": 721519864418614,
+					"objectClass": "location3",
+					"sid": 666320121500974,
 					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Speedx6",
-					"sid": 478643330259927,
-					"parameters": {
-						"visibility": "visible"
+						"visibility": "invisible"
 					}
 				}
 			],
 			"sid": 348588883402514
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "location2",
+					"sid": 207661168496636
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 644567375065321,
+					"parameters": {
+						"variable": "CurrentTime",
+						"value": "int(travel_time_l2 * 60)"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 784292690984249,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 389147883258081,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"fishing\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 308712539065481,
+					"parameters": {
+						"variable": "player_location",
+						"value": "2"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Map",
+					"sid": 143182386549367,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location1",
+					"sid": 886897322638921,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location2",
+					"sid": 796805938343624,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location3",
+					"sid": 971305286557992,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 758112513436704
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "location3",
+					"sid": 948253406102407
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 876609332872808,
+					"parameters": {
+						"variable": "CurrentTime",
+						"value": "int(travel_time_l3 * 60)"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 252076932469526,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 909275172233204,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"fishing\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 350615148508013,
+					"parameters": {
+						"variable": "player_location",
+						"value": "3"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Map",
+					"sid": 529390944912168,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location1",
+					"sid": 125823667339265,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location2",
+					"sid": 433350919174121,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "location3",
+					"sid": 944225562983292,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 775274924636751
 		},
 		{
 			"eventType": "block",
@@ -2853,6 +3085,14 @@
 			"conditions": [],
 			"actions": [
 				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 297694237577075,
+					"parameters": {
+						"layout": "Layout 3"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 718431532120314,
@@ -2862,19 +3102,19 @@
 					}
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "NextDay",
+					"sid": 371204662652324,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
 					"id": "set-enabled",
 					"objectClass": "NextDay",
 					"sid": 605929132422793,
 					"parameters": {
 						"mode": "enabled"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "NextDay",
-					"sid": 907727704534452,
-					"parameters": {
-						"visibility": "visible"
 					}
 				},
 				{
@@ -2927,7 +3167,7 @@
 				{
 					"id": "on-clicked",
 					"objectClass": "NextDay",
-					"sid": 658817295732080
+					"sid": 668441399661595
 				}
 			],
 			"actions": [
@@ -2951,7 +3191,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "NextDay",
-					"sid": 785239808481340,
+					"sid": 997709748442118,
 					"parameters": {
 						"visibility": "invisible"
 					}

@@ -142,7 +142,13 @@
 			"GameOverScreen",
 			"GAMEOVER",
 			"NextDay",
-			"console"
+			"console",
+			"MoneyUI",
+			"fish2Count",
+			"fish3Count",
+			"FishUI",
+			"location2",
+			"location3"
 		],
 		"subfolders": []
 	},
@@ -155,7 +161,8 @@
 	"layouts": {
 		"items": [
 			"Layout 1",
-			"Layout 2"
+			"Layout 2",
+			"Layout 3"
 		],
 		"subfolders": []
 	},
