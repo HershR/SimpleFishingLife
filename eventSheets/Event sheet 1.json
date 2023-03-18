@@ -793,6 +793,30 @@
 					}
 				},
 				{
+					"id": "set-text",
+					"objectClass": "fish1Count",
+					"sid": 861238995884765,
+					"parameters": {
+						"text": "\": \" & fish_amount1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "fish2Count",
+					"sid": 566553897211245,
+					"parameters": {
+						"text": "\": \" & fish_amount2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "fish3Count",
+					"sid": 302024214309117,
+					"parameters": {
+						"text": "\": \" & fish_amount3"
+					}
+				},
+				{
 					"id": "set-time-scale",
 					"objectClass": "System",
 					"sid": 424388892352074,
@@ -1875,6 +1899,14 @@
 					}
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "Text",
+					"sid": 278157517812818,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
 					"id": "set-enabled",
 					"objectClass": "Speedx1",
 					"sid": 367892427593213,
@@ -2102,6 +2134,11 @@
 								"comparison": 0,
 								"second-value": "0"
 							}
+						},
+						{
+							"id": "on-clicked",
+							"objectClass": "CloseM",
+							"sid": 396296246015176
 						}
 					],
 					"actions": [
@@ -2118,7 +2155,8 @@
 							"sid": 729183746010885
 						}
 					],
-					"sid": 432913207384835
+					"sid": 432913207384835,
+					"isOrBlock": true
 				}
 			]
 		},
@@ -2307,47 +2345,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-clicked",
-					"objectClass": "CloseM",
-					"sid": 330611314544634
-				}
-			],
-			"actions": [
-				{
-					"id": "set-visible",
-					"objectClass": "CloseM",
-					"sid": 414715226212381,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"callFunction": "InitShop",
-					"sid": 545075382658308
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "MarketBackground",
-					"sid": 921296964849735,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "MarketBackground2",
-					"sid": 652382136706876,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				}
-			],
-			"sid": 128112574550385
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
 					"sid": 527486907934801,
@@ -2488,22 +2485,6 @@
 					}
 				},
 				{
-					"id": "set-visible",
-					"objectClass": "MarketBackground",
-					"sid": 539811072893760,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "MarketBackground2",
-					"sid": 843768503726969,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
 					"callFunction": "InitShop",
 					"sid": 889454843935729
 				}
@@ -2531,6 +2512,22 @@
 					}
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "MarketBackground",
+					"sid": 497746640955956,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MarketBackground2",
+					"sid": 523337050335661,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 627849669219041,
@@ -2551,6 +2548,14 @@
 					"id": "set-visible",
 					"objectClass": "SellFishN",
 					"sid": 548817736944214,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Text",
+					"sid": 404174881730324,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -3224,9 +3229,18 @@
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 558362927722696,
+					"disabled": true,
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"init\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "NextDay",
+					"sid": 862137273838432,
+					"parameters": {
+						"visibility": "invisible"
 					}
 				},
 				{
@@ -3323,6 +3337,15 @@
 					"sid": 426838771276471,
 					"parameters": {
 						"layout": "Layout 1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 237753352656238,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"init\""
 					}
 				}
 			],

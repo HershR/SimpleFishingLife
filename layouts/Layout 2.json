@@ -120,8 +120,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 598.9917288008387,
-						"y": 45.46489686797517,
+						"x": 603.6101518649152,
+						"y": -87.95621387200927,
 						"width": 64,
 						"height": 47,
 						"originX": 0,
@@ -163,8 +163,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 549.9917288008387,
-						"y": 87.46489686797517,
+						"x": 554.6101518649151,
+						"y": -82.39044026638965,
 						"width": 100,
 						"height": 47,
 						"originX": 0,
@@ -206,8 +206,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 627.1919923159294,
-						"y": 85.02925250575254,
+						"x": 655.4156888186185,
+						"y": -76.10239661869022,
 						"width": 60,
 						"height": 39,
 						"originX": 0,
@@ -278,8 +278,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 525.6758617835441,
-						"y": 106.48991549866685,
+						"x": 632.9259084937623,
+						"y": -49.510152443468826,
 						"width": 28.776801299134227,
 						"height": 14.452349096898523,
 						"originX": 0.44,
@@ -872,92 +872,6 @@
 							1,
 							1
 						]
-					}
-				},
-				{
-					"type": "MoneyText",
-					"properties": {
-						"text": "$",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 20,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 638.9144184518547,
-						"y": 0.022149476896430542,
-						"width": 11.770287791341957,
-						"height": 18.43382903869515,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "MoneyC",
-					"properties": {
-						"text": "Text",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 21,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 651.6411281198659,
-						"y": -1.0041667595649812,
-						"width": 75,
-						"height": 18.43382903869515,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
 					}
 				},
 				{
@@ -1673,6 +1587,121 @@
 						"y": 65.11525730259211,
 						"width": 33.219870203434766,
 						"height": 20.441075468689277,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MoneyUI",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 91,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 662.7402080234967,
+						"y": -9.20287123195226,
+						"width": 122.5,
+						"height": 35,
+						"originX": 0.6892857142857143,
+						"originY": -0.3142857142857143,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MoneyText",
+					"properties": {
+						"text": "Money: $",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 20,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 582.994223690772,
+						"y": 9.215312683612524,
+						"width": 69.25128730629069,
+						"height": 18.43382903869515,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MoneyC",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 21,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 650.8956830151441,
+						"y": 9.215312683612524,
+						"width": 45.20801854408148,
+						"height": 18.43382903869515,
 						"originX": 0,
 						"originY": 0,
 						"color": [
