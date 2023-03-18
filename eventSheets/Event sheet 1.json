@@ -1611,6 +1611,30 @@
 				{
 					"type": "comment",
 					"text": "start in idle state, move to location, fish for 10-20 ingame mins"
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx1",
+					"sid": 519686206827291,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx3",
+					"sid": 355871626246853,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx6",
+					"sid": 616439129895087,
+					"parameters": {
+						"visibility": "visible"
+					}
 				}
 			],
 			"sid": 837876800826178,
