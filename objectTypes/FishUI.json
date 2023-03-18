@@ -1,7 +1,7 @@
 {
-	"name": "Map",
+	"name": "FishUI",
 	"plugin-id": "Sprite",
-	"sid": 877099877378530,
+	"sid": 215119274216663,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,31 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 150,
+						"height": 90,
+						"originX": 0.6766666666666665,
+						"originY": 0.18333333333333332,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5136530,
+						"imageSpriteId": 2233805,
+						"collisionPoly": {
+							"points": [
+								0.22999999999999995,
+								0.3055555555555556,
+								0.77,
+								0.3055555555555556,
+								0.77,
+								0.6944444444444443,
+								0.22999999999999995,
+								0.6944444444444443
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 739781054702916,
+				"sid": 231980714230067,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

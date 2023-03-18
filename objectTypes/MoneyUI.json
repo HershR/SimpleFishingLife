@@ -1,7 +1,7 @@
 {
-	"name": "Map",
+	"name": "MoneyUI",
 	"plugin-id": "Sprite",
-	"sid": 877099877378530,
+	"sid": 819986569588275,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,31 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 140,
+						"height": 35,
+						"originX": 0.6892857142857143,
+						"originY": -0.3142857142857143,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5136530,
+						"imageSpriteId": 6158633,
+						"collisionPoly": {
+							"points": [
+								0.21071428571428572,
+								0,
+								0.7892857142857143,
+								0,
+								0.7892857142857143,
+								1,
+								0.21071428571428572,
+								1
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 739781054702916,
+				"sid": 676401424863082,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
