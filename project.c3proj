@@ -148,7 +148,10 @@
 			"fish3Count",
 			"FishUI",
 			"location2",
-			"location3"
+			"location3",
+			"Fish2Price",
+			"Fish3Price",
+			"DaySky"
 		],
 		"subfolders": []
 	},

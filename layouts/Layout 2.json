@@ -99,7 +99,7 @@
 						"text": "Fish",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 20,
+						"size": 12,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -142,7 +142,7 @@
 						"text": "Small: X",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 20,
+						"size": 12,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -185,7 +185,7 @@
 						"text": "Text",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 20,
+						"size": 12,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -206,8 +206,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 649.9917288008387,
-						"y": 87.46489686797517,
+						"x": 627.1919923159294,
+						"y": 85.02925250575254,
 						"width": 60,
 						"height": 39,
 						"originX": 0,
@@ -228,7 +228,7 @@
 						"text": "Price",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 20,
+						"size": 12,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -249,53 +249,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 764.4929793735951,
-						"y": 45.46489686797517,
+						"x": 666.4797787915301,
+						"y": -57.679884896396885,
 						"width": 64,
 						"height": 47,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Fish1Price",
-					"properties": {
-						"text": "Text",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 20,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 35,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 767.4929793735951,
-						"y": 87.46489686797517,
-						"width": 59,
-						"height": 30,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -537,8 +494,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 0,
-						"y": 0,
+						"x": -606,
+						"y": -374,
 						"width": 854,
 						"height": 480,
 						"originX": 0,
@@ -920,10 +877,10 @@
 				{
 					"type": "MoneyText",
 					"properties": {
-						"text": "Money: $",
+						"text": "$",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 20,
+						"size": 12,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -944,10 +901,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 631,
-						"y": 14,
-						"width": 120,
-						"height": 47,
+						"x": 638.9144184518547,
+						"y": 0.022149476896430542,
+						"width": 11.770287791341957,
+						"height": 18.43382903869515,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -966,7 +923,7 @@
 						"text": "Text",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 20,
+						"size": 12,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -987,10 +944,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 745,
-						"y": 14,
+						"x": 651.6411281198659,
+						"y": -1.0041667595649812,
 						"width": 75,
-						"height": 39,
+						"height": 18.43382903869515,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1352,6 +1309,380 @@
 							1,
 							1
 						]
+					}
+				},
+				{
+					"type": "FishUI",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 81,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 799.1331150757715,
+						"y": 18.28251754737184,
+						"width": 148.75,
+						"height": 90,
+						"originX": 0.6558823529411764,
+						"originY": 0.18333333333333332,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "fish1Count",
+					"properties": {
+						"text": ": xx",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 82,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 758.4532790359939,
+						"y": 5.2825175473718415,
+						"width": 51.637840146772646,
+						"height": 20.829597211114717,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SmallFish",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 83,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 737.4532790359939,
+						"y": 18.28251754737184,
+						"width": 23.50766815453202,
+						"height": 11.806073339831636,
+						"originX": 0.44,
+						"originY": 0.6371681415929203,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "fish2Count",
+					"properties": {
+						"text": ": xx",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 84,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 758.4532790359939,
+						"y": 35.28251754737184,
+						"width": 52.749404121183034,
+						"height": 21.1074882047173,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "fish3Count",
+					"properties": {
+						"text": ": xx",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 85,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 758.4532790359939,
+						"y": 65.28251754737184,
+						"width": 51.35994915317019,
+						"height": 20.27381522390955,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LargeFish",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 86,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 732.4532790359939,
+						"y": 78.28251754737184,
+						"width": 43.49005122239997,
+						"height": 21.84167016947199,
+						"originX": 0.44,
+						"originY": 0.6371681415929203,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MediumFish",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 87,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 734.4532790359939,
+						"y": 48.28251754737184,
+						"width": 34.56058663469903,
+						"height": 17.35709462098219,
+						"originX": 0.44,
+						"originY": 0.6371681415929203,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Fish1Price",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 35,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 796.4473839271658,
+						"y": 5.67103928979728,
+						"width": 33.219870203434766,
+						"height": 20.441075468689277,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Fish2Price",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 88,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 796.4473839271658,
+						"y": 35.94893028339986,
+						"width": 33.219870203434766,
+						"height": 20.441075468689277,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Fish3Price",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 89,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 796.4473839271658,
+						"y": 65.11525730259211,
+						"width": 33.219870203434766,
+						"height": 20.441075468689277,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
 					}
 				}
 			],

@@ -1952,10 +1952,42 @@
 				},
 				{
 					"id": "set-text",
-					"objectClass": "SFishC",
-					"sid": 845056025780919,
+					"objectClass": "fish1Count",
+					"sid": 173687355233148,
 					"parameters": {
 						"text": "fish_amount1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish2Price",
+					"sid": 647563667825793,
+					"parameters": {
+						"text": "\"$\"& fish_price2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "fish2Count",
+					"sid": 493438709585883,
+					"parameters": {
+						"text": "fish_amount2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish3Price",
+					"sid": 897994612370169,
+					"parameters": {
+						"text": "\"$\"& fish_price3"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "fish3Count",
+					"sid": 482978556428069,
+					"parameters": {
+						"text": "fish_amount3"
 					}
 				},
 				{
@@ -2125,6 +2157,15 @@
 					"parameters": {
 						"variable": "Fish_Demand1",
 						"value": "round(random(1,fish_amount1))"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "SFishC",
+					"sid": 430498284293599,
+					"disabled": true,
+					"parameters": {
+						"text": "fish_amount1"
 					}
 				},
 				{
@@ -3134,35 +3175,19 @@
 					}
 				},
 				{
-					"id": "set-enabled",
-					"objectClass": "NextDay",
-					"sid": 605929132422793,
-					"parameters": {
-						"mode": "enabled"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "MorningSky",
-					"sid": 872309309015184,
-					"parameters": {
-						"opacity": "100"
-					}
-				},
-				{
 					"id": "set-visible",
-					"objectClass": "MorningSky",
-					"sid": 905882096942713,
+					"objectClass": "NightSky",
+					"sid": 923445894065334,
 					"parameters": {
 						"visibility": "visible"
 					}
 				},
 				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 125894393335069,
+					"id": "set-enabled",
+					"objectClass": "NextDay",
+					"sid": 605929132422793,
 					"parameters": {
-						"seconds": "1"
+						"mode": "enabled"
 					}
 				},
 				{
@@ -3196,20 +3221,84 @@
 			],
 			"actions": [
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 788071368115992,
-					"parameters": {
-						"layout": "Layout 1"
-					}
-				},
-				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 558362927722696,
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"init\""
+					}
+				},
+				{
+					"id": "start-fade",
+					"objectClass": "Moon",
+					"sid": 194099092096209,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Sun",
+					"sid": 621919594417738,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "start-fade",
+					"objectClass": "Sun",
+					"sid": 483765204662549,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "MorningSky",
+					"sid": 612275446879185,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "start-fade",
+					"objectClass": "MorningSky",
+					"sid": 576050389822738,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MorningSky",
+					"sid": 735287497477119,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 794191547607821,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "DaySky",
+					"sid": 592931503618565,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "start-fade",
+					"objectClass": "DaySky",
+					"sid": 342047436889745,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 131421082189569,
+					"parameters": {
+						"seconds": "3"
 					}
 				},
 				{
@@ -3226,6 +3315,14 @@
 					"sid": 373453475626664,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 426838771276471,
+					"parameters": {
+						"layout": "Layout 1"
 					}
 				}
 			],

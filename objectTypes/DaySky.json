@@ -1,10 +1,16 @@
 {
-	"name": "NightSky",
+	"name": "DaySky",
 	"plugin-id": "Sprite",
-	"sid": 282629346217371,
+	"sid": 856022420097073,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 310345078881805
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -18,7 +24,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 1579039,
+						"imageSpriteId": 8038521,
 						"collisionPoly": {
 							"points": [
 								0.3546511627906977,
@@ -35,7 +41,7 @@
 						"duration": 1
 					}
 				],
-				"sid": 979237471837759,
+				"sid": 240450731902378,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
