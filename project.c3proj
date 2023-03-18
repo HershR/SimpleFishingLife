@@ -152,7 +152,13 @@
 			"Fish2Price",
 			"Fish3Price",
 			"DaySky",
-			"ChangeLocation"
+			"ChangeLocation",
+			"SmallFish2",
+			"MediumFish2",
+			"LargeFish2",
+			"TutorialScreen",
+			"Tutorial",
+			"ExitTutorial"
 		],
 		"subfolders": []
 	},
@@ -166,7 +172,8 @@
 		"items": [
 			"Layout 1",
 			"Layout 2",
-			"Layout 3"
+			"Layout 3",
+			"Layout 4"
 		],
 		"subfolders": []
 	},

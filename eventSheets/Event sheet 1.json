@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "game_state",
 			"type": "string",
-			"initialValue": "init",
+			"initialValue": "tutorial",
 			"comment": "The current state of the game. start, fishing, market, bills, sleep, end, transition",
 			"isStatic": false,
 			"isConstant": false,
@@ -385,6 +385,36 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-clicked",
+					"objectClass": "ExitTutorial",
+					"sid": 328430707465268
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 162139047217325,
+					"parameters": {
+						"layout": "Layout 2"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 688751548266723,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"init\""
+					}
+				}
+			],
+			"sid": 920157707630877
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
 					"sid": 235253433452073,
@@ -704,7 +734,7 @@
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 423871519943516,
+					"sid": 125443335038081,
 					"parameters": {
 						"first-value": "game_state",
 						"comparison": 0,
@@ -790,6 +820,30 @@
 					"sid": 335461534074939,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SmallFish2",
+					"sid": 554034626960642,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MediumFish2",
+					"sid": 650217947414798,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LargeFish2",
+					"sid": 810761972910719,
+					"parameters": {
+						"visibility": "visible"
 					}
 				},
 				{
@@ -1010,6 +1064,30 @@
 				{
 					"id": "set-visible",
 					"objectClass": "Fish1Price",
+					"sid": 380161301035391,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish2Price",
+					"sid": 193110834929534,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish3Price",
+					"sid": 168320361873068,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish1Price",
 					"sid": 166983960316884,
 					"parameters": {
 						"visibility": "visible"
@@ -1034,9 +1112,25 @@
 				{
 					"id": "set-text",
 					"objectClass": "Fish1Price",
-					"sid": 464936952417381,
+					"sid": 437069176252325,
 					"parameters": {
-						"text": "\"Fish 1 Price: $\" & fish_price1"
+						"text": "\"Price: $\" & fish_price1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish2Price",
+					"sid": 222829202841726,
+					"parameters": {
+						"text": "\"Price: $\" & fish_price2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish3Price",
+					"sid": 287014139529117,
+					"parameters": {
+						"text": "\"Price: $\" & fish_price3"
 					}
 				},
 				{
@@ -1097,6 +1191,30 @@
 				},
 				{
 					"id": "set-visible",
+					"objectClass": "SmallFish2",
+					"sid": 415724030016447,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MediumFish2",
+					"sid": 370585289423189,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LargeFish2",
+					"sid": 744623851092274,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
 					"objectClass": "StartScreen",
 					"sid": 925652885016473,
 					"parameters": {
@@ -1139,6 +1257,22 @@
 					"id": "set-visible",
 					"objectClass": "Fish1Price",
 					"sid": 128790659442018,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish2Price",
+					"sid": 947249701681029,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish3Price",
+					"sid": 754771210047973,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -2026,7 +2160,7 @@
 					"objectClass": "System",
 					"sid": 192480587140446,
 					"parameters": {
-						"layout": "Layout 2"
+						"layout": "Layout 3"
 					}
 				},
 				{
@@ -2531,7 +2665,7 @@
 					"objectClass": "System",
 					"sid": 337601385888170,
 					"parameters": {
-						"layout": "Layout 2"
+						"layout": "Layout 3"
 					}
 				},
 				{
@@ -3311,7 +3445,7 @@
 					"objectClass": "System",
 					"sid": 297694237577075,
 					"parameters": {
-						"layout": "Layout 3"
+						"layout": "Layout 4"
 					}
 				},
 				{
@@ -3496,7 +3630,7 @@
 					"objectClass": "System",
 					"sid": 426838771276471,
 					"parameters": {
-						"layout": "Layout 1"
+						"layout": "Layout 2"
 					}
 				},
 				{
