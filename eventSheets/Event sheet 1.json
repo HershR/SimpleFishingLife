@@ -93,7 +93,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "mental_stability",
+			"name": "motivation",
 			"type": "number",
 			"initialValue": "100",
 			"comment": "",
@@ -116,7 +116,7 @@
 			"name": "rod_level",
 			"type": "number",
 			"initialValue": "1",
-			"comment": "",
+			"comment": "cap at 20",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 356577583142327
@@ -126,7 +126,7 @@
 			"name": "boat_level",
 			"type": "number",
 			"initialValue": "1",
-			"comment": "",
+			"comment": "cap at 5",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 950102301411022
@@ -136,7 +136,7 @@
 			"name": "net_level",
 			"type": "number",
 			"initialValue": "0",
-			"comment": "",
+			"comment": "cap at 50",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 388669147749612
@@ -263,16 +263,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "fish_pop1",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "total",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 546001677951420
-		},
-		{
-			"eventType": "variable",
 			"name": "fish_price1",
 			"type": "number",
 			"initialValue": "1",
@@ -313,16 +303,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "fish_pop2",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "total",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 435771053870602
-		},
-		{
-			"eventType": "variable",
 			"name": "Fish_Demand2",
 			"type": "number",
 			"initialValue": "0",
@@ -353,16 +333,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "fish_pop3",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "total",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 643161224211679
-		},
-		{
-			"eventType": "variable",
 			"name": "Fish_Demand3",
 			"type": "number",
 			"initialValue": "0",
@@ -370,6 +340,46 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 787036781967605
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_pop1",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "total",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 273466909854016
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_pop2",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "total",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 246797381258660
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_pop3",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "total",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 158905527559510
+		},
+		{
+			"eventType": "variable",
+			"name": "fish_caught",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "total fish caught",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 151146141350074
 		},
 		{
 			"eventType": "block",
@@ -595,7 +605,7 @@
 									"actions": [
 										{
 											"type": "script",
-											"script": "var fishProb = Math.random()*100;\nif(fishProb < runtime.globalVars.fish_pop1/2)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar Modifier = runtime.globalVars.rod_level * 2;\n\tconsole.log(\"catch: \" + Catch );\n\tconsole.log(\"modifer: \" + Modifier );\n\tif(Catch < 10 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=1;\n\t\truntime.globalVars.fish_pop1 -=.5;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount1 +=2;\n\t\truntime.globalVars.fish_pop1 -=1;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=1;\t\n\t\truntime.globalVars.fish_pop1 -=0.5;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
+											"script": "\nvar FishPop1 = runtime.globalVars.fish_pop1;\nvar FishPop2 = runtime.globalVars.fish_pop2;\nvar fishProb = (FishPop1/2 * .75) + (FishPop2/2 * .25);\n\nif(Math.random()*100 < fishProb)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar RodLvl = runtime.globalVars.rod_level; \n\tvar Maintanence = runtime.globalVars.maintance_level;\n\tvar Modifier = Math.floor(RodLvl/2 * Maintanence/7);\n\tvar Modifier2 = Math.floor(RodLvl/3 * Maintanence/7);\t\n\t//console.log(\"catch: \" + Catch );\n\t//console.log(\"modifer: \" + Modifier );\n\tif(Catch < 10+Modifier2)\n\t{\n\t\truntime.globalVars.fish_amount2 +=1+Modifier;\n\t\truntime.globalVars.fish_pop2 -=.1+Modifier;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30+Modifier2)\n\t{\n\t\truntime.globalVars.fish_amount1 +=2+Modifier;\n\t\truntime.globalVars.fish_pop1 -=.2+Modifier;\t\t\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=1+Modifier;\t\n\t\truntime.globalVars.fish_pop1 -=0.1+Modifier;\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
 										}
 									],
 									"sid": 509715558119359
@@ -617,7 +627,7 @@
 									"actions": [
 										{
 											"type": "script",
-											"script": "var fishPob = Math.random()*100;\nif(fishPob < runtime.globalVars.fish_pop2/2)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar Modifier = runtime.globalVars.rod_level * 2;\n\tconsole.log(\"catch: \" + Catch );\n\tconsole.log(\"modifer: \" + Modifier );\n\tif(Catch < 10 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=3;\n\t\truntime.globalVars.fish_pop2 -=1;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=1;\n\t\truntime.globalVars.fish_pop2 -=0.5;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=3;\t\n\t\truntime.globalVars.fish_pop1 -=1;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
+											"script": "var FishPop1 = runtime.globalVars.fish_pop1;\nvar FishPop2 = runtime.globalVars.fish_pop2;\nvar fishProb = (FishPop1/2 * .50) + (FishPop2/2 * .50);\nif(Math.random()*100 < fishProb)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar RodLvl = runtime.globalVars.rod_level;\n\tvar Maintanence = runtime.globalVars.maintance_level;\n\tvar Modifier = Math.floor(RodLvl/2 * Maintanence/7);\n\tvar Modifier2 = Math.floor(RodLvl/3 * Maintanence/7);\t\n\t//console.log(\"catch: \" + Catch );\n\t//console.log(\"modifer: \" + Modifier );\n\tif(Catch < 10+Modifier2)\n\t{\n\t\truntime.globalVars.fish_amount2 +=3 + Modifier;\n\t\truntime.globalVars.fish_pop2 -=0.3 + Modifier;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30+Modifier2)\n\t{\n\t\truntime.globalVars.fish_amount2 +=1 + Modifier;\n\t\truntime.globalVars.fish_pop2 -=0.1 + Modifier;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish2\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=3;\t\n\t\truntime.globalVars.fish_pop1 -=0.3;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
 										}
 									],
 									"sid": 784644810025111
@@ -639,7 +649,7 @@
 									"actions": [
 										{
 											"type": "script",
-											"script": "var fishPob = Math.random()*100;\nif(fishPob < runtime.globalVars.fish_pop2/2)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar Modifier = runtime.globalVars.rod_level * 2;\n\tconsole.log(\"catch: \" + Catch );\n\tconsole.log(\"modifer: \" + Modifier );\n\tif(Catch < 10 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount3 +=1;\n\t\truntime.globalVars.fish_pop3 -=1;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\" ;\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30 + Modifier)\n\t{\n\t\truntime.globalVars.fish_amount2 +=2;\n\t\truntime.globalVars.fish_pop2 -=1;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount1 +=3;\t\n\t\truntime.globalVars.fish_pop1 -=1;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
+											"script": "var FishPop2 = runtime.globalVars.fish_pop2;\nvar FishPop3 = runtime.globalVars.fish_pop2;\nvar fishProb = (FishPop2/2 * .80) + (FishPop3/2 * .20);\nif(Math.random()*100 < fishProb)\n{\n\t\n\tvar Catch = Math.random() * 100;\n\tvar RodLvl = runtime.globalVars.rod_level;\n\tvar Maintanence = runtime.globalVars.maintance_level;\n\tvar Modifier = Math.floor(RodLvl/2 * Maintanence/7);\n\tvar Modifier2 = Math.floor(RodLvl/3 * Maintanence/7);\n\t//console.log(\"catch: \" + Catch );\n\t//console.log(\"modifer: \" + Modifier );\n\tif(Catch < 10+Modifier2)\n\t{\n\t\truntime.globalVars.fish_amount3 +=1 + Modifier;\n\t\truntime.globalVars.fish_pop3 -=0.1 + Modifier;\n\t\t//runtime.objects.console.text = \"console log: +1 fish2\";\n\t\tconsole.log(\"+1 fish2\");\n\t}\n\telse if(Catch < 30+Modifier2)\n\t{\n\t\truntime.globalVars.fish_amount2 +=4 + Modifier;\n\t\truntime.globalVars.fish_pop2 -=0.4 + Modifier;\t\t\n\t\t//runtime.objects.console.text = \"console log: +2 fish1\";\n\t\tconsole.log(\"+2 fish1\");\n\t}\n\telse\n\t{\n\t\truntime.globalVars.fish_amount2 +=3 + Modifier;\t\n\t\truntime.globalVars.fish_pop2 -=0.3 + Modifier;\n\t\t//runtime.objects.console.text = \"console log: +1 fish1\";\n\t\tconsole.log(\"+1 fish1\");\n\t}\n\tMain.PlaySplash();\n}\nelse\n{\n\tconsole.log(\"No luck\");\n}"
 										}
 									],
 									"sid": 371249317637158
@@ -663,7 +673,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "var catchProb = Math.random()*100\n\nif(catchProb < runtime.globalVars.net_level * 3)\n{\n\truntime.globalVars.fish_amount1 += 1;\n\tMain.PlaySplash();\n}"
+									"script": "var catchProb = Math.random()*100\nvar Maintanence = runtime.globalVars.maintance_level;\nif(catchProb < runtime.globalVars.net_level * Maintanence/7)\n{\n\truntime.globalVars.fish_amount1 += 1;\n\truntime.globalVars.fish_pop1 -=0.1+Modifier;\t\n\tMain.PlaySplash();\n}"
 								}
 							],
 							"sid": 140170778888107
@@ -1066,6 +1076,16 @@
 								"comparison": 2,
 								"second-value": "permit_cost "
 							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 555059189126311,
+							"parameters": {
+								"first-value": "motivation",
+								"comparison": 3,
+								"second-value": "0"
+							}
 						}
 					],
 					"actions": [
@@ -1103,7 +1123,8 @@
 							}
 						}
 					],
-					"sid": 787100186079528
+					"sid": 787100186079528,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -1192,28 +1213,28 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 232868484782078,
+					"sid": 199766937192507,
 					"parameters": {
 						"variable": "travel_time_l1",
-						"value": "clamp((2-player_location/3)-0.5*boat_level+maintance_level*.25,1,20)"
+						"value": "clamp((2-player_location/3) - 0.2 * (maintance_level/3 * (boat_level)),1,20)"
 					}
 				},
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 619560813774637,
+					"sid": 975045344967605,
 					"parameters": {
 						"variable": "travel_time_l2",
-						"value": "clamp((4-player_location/3)-0.5*boat_level+maintance_level*.25,1,20)"
+						"value": "clamp((4-player_location/3) - 0.2 * (maintance_level/3 * (boat_level)),1,20)"
 					}
 				},
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 768517259289972,
+					"sid": 116226837322578,
 					"parameters": {
 						"variable": "travel_time_l3",
-						"value": "clamp((6-player_location/3)-0.5*boat_level+maintance_level*.25,1,20)"
+						"value": "clamp((6-player_location/3) - 0.2 * (maintance_level/3 * (boat_level)),1,20)"
 					}
 				},
 				{
@@ -1312,6 +1333,30 @@
 					"parameters": {
 						"visibility": "invisible"
 					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx1",
+					"sid": 313666722587062,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx3",
+					"sid": 721519864418614,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Speedx6",
+					"sid": 478643330259927,
+					"parameters": {
+						"visibility": "visible"
+					}
 				}
 			],
 			"sid": 348588883402514
@@ -1334,30 +1379,6 @@
 				{
 					"type": "comment",
 					"text": "start in idle state, move to location, fish for 10-20 ingame mins"
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Speedx1",
-					"sid": 821451889680976,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Speedx3",
-					"sid": 282330277223635,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Speedx6",
-					"sid": 336222689512830,
-					"parameters": {
-						"visibility": "visible"
-					}
 				}
 			],
 			"sid": 837876800826178,
@@ -2170,10 +2191,6 @@
 					}
 				},
 				{
-					"callFunction": "InitShop",
-					"sid": 108025708717044
-				},
-				{
 					"id": "set-visible",
 					"objectClass": "MarketBackground",
 					"sid": 539811072893760,
@@ -2399,6 +2416,15 @@
 					"sid": 749125342519153,
 					"parameters": {
 						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 600762136707848,
+					"parameters": {
+						"variable": "fish_caught",
+						"value": "fish_amount1 + fish_amount2 + fish_amount3"
 					}
 				}
 			],
@@ -2876,6 +2902,10 @@
 					}
 				},
 				{
+					"type": "comment",
+					"text": "show new mental state, hunger state, and energy level"
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 331768418236416,
@@ -2885,8 +2915,8 @@
 					}
 				},
 				{
-					"type": "comment",
-					"text": "show new mental state, hunger state, and energy level"
+					"type": "script",
+					"script": "var MentalLevel = runtime.globalVars.motivation;\nvar TotalFish = runtime.globalVars.fish_caught;\nvar FishSold = runtime.globalVars.fish_amount1 + runtime.globalVars.fish_amount2 + runtime.globalVars.fish_amount3;\nif(FishSold/TotalFish <.8)\n{\n\tMentalLevel -= 10;\n}\nelse\n{\n\tMentalLevel += 5;\n}\nMath.min(Math.max(MentalLevel, 0), 100);\nruntime.globalVars.motivation = MentalLevel;"
 				}
 			],
 			"sid": 108654237856123
