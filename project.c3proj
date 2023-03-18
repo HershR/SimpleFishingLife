@@ -151,7 +151,8 @@
 			"location3",
 			"Fish2Price",
 			"Fish3Price",
-			"DaySky"
+			"DaySky",
+			"ChangeLocation"
 		],
 		"subfolders": []
 	},

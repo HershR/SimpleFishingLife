@@ -897,15 +897,6 @@
 					}
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 553323990910941,
-					"parameters": {
-						"variable": "permit_cost",
-						"value": "permit_base_cost * (int(Day/markup_day)+1)"
-					}
-				},
-				{
 					"type": "comment",
 					"text": "set to start"
 				},
@@ -921,19 +912,19 @@
 				{
 					"id": "add-to-eventvar",
 					"objectClass": "System",
-					"sid": 838029016991040,
+					"sid": 611707227324106,
 					"parameters": {
 						"variable": "day",
 						"value": "1"
 					}
 				},
 				{
-					"id": "set-animation",
-					"objectClass": "boat_temp",
-					"sid": 902238142984187,
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 988294587912721,
 					"parameters": {
-						"animation": "\"Animation 2\"",
-						"from": "beginning"
+						"variable": "permit_cost",
+						"value": "permit_base_cost * (int(Day/markup_day)+1)"
 					}
 				},
 				{
@@ -1046,6 +1037,41 @@
 					"sid": 464936952417381,
 					"parameters": {
 						"text": "\"Fish 1 Price: $\" & fish_price1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ChangeLocation",
+					"sid": 825905826526315,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 748230693688873,
+					"parameters": {
+						"variable": "fish_pop1",
+						"value": "clamp(fish_pop1 * 1.20,10,100)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 470966680138616,
+					"parameters": {
+						"variable": "fish_pop2",
+						"value": "clamp(fish_pop2 * 1.20,10,100)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 102334743448099,
+					"parameters": {
+						"variable": "fish_pop3",
+						"value": "clamp(fish_pop3 * 1.20,10,100)"
 					}
 				}
 			],
@@ -1330,6 +1356,10 @@
 					}
 				},
 				{
+					"type": "script",
+					"script": "var PLocation = runtime.globalVars.player_location;\nvar Maintance = runtime.globalVars.maintance_level;\nvar BLevel = runtime.globalVars.boat_level;\nif(PLocation==1)\n{\n\truntime.globalVars.travel_time_l1=0;\n}\nelse if(PLocation==2)\n{\n\truntime.globalVars.travel_time_l2=0;\n}\nelse if(PLocation==3)\n{\n\truntime.globalVars.travel_time_l3=0;\n}\n"
+				},
+				{
 					"id": "set-visible",
 					"objectClass": "location1",
 					"sid": 474081304621588,
@@ -1400,15 +1430,6 @@
 					"parameters": {
 						"tooltip": "\"Travel Time: \" & floor(travel_time_l3) & \" h and \" & (travel_time_l3-floor(travel_time_l3)) * 60 & \"m\""
 					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "boat_temp",
-					"sid": 123793450735131,
-					"parameters": {
-						"instance-variable": "state",
-						"value": "\"idle\""
-					}
 				}
 			],
 			"sid": 605702049414472
@@ -1464,6 +1485,14 @@
 					"sid": 370738163370781,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ChangeLocation",
+					"sid": 201013932971977,
+					"parameters": {
+						"visibility": "visible"
 					}
 				},
 				{
@@ -1548,6 +1577,14 @@
 				},
 				{
 					"id": "set-visible",
+					"objectClass": "ChangeLocation",
+					"sid": 201013932971977,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
 					"objectClass": "location1",
 					"sid": 886897322638921,
 					"parameters": {
@@ -1624,6 +1661,14 @@
 					"sid": 529390944912168,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ChangeLocation",
+					"sid": 201013932971977,
+					"parameters": {
+						"visibility": "visible"
 					}
 				},
 				{
@@ -1875,6 +1920,64 @@
 					"sid": 588180597237958
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "ChangeLocation",
+					"sid": 799967182074961
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "ChangeLocation",
+					"sid": 937711761099627,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "boat_temp",
+					"sid": 123793450735131,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "\"idle\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "boat_temp",
+					"sid": 787916481923426,
+					"behaviorType": "MoveTo"
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "boat_temp",
+					"sid": 902238142984187,
+					"parameters": {
+						"animation": "\"Animation 2\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "boat_temp",
+					"sid": 242310194476925,
+					"parameters": {
+						"x": "408",
+						"y": "226"
+					}
+				},
+				{
+					"callFunction": "InitLocationSelect",
+					"sid": 602714215182472
+				}
+			],
+			"sid": 341051333454068
 		},
 		{
 			"eventType": "block",

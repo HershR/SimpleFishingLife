@@ -1272,6 +1272,37 @@
 							1
 						]
 					}
+				},
+				{
+					"type": "ChangeLocation",
+					"properties": {
+						"type": "button",
+						"text": "Change Location",
+						"tooltip": "",
+						"initially-visible": false,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 56,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 26,
+						"y": 434,
+						"width": 127,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
 				}
 			],
 			"sid": 758376665352979,
