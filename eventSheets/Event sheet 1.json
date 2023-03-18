@@ -245,8 +245,8 @@
 			"eventType": "variable",
 			"name": "maintance_level",
 			"type": "number",
-			"initialValue": "0",
-			"comment": "lower the better",
+			"initialValue": "7",
+			"comment": "higher the better",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 839816512444089
@@ -1222,6 +1222,15 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 996057904202508,
+							"parameters": {
+								"variable": "player_location",
+								"value": "0"
+							}
+						},
+						{
 							"callFunction": "InitLocationSelect",
 							"sid": 100419447946810
 						}
@@ -1269,10 +1278,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 199766937192507,
+					"sid": 530276328754499,
 					"parameters": {
 						"variable": "travel_time_l1",
-						"value": "clamp((2-player_location/3) - 0.2 * (maintance_level/3 * (boat_level)),1,20)"
+						"value": "clamp((3-player_location/3) - 0.2 * (maintance_level/3 * (boat_level)),1,20)"
 					}
 				},
 				{
@@ -1287,10 +1296,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 116226837322578,
+					"sid": 101397260864302,
 					"parameters": {
 						"variable": "travel_time_l3",
-						"value": "clamp((6-player_location/3) - 0.2 * (maintance_level/3 * (boat_level)),1,20)"
+						"value": "clamp((7-player_location/3) - 0.2 * (maintance_level/3 * (boat_level)),1,20)"
 					}
 				},
 				{
@@ -1312,9 +1321,9 @@
 				{
 					"id": "set-tooltip",
 					"objectClass": "location1",
-					"sid": 121239268631478,
+					"sid": 772874521110261,
 					"parameters": {
-						"tooltip": "\"Travel Time: \" & travel_time_l1 & \" hours\""
+						"tooltip": "\"Travel Time: \" & floor(travel_time_l1) & \" h and \" & (travel_time_l1-floor(travel_time_l1)) * 60 & \"m\""
 					}
 				},
 				{
@@ -1336,9 +1345,9 @@
 				{
 					"id": "set-tooltip",
 					"objectClass": "location2",
-					"sid": 215992734119138,
+					"sid": 165956625558854,
 					"parameters": {
-						"tooltip": "\"Travel Time: \" & travel_time_l2 & \" hours\""
+						"tooltip": "\"Travel Time: \" & floor(travel_time_l2) & \" h and \" & (travel_time_l2-floor(travel_time_l2)) * 60 & \"m\""
 					}
 				},
 				{
@@ -1360,9 +1369,9 @@
 				{
 					"id": "set-tooltip",
 					"objectClass": "location3",
-					"sid": 599350109164957,
+					"sid": 790031317670167,
 					"parameters": {
-						"tooltip": "\"Travel Time: \" & travel_time_l3 & \" hours\""
+						"tooltip": "\"Travel Time: \" & floor(travel_time_l3) & \" h and \" & (travel_time_l3-floor(travel_time_l3)) * 60 & \"m\""
 					}
 				},
 				{
@@ -2530,10 +2539,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 627849669219041,
+					"sid": 972859260797516,
 					"parameters": {
 						"variable": "maintance_level",
-						"value": "clamp(maintance_level+1,0,7)"
+						"value": "clamp(maintance_level-1,0,7)"
 					}
 				},
 				{
@@ -2705,11 +2714,27 @@
 					}
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "EquipmentQuality",
+					"sid": 115871299421759,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "EquipmentQuality",
+					"sid": 579098860771979,
+					"parameters": {
+						"text": "\"Equipment Quality: \" & (7-maintance_level )"
+					}
+				},
+				{
 					"id": "set-text",
 					"objectClass": "Maintanance",
-					"sid": 517669119893579,
+					"sid": 786453377763425,
 					"parameters": {
-						"text": "\"Maintenance \" & \"$\" & maintance_level * boat_level  * 5 + 1"
+						"text": "\"Maintenance \" & \"$\" &  boat_level*10 *(7-maintance_level)"
 					}
 				},
 				{
@@ -2757,34 +2782,10 @@
 				},
 				{
 					"id": "set-text",
-					"objectClass": "BoatLvl",
-					"sid": 661164849103780,
-					"parameters": {
-						"text": "\"Boat Lvl: \" & boat_level"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "RodLvl",
-					"sid": 110994980871975,
-					"parameters": {
-						"text": "\"Rod Lvl: \" & rod_level"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Nets",
-					"sid": 481866662678313,
-					"parameters": {
-						"text": "\"Net Amt: \" & net_level"
-					}
-				},
-				{
-					"id": "set-text",
 					"objectClass": "EquipmentQuality",
-					"sid": 879471320629228,
+					"sid": 243601301604461,
 					"parameters": {
-						"text": "\"Equipment Quality: \" & (7-maintance_level )"
+						"text": "\"Equipment Quality: \" & (maintance_level)"
 					}
 				},
 				{
@@ -2814,10 +2815,22 @@
 				{
 					"id": "set-text",
 					"objectClass": "Maintanance",
-					"sid": 494768204757010,
+					"sid": 232864850988879,
 					"parameters": {
-						"text": "\"Maintenance \" & \"$\" & maintance_level * boat_level  * 5 + 10"
+						"text": "\"Maintenance \" & \"$\" & boat_level*10 *(7-maintance_level)"
 					}
+				},
+				{
+					"type": "script",
+					"script": "var Level = runtime.globalVars.boat_level;\nvar Text = runtime.objects.BoatLvl.getFirstInstance();\nvar Button = runtime.objects.UpgradeBoat.getFirstInstance();\nif(Level>=10)\n{\n\tText.text = \"Bloat Lvl MAX\";\n\tButton.isVisible= false;\t\n}\nelse\n{\n\tText.text = \"Bloat Lvl: \" + Level;\n\tButton.isVisible= true;\t\n\tButton.isEnabled= true;\n}\n"
+				},
+				{
+					"type": "script",
+					"script": "var Level = runtime.globalVars.rod_level;\nvar Text = runtime.objects.RodLvl.getFirstInstance();\nvar Button = runtime.objects.UpgradeRod.getFirstInstance();\nif(Level>=20)\n{\n\tText.text = \"Fishing Rod Lvl MAX\";\n\tButton.isVisible= false;\t\n}\nelse\n{\n\tText.text = \"Fishing Rod Lvl: \" + Level;\n\tButton.isVisible= true;\t\n\tButton.isEnabled= true;\n}\n"
+				},
+				{
+					"type": "script",
+					"script": "var Level = runtime.globalVars.net_level;\nvar Text = runtime.objects.Nets.getFirstInstance();\nvar Button = runtime.objects.UpgradeNets.getFirstInstance();\nif(Level>=50)\n{\n\tText.text = \"Net Amt MAX\";\n\tButton.isVisible= false;\t\n}\nelse\n{\n\tText.text = \"Net Amt: \" + Level;\n\tButton.isVisible= true;\t\n\tButton.isEnabled= true;\n}\n"
 				}
 			],
 			"sid": 116473635650375
@@ -2992,11 +3005,11 @@
 				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 121739880709949,
+					"sid": 647183707561466,
 					"parameters": {
 						"first-value": "money",
 						"comparison": 5,
-						"second-value": "maintance_level * boat_level  * 5 + 1"
+						"second-value": "boat_level*10 *(7-maintance_level)"
 					}
 				}
 			],
@@ -3004,10 +3017,10 @@
 				{
 					"id": "subtract-from-eventvar",
 					"objectClass": "System",
-					"sid": 569856962862610,
+					"sid": 258199347915791,
 					"parameters": {
 						"variable": "money",
-						"value": "maintance_level * boat_level  * 5 + 1"
+						"value": "boat_level*10 *(7-maintance_level)"
 					}
 				},
 				{
@@ -3025,10 +3038,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 622783645996490,
+					"sid": 731382459216752,
 					"parameters": {
 						"variable": "maintance_level",
-						"value": "0"
+						"value": "7"
 					}
 				},
 				{
@@ -3233,6 +3246,14 @@
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"init\""
+					}
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 457129603838145,
+					"parameters": {
+						"time-scale": "3"
 					}
 				},
 				{
