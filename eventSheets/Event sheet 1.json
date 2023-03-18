@@ -1146,6 +1146,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-position",
+							"objectClass": "GameOverScreen",
+							"sid": 327647845683030,
+							"parameters": {
+								"x": "427",
+								"y": "240"
+							}
+						},
+						{
 							"id": "set-opacity",
 							"objectClass": "GameOverScreen",
 							"sid": 475319988113122,
@@ -1159,6 +1168,15 @@
 							"sid": 999491626044630,
 							"parameters": {
 								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "GAMEOVER",
+							"sid": 446378455970231,
+							"parameters": {
+								"x": "158",
+								"y": "197"
 							}
 						},
 						{
@@ -1248,6 +1266,15 @@
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"location_select\""
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Map",
+					"sid": 272845869796674,
+					"parameters": {
+						"x": "433",
+						"y": "215"
 					}
 				},
 				{
