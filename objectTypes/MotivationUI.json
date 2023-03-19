@@ -1,0 +1,49 @@
+{
+	"name": "MotivationUI",
+	"plugin-id": "Sprite",
+	"sid": 392905963752610,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 120,
+						"height": 35,
+						"originX": 0.7208333333333333,
+						"originY": -0.3142857142857143,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8446166,
+						"collisionPoly": {
+							"points": [
+								0.1625,
+								0,
+								0.8375,
+								0,
+								0.8375,
+								1,
+								0.1625,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 520093531898574,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

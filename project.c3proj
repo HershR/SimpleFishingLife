@@ -137,7 +137,7 @@
 			"Moon",
 			"Day",
 			"PermitCost",
-			"Money",
+			"MoneyT",
 			"Map",
 			"location1",
 			"MarketOpen",
@@ -170,7 +170,17 @@
 			"LakeBackground3",
 			"LargeFish3",
 			"MediumFish3",
-			"SmallFish3"
+			"SmallFish3",
+			"Title",
+			"MotivationUI",
+			"Motivation",
+			"Fish2DemandT",
+			"Fish3DemandT",
+			"CustomerOffer",
+			"ShopPermitPrice",
+			"SummaryT",
+			"FishSummary",
+			"SummaryScreen"
 		],
 		"subfolders": []
 	},
@@ -182,10 +192,10 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout 1",
-			"Layout 2",
-			"Layout 3",
-			"Layout 4"
+			"Tutorial",
+			"Start_Fishing",
+			"Market_Shop",
+			"EndSummary"
 		],
 		"subfolders": []
 	},

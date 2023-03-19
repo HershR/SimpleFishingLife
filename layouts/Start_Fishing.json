@@ -1,5 +1,5 @@
 {
-	"name": "Layout 2",
+	"name": "Start_Fishing",
 	"layers": [
 		{
 			"name": "Game",
@@ -2198,8 +2198,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 768,
-						"y": 414,
+						"x": 769,
+						"y": 434,
 						"width": 72,
 						"height": 24,
 						"originX": 0,
@@ -2517,7 +2517,7 @@
 					}
 				},
 				{
-					"type": "Money",
+					"type": "MoneyT",
 					"properties": {
 						"text": "Money: $xx",
 						"enable-bbcode": true,
@@ -3103,6 +3103,78 @@
 						"height": 14.04582324601449,
 						"originX": 0.44,
 						"originY": 0.6371681415929203,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MotivationUI",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 143,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 92,
+						"y": 113,
+						"width": 142,
+						"height": 35,
+						"originX": 0.7208333333333333,
+						"originY": -0.3142857142857143,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Motivation",
+					"properties": {
+						"text": "Motivation",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 144,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 4,
+						"y": 130,
+						"width": 118,
+						"height": 30,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,

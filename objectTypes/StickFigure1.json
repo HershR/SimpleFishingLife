@@ -3,7 +3,22 @@
 	"plugin-id": "Sprite",
 	"sid": 608478846078025,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "state",
+			"type": "string",
+			"desc": "customer state",
+			"show": true,
+			"sid": 640522638731524
+		},
+		{
+			"name": "customer_timer",
+			"type": "number",
+			"desc": "time till next customer",
+			"show": true,
+			"sid": 278777700757566
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {

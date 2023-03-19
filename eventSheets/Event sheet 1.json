@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "market_open_time",
 			"type": "number",
-			"initialValue": "6",
+			"initialValue": "2",
 			"comment": "when the market opens in hours",
 			"isStatic": false,
 			"isConstant": false,
@@ -343,6 +343,26 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "total_offer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 336695246731865
+		},
+		{
+			"eventType": "variable",
+			"name": "customer_offer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 158472645246637
+		},
+		{
+			"eventType": "variable",
 			"name": "fish_pop1",
 			"type": "number",
 			"initialValue": "100",
@@ -396,7 +416,7 @@
 					"objectClass": "System",
 					"sid": 162139047217325,
 					"parameters": {
-						"layout": "Layout 2"
+						"layout": "Start_Fishing"
 					}
 				},
 				{
@@ -552,6 +572,14 @@
 					"sid": 913137210168247,
 					"parameters": {
 						"text": "\"Energy: \" & int(energy)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Motivation",
+					"sid": 293370183302103,
+					"parameters": {
+						"text": "\"Motivation: \" & int(motivation)"
 					}
 				}
 			],
@@ -725,6 +753,43 @@
 							"sid": 140170778888107
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 397668687864300,
+							"parameters": {
+								"first-value": "game_state",
+								"comparison": 0,
+								"second-value": "\"market\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "StickFigure1",
+							"sid": 474246243392452,
+							"parameters": {
+								"instance-variable": "state",
+								"comparison": 0,
+								"value": "\"idle\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "StickFigure1",
+							"sid": 985865711507025,
+							"parameters": {
+								"instance-variable": "customer_timer",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 183621145965580
 				}
 			]
 		},
@@ -746,30 +811,6 @@
 				{
 					"type": "comment",
 					"text": "set bill prices, market prices, reset all required values. ->start"
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "LakeBackground1",
-					"sid": 367745341240535,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "LakeBackground2",
-					"sid": 259395515943279,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "LakeBackground3",
-					"sid": 920872620269012,
-					"parameters": {
-						"visibility": "invisible"
-					}
 				},
 				{
 					"id": "set-eventvar-value",
@@ -799,6 +840,86 @@
 					}
 				},
 				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 554468135472275,
+					"parameters": {
+						"time-scale": "1.0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 283310324795296,
+					"parameters": {
+						"variable": "fish_amount1",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 128683313203246,
+					"parameters": {
+						"variable": "fish_amount2",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 736053414400499,
+					"parameters": {
+						"variable": "fish_amount3",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 551073716986159,
+					"parameters": {
+						"variable": "fish_pop1",
+						"value": "clamp(fish_pop1 * 1.20,10,100)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 183176431630054,
+					"parameters": {
+						"variable": "fish_pop2",
+						"value": "clamp(fish_pop2 * 1.20,10,100)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 142703229993272,
+					"parameters": {
+						"variable": "fish_pop3",
+						"value": "clamp(fish_pop3 * 1.20,10,100)"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 117158035322509,
+					"parameters": {
+						"variable": "day",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 724202923797767,
+					"parameters": {
+						"variable": "permit_cost",
+						"value": "permit_base_cost * (int(Day/markup_day)+1)"
+					}
+				},
+				{
 					"id": "set-text",
 					"objectClass": "CurrentTIme",
 					"sid": 715639552537911,
@@ -807,17 +928,33 @@
 					}
 				},
 				{
-					"id": "set-text",
-					"objectClass": "Energy",
-					"sid": 189399772056768,
+					"id": "set-visible",
+					"objectClass": "Map",
+					"sid": 410136741134011,
 					"parameters": {
-						"text": "\"Energy: \" & int(energy)"
+						"visibility": "invisible"
 					}
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Map",
-					"sid": 410136741134011,
+					"objectClass": "LakeBackground1",
+					"sid": 707783344224081,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground2",
+					"sid": 721792028837496,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground3",
+					"sid": 422608871083436,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -963,18 +1100,6 @@
 					}
 				},
 				{
-					"id": "play",
-					"objectClass": "BGM",
-					"sid": 338508647317324,
-					"parameters": {
-						"audio-file": "fish-release",
-						"loop": "looping",
-						"volume": "-10",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
 					"type": "comment",
 					"text": "set to start"
 				},
@@ -985,24 +1110,6 @@
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"start\""
-					}
-				},
-				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 611707227324106,
-					"parameters": {
-						"variable": "day",
-						"value": "1"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 988294587912721,
-					"parameters": {
-						"variable": "permit_cost",
-						"value": "permit_base_cost * (int(Day/markup_day)+1)"
 					}
 				},
 				{
@@ -1072,10 +1179,26 @@
 				},
 				{
 					"id": "set-text",
-					"objectClass": "Money",
+					"objectClass": "MoneyT",
 					"sid": 367559961966579,
 					"parameters": {
 						"text": "\"Money: $\" & money"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Energy",
+					"sid": 189399772056768,
+					"parameters": {
+						"text": "\"Energy: \" & int(energy)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Motivation",
+					"sid": 893481123217057,
+					"parameters": {
+						"text": "\"Motivation: \" & int(motivation)"
 					}
 				},
 				{
@@ -1426,7 +1549,7 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "Money",
+							"objectClass": "MoneyT",
 							"sid": 655062092770725,
 							"parameters": {
 								"text": "\"Money: $\" & money"
@@ -1468,6 +1591,18 @@
 					"parameters": {
 						"variable": "game_state",
 						"value": "\"location_select\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 338508647317324,
+					"parameters": {
+						"audio-file": "fish-release",
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				},
 				{
@@ -2496,6 +2631,14 @@
 					}
 				},
 				{
+					"id": "stop",
+					"objectClass": "BGM",
+					"sid": 655087129982010,
+					"parameters": {
+						"tag": "\"fish-release\""
+					}
+				},
+				{
 					"id": "set-visible",
 					"objectClass": "ToMarket",
 					"sid": 126330593577119,
@@ -2523,7 +2666,7 @@
 					"objectClass": "System",
 					"sid": 192480587140446,
 					"parameters": {
-						"layout": "Layout 3"
+						"layout": "Market_Shop"
 					}
 				},
 				{
@@ -2543,30 +2686,6 @@
 					}
 				},
 				{
-					"id": "set-enabled",
-					"objectClass": "Speedx1",
-					"sid": 367892427593213,
-					"parameters": {
-						"mode": "disabled"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Speedx3",
-					"sid": 746763673812279,
-					"parameters": {
-						"mode": "enabled"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Speedx6",
-					"sid": 737466190040135,
-					"parameters": {
-						"mode": "enabled"
-					}
-				},
-				{
 					"type": "comment",
 					"text": "transition to market"
 				},
@@ -2575,21 +2694,47 @@
 					"text": "apply travel time"
 				},
 				{
-					"id": "add-to-eventvar",
+					"type": "script",
+					"script": "var location = runtime.globalVars.player_location;\nif(location==1)\n{\n\truntime.globalVars.CurrentTime += runtime.globalVars.travel_time_l1 * 60;\n}\nelse if(location==2)\n{\n\truntime.globalVars.CurrentTime += runtime.globalVars.travel_time_l2 * 60;\n}\nelse if(location==3)\n{\n\truntime.globalVars.CurrentTime += runtime.globalVars.travel_time_l3 * 60;\n}\nelse\n{\n\truntime.globalVars.CurrentTime += 60;\n}"
+				},
+				{
+					"id": "set-time-scale",
 					"objectClass": "System",
-					"sid": 802334727030800,
+					"sid": 984074029850540,
 					"parameters": {
-						"variable": "CurrentTime",
-						"value": "60"
+						"time-scale": "1.0"
 					}
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 548038304766719,
+					"id": "set-enabled",
+					"objectClass": "Speedx1",
+					"sid": 693788201353478,
 					"parameters": {
-						"variable": "Fish_Demand1",
-						"value": "round(random(1,fish_amount1))"
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx3",
+					"sid": 484437567114130,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Speedx6",
+					"sid": 279592754206022,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "ShopPermitPrice",
+					"sid": 228099295651507,
+					"parameters": {
+						"text": "\"Tomorrow's Permit Price: $\" & permit_base_cost * (int((Day+1)/markup_day)+1)"
 					}
 				}
 			],
@@ -2620,6 +2765,22 @@
 				},
 				{
 					"id": "set-text",
+					"objectClass": "Fish2Price",
+					"sid": 617854633158942,
+					"parameters": {
+						"text": "\"$\"& fish_price2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish3Price",
+					"sid": 554001235830069,
+					"parameters": {
+						"text": "\"$\"& fish_price3"
+					}
+				},
+				{
+					"id": "set-text",
 					"objectClass": "fish1Count",
 					"sid": 173687355233148,
 					"parameters": {
@@ -2628,26 +2789,10 @@
 				},
 				{
 					"id": "set-text",
-					"objectClass": "Fish2Price",
-					"sid": 647563667825793,
-					"parameters": {
-						"text": "\"$\"& fish_price2"
-					}
-				},
-				{
-					"id": "set-text",
 					"objectClass": "fish2Count",
 					"sid": 493438709585883,
 					"parameters": {
 						"text": "fish_amount2"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Fish3Price",
-					"sid": 897994612370169,
-					"parameters": {
-						"text": "\"$\"& fish_price3"
 					}
 				},
 				{
@@ -2673,6 +2818,34 @@
 					"parameters": {
 						"text": "\"Small Fish X \"&Fish_Demand1"
 					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish2DemandT",
+					"sid": 294928613730320,
+					"parameters": {
+						"text": "\"Medium Fish X \"& Fish_Demand2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Fish3DemandT",
+					"sid": 925181588154215,
+					"parameters": {
+						"text": "\"Large Fish X \"&Fish_Demand3"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "CustomerOffer",
+					"sid": 894782943403631,
+					"parameters": {
+						"text": "\"Offer: $\" & customer_offer"
+					}
+				},
+				{
+					"type": "script",
+					"script": "var Fish1 = runtime.globalVars.fish_amount1;\nvar Fish2 = runtime.globalVars.fish_amount2;\nvar Fish3 = runtime.globalVars.fish_amount3;\nif(Fish1==0 && Fish2==0 && Fish3==0)\n{\n\truntime.callFunction(\"InitShop\");\n\truntime.objects.CloseM.getFirstInstance().isVisible=false;\n}"
 				}
 			],
 			"sid": 736350433723843,
@@ -2681,27 +2854,72 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 630534661566314,
+							"id": "compare-instance-variable",
+							"objectClass": "StickFigure1",
+							"sid": 392835175113209,
 							"parameters": {
-								"first-value": "minutes%30",
+								"instance-variable": "state",
 								"comparison": 0,
-								"second-value": "0"
+								"value": "\"idle\""
 							}
 						},
 						{
-							"id": "is-visible",
-							"objectClass": "SellFishY",
-							"sid": 916239069188968,
-							"isInverted": true
+							"id": "compare-instance-variable",
+							"objectClass": "StickFigure1",
+							"sid": 746390463813778,
+							"parameters": {
+								"instance-variable": "customer_timer",
+								"comparison": 3,
+								"value": "0"
+							}
 						}
 					],
 					"actions": [
 						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 232754800084520,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Speedx1",
+							"sid": 805289403499301,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Speedx3",
+							"sid": 164529078536372,
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Speedx6",
+							"sid": 787691808740796,
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "StickFigure1",
+							"sid": 120064107219421,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "\"customer\""
+							}
+						},
+						{
 							"id": "set-visible",
 							"objectClass": "StickFigure1",
-							"sid": 214873115868644,
+							"sid": 286204244649474,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -2709,24 +2927,28 @@
 						{
 							"id": "set-position",
 							"objectClass": "StickFigure1",
-							"sid": 489100748692454,
+							"sid": 745832322039800,
 							"parameters": {
 								"x": "462",
 								"y": "352"
 							}
 						},
 						{
+							"type": "script",
+							"script": "var Fish1 = runtime.globalVars.fish_amount1;\nvar Fish2 = runtime.globalVars.fish_amount2;\nvar Fish3 = runtime.globalVars.fish_amount3;\nruntime.globalVars.Fish_Demand1 = 0;\nruntime.globalVars.Fish_Demand2 = 0;\nruntime.globalVars.Fish_Demand3 = 0;\nif(Fish1>0)\n{\n\truntime.globalVars.Fish_Demand1 = Math.floor(Math.random() * (Fish1*.2 - 1 + 1) + 1);\n}\n\nif(Fish2>0)\n{\n\truntime.globalVars.Fish_Demand1 = Math.floor(Math.random() * (Fish2*.2 - 1 + 1) + 1);\n}\n\nif(Fish3>0)\n{\n\truntime.globalVars.Fish_Demand1 = Math.floor(Math.random() * (Fish3*.2 - 1 + 1) + 1);\n}"
+						},
+						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 946855002016776,
+							"sid": 572505970380612,
 							"parameters": {
-								"seconds": "2"
+								"seconds": ".5"
 							}
 						},
 						{
 							"id": "set-visible",
 							"objectClass": "SellDialogue",
-							"sid": 875635234037635,
+							"sid": 387275280616917,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -2734,7 +2956,7 @@
 						{
 							"id": "set-visible",
 							"objectClass": "SellFishY",
-							"sid": 357211031080520,
+							"sid": 885432638182507,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -2742,7 +2964,7 @@
 						{
 							"id": "set-visible",
 							"objectClass": "SellFishN",
-							"sid": 370841316117639,
+							"sid": 219973643748030,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -2750,27 +2972,119 @@
 						{
 							"id": "set-visible",
 							"objectClass": "Fish1DemandT",
-							"sid": 991502898523844,
+							"sid": 436369372667003,
 							"parameters": {
 								"visibility": "visible"
 							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Fish2DemandT",
+							"sid": 935348278371036,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Fish3DemandT",
+							"sid": 500128336478414,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "CustomerOffer",
+							"sid": 489888377512664,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 646782933296564,
+							"parameters": {
+								"variable": "total_offer",
+								"value": "Fish_Demand1 * fish_price1 + Fish_Demand2 * fish_price2 + Fish_Demand3 * fish_price3"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 262747036471312,
+							"parameters": {
+								"variable": "customer_offer",
+								"value": "ceil(random(total_offer*.5, total_offer))"
+							}
 						}
 					],
-					"sid": 452646755496210
+					"sid": 437874886237285
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 511567878367430,
+							"id": "compare-instance-variable",
+							"objectClass": "StickFigure1",
+							"sid": 115551536069210,
 							"parameters": {
-								"first-value": "fish_amount1",
+								"instance-variable": "state",
 								"comparison": 0,
-								"second-value": "0"
+								"value": "\"idle\""
 							}
 						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "StickFigure1",
+							"sid": 876066498997347,
+							"parameters": {
+								"instance-variable": "customer_timer",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 944002158285740,
+							"parameters": {
+								"time-scale": "6"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Speedx6",
+							"sid": 748376981092186,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Speedx1",
+							"sid": 811007709737399,
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Speedx3",
+							"sid": 835740433534641,
+							"parameters": {
+								"mode": "enabled"
+							}
+						}
+					],
+					"sid": 170435292990664
+				},
+				{
+					"eventType": "block",
+					"conditions": [
 						{
 							"id": "on-clicked",
 							"objectClass": "CloseM",
@@ -2807,77 +3121,9 @@
 			],
 			"actions": [
 				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 443605951074557,
-					"parameters": {
-						"variable": "fish_amount1",
-						"value": "Fish_Demand1"
-					}
-				},
-				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 607791722326517,
-					"parameters": {
-						"variable": "money",
-						"value": "Fish_Demand1 * fish_price1"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 688369650417584,
-					"parameters": {
-						"variable": "Fish_Demand1",
-						"value": "round(random(1,fish_amount1))"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "SFishC",
-					"sid": 430498284293599,
-					"disabled": true,
-					"parameters": {
-						"text": "fish_amount1"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Fish1DemandT",
-					"sid": 219195506901588,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "SellFishY",
-					"sid": 271776172975089,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "SellFishN",
-					"sid": 271260665755527,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "SellDialogue",
-					"sid": 624618206726303,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
 					"id": "play",
 					"objectClass": "BGM",
-					"sid": 225443911857952,
+					"sid": 170762882182700,
 					"parameters": {
 						"audio-file": "Coins4",
 						"loop": "not-looping",
@@ -2887,9 +3133,101 @@
 					}
 				},
 				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 279657481922530,
+					"parameters": {
+						"variable": "fish_amount1",
+						"value": "Fish_Demand1"
+					}
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 176479102416832,
+					"parameters": {
+						"variable": "fish_amount2",
+						"value": "Fish_Demand2"
+					}
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 542212472784046,
+					"parameters": {
+						"variable": "fish_amount3",
+						"value": "Fish_Demand3"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 420180090924340,
+					"parameters": {
+						"variable": "money",
+						"value": "customer_offer"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish1DemandT",
+					"sid": 252532474069943,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish2DemandT",
+					"sid": 320999537924989,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish3DemandT",
+					"sid": 742787788594645,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "CustomerOffer",
+					"sid": 478772144559202,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishY",
+					"sid": 385672873138254,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellFishN",
+					"sid": 892939817075071,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SellDialogue",
+					"sid": 704727535221704,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-visible",
 					"objectClass": "StickFigure1",
-					"sid": 593138882579331,
+					"sid": 309857275021715,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -2897,10 +3235,28 @@
 				{
 					"id": "set-position",
 					"objectClass": "StickFigure1",
-					"sid": 166176318193007,
+					"sid": 445723117817849,
 					"parameters": {
 						"x": "940",
 						"y": "330"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "StickFigure1",
+					"sid": 942174762782341,
+					"parameters": {
+						"instance-variable": "customer_timer",
+						"value": "random(5,40)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "StickFigure1",
+					"sid": 978665932314177,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "\"idle\""
 					}
 				}
 			],
@@ -2917,18 +3273,33 @@
 			],
 			"actions": [
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 485857196372873,
+					"id": "set-visible",
+					"objectClass": "Fish1DemandT",
+					"sid": 834184368207521,
 					"parameters": {
-						"variable": "Fish_Demand1",
-						"value": "round(random(1,fish_amount1))"
+						"visibility": "invisible"
 					}
 				},
 				{
 					"id": "set-visible",
-					"objectClass": "Fish1DemandT",
-					"sid": 198130767965565,
+					"objectClass": "Fish2DemandT",
+					"sid": 855420735946132,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish3DemandT",
+					"sid": 110452400085380,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "CustomerOffer",
+					"sid": 983657703544466,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -2936,7 +3307,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "SellFishY",
-					"sid": 146848803208237,
+					"sid": 243772135919802,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -2944,7 +3315,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "SellFishN",
-					"sid": 963226624198940,
+					"sid": 641450299607603,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -2952,7 +3323,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "SellDialogue",
-					"sid": 426506356669157,
+					"sid": 688655723444246,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -2960,7 +3331,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "StickFigure1",
-					"sid": 756318251414340,
+					"sid": 899969370765736,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -2968,10 +3339,28 @@
 				{
 					"id": "set-position",
 					"objectClass": "StickFigure1",
-					"sid": 375182967990643,
+					"sid": 785497969033333,
 					"parameters": {
 						"x": "940",
 						"y": "330"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "StickFigure1",
+					"sid": 970279363906993,
+					"parameters": {
+						"instance-variable": "customer_timer",
+						"value": "random(5,40)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "StickFigure1",
+					"sid": 801169883083168,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "\"idle\""
 					}
 				}
 			],
@@ -3026,47 +3415,39 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 337601385888170,
+					"sid": 353810868517042,
 					"parameters": {
-						"layout": "Layout 3"
-					}
-				},
-				{
-					"id": "set-time-scale",
-					"objectClass": "System",
-					"sid": 143922856747871,
-					"parameters": {
-						"time-scale": "1.0"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Speedx1",
-					"sid": 622133538794033,
-					"parameters": {
-						"mode": "disabled"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Speedx3",
-					"sid": 124023362455474,
-					"parameters": {
-						"mode": "enabled"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Speedx6",
-					"sid": 168460430822947,
-					"parameters": {
-						"mode": "enabled"
+						"layout": "Market_Shop"
 					}
 				},
 				{
 					"id": "set-visible",
 					"objectClass": "Fish1DemandT",
-					"sid": 693778521862627,
+					"sid": 453384100651822,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish2DemandT",
+					"sid": 433927320351991,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Fish3DemandT",
+					"sid": 378533596757525,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "CustomerOffer",
+					"sid": 184905376350974,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -3074,7 +3455,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "SellFishY",
-					"sid": 160896438485467,
+					"sid": 119275097257371,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -3082,7 +3463,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "SellFishN",
-					"sid": 523613557211402,
+					"sid": 277457527442826,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -3090,7 +3471,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "SellDialogue",
-					"sid": 262234856309321,
+					"sid": 751314169948814,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -3098,7 +3479,7 @@
 				{
 					"id": "set-visible",
 					"objectClass": "StickFigure1",
-					"sid": 483900788605615,
+					"sid": 919509158729337,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -3106,10 +3487,28 @@
 				{
 					"id": "set-position",
 					"objectClass": "StickFigure1",
-					"sid": 621742121844338,
+					"sid": 784283469143631,
 					"parameters": {
 						"x": "940",
 						"y": "330"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "StickFigure1",
+					"sid": 550038129591453,
+					"parameters": {
+						"instance-variable": "customer_timer",
+						"value": "random(5,40)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "StickFigure1",
+					"sid": 383609293352331,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "\"idle\""
 					}
 				},
 				{
@@ -3148,6 +3547,15 @@
 					}
 				},
 				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 163442046738925,
+					"parameters": {
+						"variable": "maintance_level",
+						"value": "clamp(maintance_level-1,0,7)"
+					}
+				},
+				{
 					"id": "set-visible",
 					"objectClass": "MarketBackground",
 					"sid": 497746640955956,
@@ -3164,15 +3572,6 @@
 					}
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 972859260797516,
-					"parameters": {
-						"variable": "maintance_level",
-						"value": "clamp(maintance_level-1,0,7)"
-					}
-				},
-				{
 					"id": "set-visible",
 					"objectClass": "SellFishY",
 					"sid": 915920488092614,
@@ -3184,14 +3583,6 @@
 					"id": "set-visible",
 					"objectClass": "SellFishN",
 					"sid": 548817736944214,
-					"parameters": {
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Text",
-					"sid": 404174881730324,
 					"parameters": {
 						"visibility": "invisible"
 					}
@@ -3294,6 +3685,14 @@
 					}
 				},
 				{
+					"id": "set-text",
+					"objectClass": "ShopPermitPrice",
+					"sid": 319827624538553,
+					"parameters": {
+						"text": "\"Tomorrow's Permit Price: $\" & permit_base_cost * (int((Day+1)/markup_day)+1)"
+					}
+				},
+				{
 					"id": "set-visible",
 					"objectClass": "UpgradeBoat",
 					"sid": 523659995899077,
@@ -3347,22 +3746,6 @@
 					"sid": 383460739704791,
 					"parameters": {
 						"text": "\"$\" & (net_level+1) * net_upgrade"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "EquipmentQuality",
-					"sid": 115871299421759,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "EquipmentQuality",
-					"sid": 579098860771979,
-					"parameters": {
-						"text": "\"Equipment Quality: \" & (7-maintance_level )"
 					}
 				},
 				{
@@ -3600,10 +3983,10 @@
 				{
 					"id": "subtract-from-eventvar",
 					"objectClass": "System",
-					"sid": 829243628837846,
+					"sid": 993496917491210,
 					"parameters": {
 						"variable": "money",
-						"value": "net_level* net_upgrade"
+						"value": "(net_level+1) * net_upgrade"
 					}
 				},
 				{
@@ -3808,30 +4191,21 @@
 					"objectClass": "System",
 					"sid": 297694237577075,
 					"parameters": {
-						"layout": "Layout 4"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 718431532120314,
-					"parameters": {
-						"variable": "game_state",
-						"value": "\"end\""
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "NextDay",
-					"sid": 371204662652324,
-					"parameters": {
-						"visibility": "visible"
+						"layout": "EndSummary"
 					}
 				},
 				{
 					"id": "set-visible",
 					"objectClass": "NightSky",
 					"sid": 923445894065334,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "NextDay",
+					"sid": 968739232859011,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -3859,10 +4233,126 @@
 				},
 				{
 					"type": "script",
-					"script": "var MentalLevel = runtime.globalVars.motivation;\nvar TotalFish = runtime.globalVars.fish_caught;\nvar FishSold = runtime.globalVars.fish_amount1 + runtime.globalVars.fish_amount2 + runtime.globalVars.fish_amount3;\nif(FishSold/TotalFish <.8)\n{\n\tMentalLevel -= 10;\n}\nelse\n{\n\tMentalLevel += 5;\n}\nMath.min(Math.max(MentalLevel, 0), 100);\nruntime.globalVars.motivation = MentalLevel;"
+					"script": "var MentalLevel = runtime.globalVars.motivation;\nvar TotalFish = runtime.globalVars.fish_caught;\nvar FishSold = runtime.globalVars.fish_amount1 + runtime.globalVars.fish_amount2 + runtime.globalVars.fish_amount3;\nif(FishSold/TotalFish <.8 || TotalFish < 50)\n{\n\tMentalLevel -= 10;\n}\nelse\n{\n\tMentalLevel += 5;\n}\nMath.min(Math.max(MentalLevel, 0), 100);\nruntime.globalVars.motivation = MentalLevel;"
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SummaryT",
+					"sid": 105524997994363,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MoneyT",
+					"sid": 953414556902121,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Motivation",
+					"sid": 807291158724358,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Energy",
+					"sid": 413298473003344,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "FishSummary",
+					"sid": 812588255789011,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 428597726596607,
+					"parameters": {
+						"variable": "motivation",
+						"value": "clamp(motivation,0,100)"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SummaryScreen",
+					"sid": 586188294574818,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 724032346194494,
+					"parameters": {
+						"variable": "game_state",
+						"value": "\"end\""
+					}
 				}
 			],
 			"sid": 108654237856123
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 519885928422504,
+					"parameters": {
+						"variable": "game_state",
+						"comparison": 0,
+						"value": "\"end\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Energy",
+					"sid": 457872246321191,
+					"parameters": {
+						"text": "\"Energy: \" & int(energy)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Motivation",
+					"sid": 548721120835125,
+					"parameters": {
+						"text": "\"Motivation: \" & int(motivation)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "MoneyT",
+					"sid": 310002621370439,
+					"parameters": {
+						"text": "\"Money: $\" & money"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "FishSummary",
+					"sid": 155887467141112,
+					"parameters": {
+						"text": "\"Fish Caught: \" & fish_caught  & \"\\n Fish Sold: \" & (fish_caught - fish_amount1 - fish_amount2 - fish_amount3)"
+					}
+				}
+			],
+			"sid": 718640523315207
 		},
 		{
 			"eventType": "block",
@@ -3875,13 +4365,51 @@
 			],
 			"actions": [
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 558362927722696,
-					"disabled": true,
+					"id": "set-visible",
+					"objectClass": "SummaryT",
+					"sid": 899993419054502,
 					"parameters": {
-						"variable": "game_state",
-						"value": "\"init\""
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MoneyT",
+					"sid": 164548697625162,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Motivation",
+					"sid": 346914169695722,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Energy",
+					"sid": 675313031635297,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "FishSummary",
+					"sid": 405349864634833,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SummaryScreen",
+					"sid": 266314314400974,
+					"parameters": {
+						"visibility": "invisible"
 					}
 				},
 				{
@@ -3993,7 +4521,7 @@
 					"objectClass": "System",
 					"sid": 426838771276471,
 					"parameters": {
-						"layout": "Layout 2"
+						"layout": "Start_Fishing"
 					}
 				},
 				{
