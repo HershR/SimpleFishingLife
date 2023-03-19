@@ -1172,9 +1172,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "PermitCost",
-					"sid": 780819973443688,
+					"sid": 230389225013748,
 					"parameters": {
-						"text": "\"Fishing Permit $\" & permit_cost  * ((int(Day/markup_day))+1)"
+						"text": "\"Fishing Permit $\" & permit_cost"
 					}
 				},
 				{
@@ -1541,10 +1541,10 @@
 						{
 							"id": "subtract-from-eventvar",
 							"objectClass": "System",
-							"sid": 878733161793073,
+							"sid": 195920484181638,
 							"parameters": {
 								"variable": "money",
-								"value": "permit_cost  * ((int(Day/markup_day))+1)"
+								"value": "permit_cost"
 							}
 						},
 						{
@@ -2631,11 +2631,20 @@
 					}
 				},
 				{
-					"id": "stop",
+					"id": "stop-all",
 					"objectClass": "BGM",
-					"sid": 655087129982010,
+					"sid": 700830351029627
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 283559556129485,
 					"parameters": {
-						"tag": "\"fish-release\""
+						"audio-file": "Misty-Bog_Looping",
+						"loop": "looping",
+						"volume": "-30",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				},
 				{
@@ -2730,11 +2739,12 @@
 					}
 				},
 				{
-					"id": "set-text",
-					"objectClass": "ShopPermitPrice",
-					"sid": 228099295651507,
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 113264917653692,
 					"parameters": {
-						"text": "\"Tomorrow's Permit Price: $\" & permit_base_cost * (int((Day+1)/markup_day)+1)"
+						"variable": "fish_caught",
+						"value": "fish_amount1 + fish_amount2 + fish_amount3"
 					}
 				}
 			],
@@ -2837,6 +2847,14 @@
 				},
 				{
 					"id": "set-text",
+					"objectClass": "ShopPermitPrice",
+					"sid": 756170521905049,
+					"parameters": {
+						"text": "\"Tomorrow's Permit Price: $\" & permit_base_cost * (int((Day+1)/markup_day)+1)"
+					}
+				},
+				{
+					"id": "set-text",
 					"objectClass": "CustomerOffer",
 					"sid": 894782943403631,
 					"parameters": {
@@ -2935,7 +2953,7 @@
 						},
 						{
 							"type": "script",
-							"script": "var Fish1 = runtime.globalVars.fish_amount1;\nvar Fish2 = runtime.globalVars.fish_amount2;\nvar Fish3 = runtime.globalVars.fish_amount3;\nruntime.globalVars.Fish_Demand1 = 0;\nruntime.globalVars.Fish_Demand2 = 0;\nruntime.globalVars.Fish_Demand3 = 0;\nif(Fish1>0)\n{\n\truntime.globalVars.Fish_Demand1 = Math.floor(Math.random() * (Fish1*.2 - 1 + 1) + 1);\n}\n\nif(Fish2>0)\n{\n\truntime.globalVars.Fish_Demand1 = Math.floor(Math.random() * (Fish2*.2 - 1 + 1) + 1);\n}\n\nif(Fish3>0)\n{\n\truntime.globalVars.Fish_Demand1 = Math.floor(Math.random() * (Fish3*.2 - 1 + 1) + 1);\n}"
+							"script": "var Fish1 = runtime.globalVars.fish_amount1;\nvar Fish2 = runtime.globalVars.fish_amount2;\nvar Fish3 = runtime.globalVars.fish_amount3;\nruntime.globalVars.Fish_Demand1 = 0;\nruntime.globalVars.Fish_Demand2 = 0;\nruntime.globalVars.Fish_Demand3 = 0;\nif(Fish1>0)\n{\n\truntime.globalVars.Fish_Demand1 = Math.floor(Math.random() * (Fish1*.2 - 1 + 1) + 1);\n}\n\nif(Fish2>0)\n{\n\truntime.globalVars.Fish_Demand2 = Math.floor(Math.random() * (Fish2*.2 - 1 + 1) + 1);\n}\n\nif(Fish3>0)\n{\n\truntime.globalVars.Fish_Demand3 = Math.floor(Math.random() * (Fish3*.2 - 1 + 1) + 1);\n}"
 						},
 						{
 							"id": "wait",
@@ -3421,6 +3439,23 @@
 					}
 				},
 				{
+					"id": "stop-all",
+					"objectClass": "BGM",
+					"sid": 543907918638237
+				},
+				{
+					"id": "play",
+					"objectClass": "BGM",
+					"sid": 801878658811044,
+					"parameters": {
+						"audio-file": "Misty-Bog_Looping",
+						"loop": "looping",
+						"volume": "-30",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
 					"id": "set-visible",
 					"objectClass": "Fish1DemandT",
 					"sid": 453384100651822,
@@ -3517,6 +3552,15 @@
 					"sid": 263044818213602,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 113264917653692,
+					"parameters": {
+						"variable": "fish_caught",
+						"value": "fish_amount1 + fish_amount2 + fish_amount3"
 					}
 				},
 				{
@@ -3762,15 +3806,6 @@
 					"sid": 749125342519153,
 					"parameters": {
 						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 600762136707848,
-					"parameters": {
-						"variable": "fish_caught",
-						"value": "fish_amount1 + fish_amount2 + fish_amount3"
 					}
 				}
 			],
@@ -4233,7 +4268,7 @@
 				},
 				{
 					"type": "script",
-					"script": "var MentalLevel = runtime.globalVars.motivation;\nvar TotalFish = runtime.globalVars.fish_caught;\nvar FishSold = runtime.globalVars.fish_amount1 + runtime.globalVars.fish_amount2 + runtime.globalVars.fish_amount3;\nif(FishSold/TotalFish <.8 || TotalFish < 50)\n{\n\tMentalLevel -= 10;\n}\nelse\n{\n\tMentalLevel += 5;\n}\nMath.min(Math.max(MentalLevel, 0), 100);\nruntime.globalVars.motivation = MentalLevel;"
+					"script": "var MentalLevel = runtime.globalVars.motivation;\nvar TotalFish = runtime.globalVars.fish_caught;\nvar FishSold = TotalFish - (runtime.globalVars.fish_amount1 + runtime.globalVars.fish_amount2 + runtime.globalVars.fish_amount3);\nif(FishSold/TotalFish <.7 || TotalFish < 50)\n{\n\tMentalLevel -= 10;\n}\nelse\n{\n\tMentalLevel += 5;\n}\nMath.min(Math.max(MentalLevel, 0), 100);\nruntime.globalVars.motivation = MentalLevel;"
 				},
 				{
 					"id": "set-visible",
@@ -4346,9 +4381,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "FishSummary",
-					"sid": 155887467141112,
+					"sid": 501155350590867,
 					"parameters": {
-						"text": "\"Fish Caught: \" & fish_caught  & \"\\n Fish Sold: \" & (fish_caught - fish_amount1 - fish_amount2 - fish_amount3)"
+						"text": "\"Fish Caught: \" & fish_caught  & newline &\"Fish Sold: \" & (fish_caught - fish_amount1 - fish_amount2 - fish_amount3)"
 					}
 				}
 			],
