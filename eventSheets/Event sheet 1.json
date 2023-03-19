@@ -1090,11 +1090,11 @@
 				{
 					"id": "play",
 					"objectClass": "BGM",
-					"sid": 252827090103478,
+					"sid": 406199614716949,
 					"parameters": {
 						"audio-file": "Misty-Bog_Looping",
 						"loop": "looping",
-						"volume": "-30",
+						"volume": "-10",
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
@@ -4107,7 +4107,7 @@
 				},
 				{
 					"type": "script",
-					"script": "var Level = runtime.globalVars.boat_level;\nvar Text = runtime.objects.BoatLvl.getFirstInstance();\nvar Button = runtime.objects.UpgradeBoat.getFirstInstance();\nif(Level>=10)\n{\n\tText.text = \"Bloat Lvl MAX\";\n\tButton.isVisible= false;\t\n}\nelse\n{\n\tText.text = \"Bloat Lvl: \" + Level;\n\tButton.isVisible= true;\t\n\tButton.isEnabled= true;\n}\n"
+					"script": "var Level = runtime.globalVars.boat_level;\nvar Text = runtime.objects.BoatLvl.getFirstInstance();\nvar Button = runtime.objects.UpgradeBoat.getFirstInstance();\nif(Level>=10)\n{\n\tText.text = \"Boat Lvl MAX\";\n\tButton.isVisible= false;\t\n}\nelse\n{\n\tText.text = \"Boat Lvl: \" + Level;\n\tButton.isVisible= true;\t\n\tButton.isEnabled= true;\n}\n"
 				},
 				{
 					"type": "script",
