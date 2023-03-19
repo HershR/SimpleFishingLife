@@ -43,6 +43,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Fade",
 			"name": "Fade",
 			"author": "Scirra",
@@ -73,7 +80,7 @@
 	"uniqueId": "kt94yzdypni",
 	"objectTypes": {
 		"items": [
-			"TiledBackground",
+			"LakeBackground1",
 			"boat_temp",
 			"CurrentTIme",
 			"GameState",
@@ -158,7 +165,12 @@
 			"LargeFish2",
 			"TutorialScreen",
 			"Tutorial",
-			"ExitTutorial"
+			"ExitTutorial",
+			"LakeBackground2",
+			"LakeBackground3",
+			"LargeFish3",
+			"MediumFish3",
+			"SmallFish3"
 		],
 		"subfolders": []
 	},

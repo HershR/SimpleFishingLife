@@ -1,41 +1,47 @@
 {
-	"name": "StartScreen",
+	"name": "MediumFish3",
 	"plugin-id": "Sprite",
-	"sid": 931094857167255,
+	"sid": 810842156764344,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 936815165022305
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 450,
-						"height": 500,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 225,
+						"height": 113,
+						"originX": 0.44,
+						"originY": 0.6371681415929203,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2838537,
+						"imageSpriteId": 8713687,
 						"collisionPoly": {
 							"points": [
-								0.0915032679738562,
-								0.1639784946236559,
-								0.9084967320261438,
-								0.1639784946236559,
-								0.9084967320261438,
-								0.8360215053763441,
-								0.0915032679738562,
-								0.8360215053763441
+								0,
+								0,
+								0.9955555555555555,
+								0,
+								0.9955555555555555,
+								1,
+								0,
+								1
 							]
 						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 525802938631602,
+				"sid": 140371828020856,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

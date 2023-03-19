@@ -748,6 +748,30 @@
 					"text": "set bill prices, market prices, reset all required values. ->start"
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground1",
+					"sid": 367745341240535,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground2",
+					"sid": 259395515943279,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground3",
+					"sid": 920872620269012,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 135614417891840,
@@ -979,6 +1003,15 @@
 					"parameters": {
 						"variable": "permit_cost",
 						"value": "permit_base_cost * (int(Day/markup_day)+1)"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "StartScreen",
+					"sid": 722167635824123,
+					"parameters": {
+						"x": "428.419419",
+						"y": "206.460655"
 					}
 				},
 				{
@@ -1652,6 +1685,116 @@
 					"parameters": {
 						"visibility": "invisible"
 					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground1",
+					"sid": 332678479333595,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground2",
+					"sid": 649698394668050,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground3",
+					"sid": 872830377263107,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LargeFish3",
+					"sid": 396802358910862,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MediumFish3",
+					"sid": 248018488012187,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SmallFish3",
+					"sid": 903681164604360,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 174227496002922,
+					"parameters": {
+						"object-to-create": "SmallFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "SmallFish3",
+					"sid": 753227596939618,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "SmallFish3",
+					"sid": 610372569868453,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(60,80)"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 594514270545175,
+					"parameters": {
+						"object-to-create": "MediumFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "MediumFish3",
+					"sid": 745828836615984,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "MediumFish3",
+					"sid": 934711229228008,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(50,70)"
+					}
 				}
 			],
 			"sid": 348588883402514
@@ -1740,6 +1883,116 @@
 					"parameters": {
 						"visibility": "invisible"
 					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground1",
+					"sid": 336432855971578,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground2",
+					"sid": 489900606667696,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground3",
+					"sid": 385379306820360,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LargeFish3",
+					"sid": 315097327866424,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MediumFish3",
+					"sid": 391667390297313,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SmallFish3",
+					"sid": 260163763343523,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 953494958570199,
+					"parameters": {
+						"object-to-create": "SmallFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "SmallFish3",
+					"sid": 540534328116997,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "SmallFish3",
+					"sid": 456931697393488,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(60,80)"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 707712906185788,
+					"parameters": {
+						"object-to-create": "MediumFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "MediumFish3",
+					"sid": 725227418167419,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "MediumFish3",
+					"sid": 495455754536857,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(50,70)"
+					}
 				}
 			],
 			"sid": 758112513436704
@@ -1827,6 +2080,116 @@
 					"sid": 944225562983292,
 					"parameters": {
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground1",
+					"sid": 934385031408603,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground2",
+					"sid": 875412909210353,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LakeBackground3",
+					"sid": 846301527749532,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LargeFish3",
+					"sid": 443398533885707,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MediumFish3",
+					"sid": 828895472898452,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SmallFish3",
+					"sid": 997932911761959,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 169820715601136,
+					"parameters": {
+						"object-to-create": "MediumFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "MediumFish3",
+					"sid": 553998197954297,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "MediumFish3",
+					"sid": 864629296039744,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(50,70)"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 411237051479185,
+					"parameters": {
+						"object-to-create": "LargeFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "LargeFish3",
+					"sid": 878975594995532,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "LargeFish3",
+					"sid": 906249335912734,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(40,60)"
 					}
 				}
 			],
@@ -3779,6 +4142,252 @@
 				}
 			],
 			"sid": 168571152004515
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "SmallFish3",
+					"sid": 531237867319452,
+					"isInverted": true
+				},
+				{
+					"id": "compare-x",
+					"objectClass": "SmallFish3",
+					"sid": 202168009865336,
+					"parameters": {
+						"comparison": 4,
+						"x-co-ordinate": "850"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "SmallFish3",
+					"sid": 338872929158853
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "SmallFish3",
+					"sid": 554143349311781
+				}
+			],
+			"sid": 832161591621617
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "SmallFish3",
+					"sid": 914850084454071
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "SmallFish3",
+					"sid": 266730709648191
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 989174332734391,
+					"parameters": {
+						"object-to-create": "SmallFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "SmallFish3",
+					"sid": 317588443841225,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "SmallFish3",
+					"sid": 414865397066971,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(60,80)"
+					}
+				}
+			],
+			"sid": 321623328964103
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "MediumFish3",
+					"sid": 733821819045698,
+					"isInverted": true
+				},
+				{
+					"id": "compare-x",
+					"objectClass": "MediumFish3",
+					"sid": 595393937150796,
+					"parameters": {
+						"comparison": 4,
+						"x-co-ordinate": "850"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "MediumFish3",
+					"sid": 923099481379489
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "MediumFish3",
+					"sid": 730242327460833
+				}
+			],
+			"sid": 422111101678454
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "MediumFish3",
+					"sid": 616393290039041
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "MediumFish3",
+					"sid": 968794293013030
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 719712268782248,
+					"parameters": {
+						"object-to-create": "MediumFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "MediumFish3",
+					"sid": 743765781453367,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "MediumFish3",
+					"sid": 760965476164501,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(50,70)"
+					}
+				}
+			],
+			"sid": 417977150597048
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "LargeFish3",
+					"sid": 386829011205685,
+					"isInverted": true
+				},
+				{
+					"id": "compare-x",
+					"objectClass": "LargeFish3",
+					"sid": 554308564123348,
+					"parameters": {
+						"comparison": 4,
+						"x-co-ordinate": "850"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "LargeFish3",
+					"sid": 760581683941213
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "LargeFish3",
+					"sid": 388410368435461
+				}
+			],
+			"sid": 315258452672681
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "LargeFish3",
+					"sid": 545665790759160
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "LargeFish3",
+					"sid": 877848903145871
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 900466279114221,
+					"parameters": {
+						"object-to-create": "LargeFish3",
+						"layer": "0",
+						"x": "0 - random(30, 100)",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "LargeFish3",
+					"sid": 560704017683203,
+					"parameters": {
+						"where": "behind",
+						"object": "boat_temp"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "LargeFish3",
+					"sid": 434509171205660,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "random(40,60)"
+					}
+				}
+			],
+			"sid": 704251242827622
 		}
 	],
 	"sid": 792945772843594

@@ -7,7 +7,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "TiledBackground",
+					"type": "LakeBackground1",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",
@@ -134,8 +134,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 395.92105129061576,
-						"y": 396.9473675270772,
+						"x": 396,
+						"y": 424,
 						"width": 72,
 						"height": 24,
 						"originX": 0,
