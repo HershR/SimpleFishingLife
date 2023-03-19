@@ -60,7 +60,7 @@
 					"world": {
 						"x": 427.17404173835314,
 						"y": 237.94736752707718,
-						"width": 476,
+						"width": 475.99999999999994,
 						"height": 578.4940191045253,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -77,7 +77,7 @@
 				{
 					"type": "Tutorial",
 					"properties": {
-						"text": "Objective: Maintain your fishing business as long as possible.\n-How to Play-\nEnergy: Your energy will decrease while fishing or at the market. If it reaches 0, the day will instantly end. You recover some energy at the end of each day.\n\nMotivation: Motivation changes based on the number of fish you catch and sell. If you sell a lot of fish, your motivation will rise. If you can not sell a lot of fish, the fish will rot and your motivation will go down. If your motivation reaches 0, you lose.\n\nFishing: Each day you must pay the fee for a fishing permit. If you cannot afford one your business will fail. Each location provides different fish at different rates and takes a different length of time to reach. Hover over each location to check its travel time. (This part is automated, but you can change your location anytime).\n\nMarket: The market opens every day at 6:00 and closes at 20:00. Once you visit the market, you cannot return to fishing for the day, so you must plan carefully. Also, your customers will try to haggle. It is up you you to decide with offers to accept\n\nShop: You can purchase upgrades that help with fishing here. You can also maintain your equipment quality. Every day your equipment quality will deteriorate, and perform worse. As you upgrade your equipment, the maintenance cost will rise as well.",
+						"text": "Objective: Maintain your fishing business as long as possible.\n-How to Play-\nEnergy: Your energy will decrease while fishing or at the market. If it reaches 0, the day will instantly end. You recover some energy at the end of each day.\n\nMotivation: Motivation changes based on the number of fish you catch and sell. If you sell a lot of fish, your motivation will rise. If you can not sell a lot of fish, the fish will rot and your motivation will go down. If your motivation reaches 0, you lose.\n\nFishing: Each day you must pay the fee for a fishing permit. If you cannot afford one your business will fail. Each location provides different fish at different rates and takes a different length of time to reach. Hover over each location to check its travel time. (This part is automated, but you can change your location anytime).\n\nMarket: The market opens every day at 6:00 and closes at 20:00. Once you visit the market, you cannot return to fishing for the day, so you must plan carefully. Also, your customers will try to haggle. It is up you you to decide which offers to accept\n\nShop: You can purchase upgrades that help with fishing here. You can also maintain your equipment quality. Every day your equipment quality will deteriorate, and perform worse. As you upgrade your equipment, the maintenance cost will rise as well.",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 10,
